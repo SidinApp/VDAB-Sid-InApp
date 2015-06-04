@@ -189,7 +189,7 @@
         <!--IncheckVC-->
         <scene sceneID="uMQ-K2-XQc">
             <objects>
-                <viewController title="IncheckVC" id="G01-cP-3zD" sceneMemberID="viewController">
+                <viewController title="IncheckVC" id="G01-cP-3zD" customClass="StudentCheckInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VMM-js-VAK"/>
                         <viewControllerLayoutGuide type="bottom" id="6iU-9i-Ejf"/>
@@ -253,7 +253,7 @@
         <!--RegistrationVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="RegistrationVC" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController title="RegistrationVC" id="BYZ-38-t0r" customClass="StudentFormViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

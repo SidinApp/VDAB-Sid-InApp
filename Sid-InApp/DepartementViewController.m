@@ -22,28 +22,56 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // ophalen alle data voor een departement
+    BOOL succes = [self initializeDataForDepartement];
+    
+    NSMutableString *succesResult;
+    
+    if (succes) {
+        succesResult = [NSMutableString stringWithString:@"GESLAAGD"];
+    } else {
+        succesResult = [NSMutableString stringWithFormat:@"NIET GESLAAGD"];
+    }
+    
+    NSLog(@"Ophalen van de departementale data: %@", succesResult);
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(BOOL)initializeDataForDepartement{
+    
+    __block BOOL teachersSucces = NO;
+    __block BOOL eventsSucces = NO;
+    __block BOOL schoolsSucces = NO;
+    __block BOOL subscriptionsSucces = NO;
+    __block BOOL imagesSucces = NO;
+    
     NSString *teachersRequestPath = @"/rest/teachers";
     
     [[RKObjectManager sharedManager] getObjectsAtPath:teachersRequestPath
                                            parameters:nil
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                                                   // teachers have been saved in core data by now
-                                                  //                                                  [self fetchTitlesFromContext];
+                                                  // [self fetchTitlesFromContext]; ==> custom methode om data terug uit db op de vragen
+                                                  teachersSucces = YES;
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error){
-                                                  RKLogError(@"Een error trad op tijdens het laden: %@", error);
+                                                  RKLogError(@"Er is een error opgetreden tijdens het laden: %@", error);
                                               }];
+
     
     NSString *eventsRequestPath = @"/rest/events";
     
     [[RKObjectManager sharedManager] getObjectsAtPath:eventsRequestPath
                                            parameters:nil
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
-                                                  // teachers have been saved in core data by now
-                                                  //                                                  [self fetchTitlesFromContext];
+                                                  eventsSucces = YES;
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error){
-                                                  RKLogError(@"Een error trad op tijdens het laden: %@", error);
+                                                  RKLogError(@"Er is een error opgetreden tijdens het laden: %@", error);
                                               }];
     
     NSString *schoolsRequestPath = @"/rest/schools";
@@ -51,11 +79,10 @@
     [[RKObjectManager sharedManager] getObjectsAtPath:schoolsRequestPath
                                            parameters:nil
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
-                                                  // teachers have been saved in core data by now
-                                                  //                                                  [self fetchTitlesFromContext];
+                                                  schoolsSucces = YES;
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error){
-                                                  RKLogError(@"Een error trad op tijdens het laden: %@", error);
+                                                  RKLogError(@"Er is een error opgetreden tijdens het laden: %@", error);
                                               }];
     
     NSString *subscriptionsRequestPath = @"/rest/subscriptions";
@@ -63,11 +90,10 @@
     [[RKObjectManager sharedManager] getObjectsAtPath:subscriptionsRequestPath
                                            parameters:nil
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
-                                                  // teachers have been saved in core data by now
-                                                  //                                                  [self fetchTitlesFromContext];
+                                                  subscriptionsSucces = YES;
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error){
-                                                  RKLogError(@"Een error trad op tijdens het laden: %@", error);
+                                                  RKLogError(@"Er is een error opgetreden tijdens het laden: %@", error);
                                               }];
     
     NSString *imagesRequestPath = @"/rest/image";
@@ -75,19 +101,14 @@
     [[RKObjectManager sharedManager] getObjectsAtPath:imagesRequestPath
                                            parameters:nil
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
-                                                  // teachers have been saved in core data by now
-                                                  //                                                  [self fetchTitlesFromContext];
+                                                  imagesSucces = YES;
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error){
-                                                  RKLogError(@"Een error trad op tijdens het laden: %@", error);
+                                                  RKLogError(@"Er is een error opgetreden tijdens het laden: %@", error);
                                               }];
-
-
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    
+    return teachersSucces && eventsSucces && schoolsSucces && subscriptionsSucces && imagesSucces;
 }
 
 /*

@@ -31,6 +31,8 @@
 		6DA1730B1B20772F00595CA0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA1730A1B20772F00595CA0 /* LoginViewController.m */; };
 		6DA1730E1B20836900595CA0 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA1730D1B20836900595CA0 /* Image.m */; };
 		6DA173111B20836A00595CA0 /* ImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173101B20836A00595CA0 /* ImageContainer.m */; };
+		6DA173141B208EFF00595CA0 /* StudentCheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173131B208EFF00595CA0 /* StudentCheckInViewController.m */; };
+		6DA173171B208F0D00595CA0 /* StudentFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173161B208F0D00595CA0 /* StudentFormViewController.m */; };
 		6DFC4ABD1B204D10009EE68E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABC1B204D10009EE68E /* main.m */; };
 		6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABF1B204D10009EE68E /* AppDelegate.m */; };
 		6DFC4AC81B204D10009EE68E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC71B204D10009EE68E /* Images.xcassets */; };
@@ -122,6 +124,10 @@
 		6DA1730D1B20836900595CA0 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		6DA1730F1B20836A00595CA0 /* ImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageContainer.h; sourceTree = "<group>"; };
 		6DA173101B20836A00595CA0 /* ImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageContainer.m; sourceTree = "<group>"; };
+		6DA173121B208EFF00595CA0 /* StudentCheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentCheckInViewController.h; sourceTree = "<group>"; };
+		6DA173131B208EFF00595CA0 /* StudentCheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentCheckInViewController.m; sourceTree = "<group>"; };
+		6DA173151B208F0D00595CA0 /* StudentFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentFormViewController.h; sourceTree = "<group>"; };
+		6DA173161B208F0D00595CA0 /* StudentFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentFormViewController.m; sourceTree = "<group>"; };
 		6DFC4AB71B204D10009EE68E /* Sid-InApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sid-InApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFC4ABB1B204D10009EE68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DFC4ABC1B204D10009EE68E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -289,6 +295,10 @@
 				6DA173071B206A8C00595CA0 /* DepartementViewController.m */,
 				6DA173091B20772F00595CA0 /* LoginViewController.h */,
 				6DA1730A1B20772F00595CA0 /* LoginViewController.m */,
+				6DA173121B208EFF00595CA0 /* StudentCheckInViewController.h */,
+				6DA173131B208EFF00595CA0 /* StudentCheckInViewController.m */,
+				6DA173151B208F0D00595CA0 /* StudentFormViewController.h */,
+				6DA173161B208F0D00595CA0 /* StudentFormViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -456,6 +466,7 @@
 				6DA173111B20836A00595CA0 /* ImageContainer.m in Sources */,
 				6DA172E61B2054EF00595CA0 /* Teacher.m in Sources */,
 				6DA172E91B20551400595CA0 /* EventContainer.m in Sources */,
+				6DA173141B208EFF00595CA0 /* StudentCheckInViewController.m in Sources */,
 				6DA172E31B2054EE00595CA0 /* Interests.m in Sources */,
 				6DA1730B1B20772F00595CA0 /* LoginViewController.m in Sources */,
 				6DA172EC1B20551400595CA0 /* SchoolContainer.m in Sources */,
@@ -467,6 +478,7 @@
 				6DA172FB1B20554200595CA0 /* Subscription.m in Sources */,
 				6DA172DA1B20547200595CA0 /* Sid-In.xcdatamodel in Sources */,
 				6DA172F81B20554200595CA0 /* SubscriptionContainer.m in Sources */,
+				6DA173171B208F0D00595CA0 /* StudentFormViewController.m in Sources */,
 				6DFC4ABD1B204D10009EE68E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

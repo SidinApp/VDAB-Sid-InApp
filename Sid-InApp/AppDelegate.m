@@ -88,7 +88,7 @@
                                                            @"zip" : @"zip",
                                                            @"city" : @"city",
                                                            @"timeStamp" : @"timeStamp",
-                                                           @"isNew" : @"isNew",
+                                                           @"new" : @"isNew",
                                                            }];
     [subscriptionMapping addPropertyMappingsFromArray:@[
                                                         [RKRelationshipMapping relationshipMappingFromKeyPath:@"interests" toKeyPath:@"interests" withMapping:interestsMapping],

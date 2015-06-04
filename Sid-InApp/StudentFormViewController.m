@@ -1,28 +1,18 @@
 //
-//  LoginViewController.m
+//  StudentFormViewController.m
 //  Sid-InApp
 //
 //  Created by  on 04/06/15.
 //  Copyright (c) 2015 Ehb.be. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "StudentFormViewController.h"
 
-#import <RestKit/CoreData.h>
-#import <RestKit/RestKit.h>
-
-#import "Teacher.h"
-#import "Event.h"
-
-@interface LoginViewController ()
-{
-    Teacher *teacher;
-    Event *event;
-}
+@interface StudentFormViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation StudentFormViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
