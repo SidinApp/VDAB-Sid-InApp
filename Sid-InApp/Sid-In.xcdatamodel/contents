@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="acadyear" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -7,6 +7,14 @@
     </entity>
     <entity name="EventContainer" representedClassName="EventContainer" syncable="YES">
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="Image" representedClassName="Image" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="ImageContainer" representedClassName="ImageContainer" syncable="YES">
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" syncable="YES"/>
     </entity>
     <entity name="Interests" representedClassName="Interests" syncable="YES">
         <attribute name="digx" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -50,14 +58,16 @@
         <relationship name="teachers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Teacher" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Teacher" positionX="-2" positionY="-477" width="128" height="90"/>
         <element name="Event" positionX="70" positionY="-180" width="128" height="88"/>
         <element name="EventContainer" positionX="-162" positionY="-180" width="128" height="58"/>
+        <element name="Interests" positionX="88" positionY="-72" width="128" height="88"/>
         <element name="School" positionX="-0" positionY="-324" width="128" height="103"/>
         <element name="SchoolContainer" positionX="-173" positionY="-324" width="128" height="58"/>
         <element name="Subscription" positionX="-369" positionY="-207" width="128" height="253"/>
         <element name="SubscriptionContainer" positionX="-369" positionY="-315" width="128" height="58"/>
-        <element name="Interests" positionX="88" positionY="-72" width="128" height="88"/>
+        <element name="Teacher" positionX="-2" positionY="-477" width="128" height="90"/>
         <element name="TeacherContainer" positionX="-108" positionY="-216" width="128" height="60"/>
+        <element name="Image" positionX="-162" positionY="-324" width="128" height="90"/>
+        <element name="ImageContainer" positionX="-153" positionY="-315" width="128" height="60"/>
     </elements>
 </model>

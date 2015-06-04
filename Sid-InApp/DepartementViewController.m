@@ -8,6 +8,10 @@
 
 #import "DepartementViewController.h"
 
+#import <RestKit/CoreData.h>
+#import <RestKit/RestKit.h>
+
+
 @interface DepartementViewController ()
 
 @end
@@ -17,6 +21,68 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSString *teachersRequestPath = @"/rest/teachers";
+    
+    [[RKObjectManager sharedManager] getObjectsAtPath:teachersRequestPath
+                                           parameters:nil
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                                  // teachers have been saved in core data by now
+                                                  //                                                  [self fetchTitlesFromContext];
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                                  RKLogError(@"Een error trad op tijdens het laden: %@", error);
+                                              }];
+    
+    NSString *eventsRequestPath = @"/rest/events";
+    
+    [[RKObjectManager sharedManager] getObjectsAtPath:eventsRequestPath
+                                           parameters:nil
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                                  // teachers have been saved in core data by now
+                                                  //                                                  [self fetchTitlesFromContext];
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                                  RKLogError(@"Een error trad op tijdens het laden: %@", error);
+                                              }];
+    
+    NSString *schoolsRequestPath = @"/rest/schools";
+    
+    [[RKObjectManager sharedManager] getObjectsAtPath:schoolsRequestPath
+                                           parameters:nil
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                                  // teachers have been saved in core data by now
+                                                  //                                                  [self fetchTitlesFromContext];
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                                  RKLogError(@"Een error trad op tijdens het laden: %@", error);
+                                              }];
+    
+    NSString *subscriptionsRequestPath = @"/rest/subscriptions";
+    
+    [[RKObjectManager sharedManager] getObjectsAtPath:subscriptionsRequestPath
+                                           parameters:nil
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                                  // teachers have been saved in core data by now
+                                                  //                                                  [self fetchTitlesFromContext];
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                                  RKLogError(@"Een error trad op tijdens het laden: %@", error);
+                                              }];
+    
+    NSString *imagesRequestPath = @"/rest/image";
+    
+    [[RKObjectManager sharedManager] getObjectsAtPath:imagesRequestPath
+                                           parameters:nil
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                                  // teachers have been saved in core data by now
+                                                  //                                                  [self fetchTitlesFromContext];
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                                  RKLogError(@"Een error trad op tijdens het laden: %@", error);
+                                              }];
+
+
 }
 
 - (void)didReceiveMemoryWarning {

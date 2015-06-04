@@ -49,6 +49,7 @@
     [teacherContainerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"teachers" toKeyPath:@"teachers" withMapping:teacherMapping]];
     
     RKEntityMapping *eventMapping = [RKEntityMapping mappingForEntityForName:@"Event" inManagedObjectStore:managedObjectStore];
+    eventMapping.identificationAttributes = @[@"id"];
     [eventMapping addAttributeMappingsFromDictionary:@{
                                                       @"id" : @"id",
                                                       @"name" : @"name",
@@ -58,14 +59,15 @@
     [eventContainerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"events" toKeyPath:@"events" withMapping:eventMapping]];
     
     RKEntityMapping *schoolMapping = [RKEntityMapping mappingForEntityForName:@"School" inManagedObjectStore:managedObjectStore];
+    schoolMapping.identificationAttributes = @[@"id"];
     [schoolMapping addAttributeMappingsFromDictionary:@{
                                                       @"id" : @"id",
                                                       @"name" : @"name",
                                                       @"gemeente" : @"gemeente",
-                                                      @"zip" : @"zip",
+                                                      @"postcode" : @"postcode",
                                                       }];
     RKEntityMapping *schoolContainerMapping = [RKEntityMapping mappingForEntityForName:@"SchoolContainer" inManagedObjectStore:managedObjectStore];
-    [schoolContainerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"schools" toKeyPath:@"schools" withMapping:eventMapping]];
+    [schoolContainerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"schools" toKeyPath:@"schools" withMapping:schoolMapping]];
     
     RKEntityMapping *interestsMapping = [RKEntityMapping mappingForEntityForName:@"Interests" inManagedObjectStore:managedObjectStore];
     [interestsMapping addAttributeMappingsFromDictionary:@{
@@ -75,6 +77,7 @@
                                                         }];
     
     RKEntityMapping *subscriptionMapping = [RKEntityMapping mappingForEntityForName:@"Subscription" inManagedObjectStore:managedObjectStore];
+    subscriptionMapping.identificationAttributes = @[@"id"];
     [subscriptionMapping addAttributeMappingsFromDictionary:@{
                                                            @"id" : @"id",
                                                            @"firstName" : @"firstName",
@@ -94,6 +97,18 @@
                                                         [RKRelationshipMapping relationshipMappingFromKeyPath:@"school" toKeyPath:@"school" withMapping:schoolMapping]]];
     RKEntityMapping *subscriptionContainerMapping = [RKEntityMapping mappingForEntityForName:@"SubscriptionContainer" inManagedObjectStore:managedObjectStore];
     [subscriptionContainerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"subscriptions" toKeyPath:@"subscriptions" withMapping:subscriptionMapping]];
+    
+    RKEntityMapping *imageMapping = [RKEntityMapping mappingForEntityForName:@"Image" inManagedObjectStore:managedObjectStore];
+    imageMapping.identificationAttributes = @[@"id"];
+    [imageMapping addAttributeMappingsFromDictionary:@{
+                                                         @"id" : @"id",
+                                                         @"priority" : @"priority",
+                                                         @"image" : @"image",
+                                                         }];
+    RKEntityMapping *imageContainerMapping = [RKEntityMapping mappingForEntityForName:@"ImageContainer" inManagedObjectStore:managedObjectStore];
+    [imageContainerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"images" toKeyPath:@"images" withMapping:imageMapping]];
+    
+    
     
     
     // RESTKit: teachers GET:/api/teachers
@@ -135,6 +150,14 @@
                                                                                                            keyPath:nil
                                                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [objectManager addResponseDescriptor:subscriptionPOSTResponseDescriptor];
+    
+    // RESTKit: images GET:/api/image
+    RKResponseDescriptor *imagesGETResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:imageContainerMapping
+                                                                                                            method:RKRequestMethodGET
+                                                                                                       pathPattern:@"/rest/image"
+                                                                                                           keyPath:nil
+                                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [objectManager addResponseDescriptor:imagesGETResponseDescriptor];
     
     
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;

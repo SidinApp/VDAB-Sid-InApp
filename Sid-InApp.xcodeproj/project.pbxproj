@@ -28,6 +28,9 @@
 		6DA173041B20592100595CA0 /* bg_checkin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173011B20592100595CA0 /* bg_checkin.jpg */; };
 		6DA173051B20592100595CA0 /* logoErasmus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173021B20592100595CA0 /* logoErasmus.png */; };
 		6DA173081B206A8C00595CA0 /* DepartementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173071B206A8C00595CA0 /* DepartementViewController.m */; };
+		6DA1730B1B20772F00595CA0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA1730A1B20772F00595CA0 /* LoginViewController.m */; };
+		6DA1730E1B20836900595CA0 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA1730D1B20836900595CA0 /* Image.m */; };
+		6DA173111B20836A00595CA0 /* ImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173101B20836A00595CA0 /* ImageContainer.m */; };
 		6DFC4ABD1B204D10009EE68E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABC1B204D10009EE68E /* main.m */; };
 		6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABF1B204D10009EE68E /* AppDelegate.m */; };
 		6DFC4AC81B204D10009EE68E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC71B204D10009EE68E /* Images.xcassets */; };
@@ -113,6 +116,12 @@
 		6DA173021B20592100595CA0 /* logoErasmus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoErasmus.png; sourceTree = "<group>"; };
 		6DA173061B206A8C00595CA0 /* DepartementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartementViewController.h; sourceTree = "<group>"; };
 		6DA173071B206A8C00595CA0 /* DepartementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartementViewController.m; sourceTree = "<group>"; };
+		6DA173091B20772F00595CA0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		6DA1730A1B20772F00595CA0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		6DA1730C1B20836900595CA0 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		6DA1730D1B20836900595CA0 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		6DA1730F1B20836A00595CA0 /* ImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageContainer.h; sourceTree = "<group>"; };
+		6DA173101B20836A00595CA0 /* ImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageContainer.m; sourceTree = "<group>"; };
 		6DFC4AB71B204D10009EE68E /* Sid-InApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sid-InApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFC4ABB1B204D10009EE68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DFC4ABC1B204D10009EE68E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -246,6 +255,10 @@
 		6DFC4AE11B204DB2009EE68E /* model */ = {
 			isa = PBXGroup;
 			children = (
+				6DA1730F1B20836A00595CA0 /* ImageContainer.h */,
+				6DA173101B20836A00595CA0 /* ImageContainer.m */,
+				6DA1730C1B20836900595CA0 /* Image.h */,
+				6DA1730D1B20836900595CA0 /* Image.m */,
 				6DA172F91B20554200595CA0 /* Subscription.h */,
 				6DA172FA1B20554200595CA0 /* Subscription.m */,
 				6DA172F61B20554100595CA0 /* SubscriptionContainer.h */,
@@ -274,6 +287,8 @@
 			children = (
 				6DA173061B206A8C00595CA0 /* DepartementViewController.h */,
 				6DA173071B206A8C00595CA0 /* DepartementViewController.m */,
+				6DA173091B20772F00595CA0 /* LoginViewController.h */,
+				6DA1730A1B20772F00595CA0 /* LoginViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -438,13 +453,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DA173081B206A8C00595CA0 /* DepartementViewController.m in Sources */,
+				6DA173111B20836A00595CA0 /* ImageContainer.m in Sources */,
 				6DA172E61B2054EF00595CA0 /* Teacher.m in Sources */,
 				6DA172E91B20551400595CA0 /* EventContainer.m in Sources */,
 				6DA172E31B2054EE00595CA0 /* Interests.m in Sources */,
+				6DA1730B1B20772F00595CA0 /* LoginViewController.m in Sources */,
 				6DA172EC1B20551400595CA0 /* SchoolContainer.m in Sources */,
 				6DA172E01B2054EE00595CA0 /* Event.m in Sources */,
 				6DA172EF1B20551400595CA0 /* TeacherContainer.m in Sources */,
 				6DA172DD1B2054EE00595CA0 /* School.m in Sources */,
+				6DA1730E1B20836900595CA0 /* Image.m in Sources */,
 				6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */,
 				6DA172FB1B20554200595CA0 /* Subscription.m in Sources */,
 				6DA172DA1B20547200595CA0 /* Sid-In.xcdatamodel in Sources */,

@@ -55,7 +55,7 @@
         <!--InlogScreen-->
         <scene sceneID="ts8-PL-Ufe">
             <objects>
-                <viewController title="InlogScreen" id="7Ao-L4-Rgs" sceneMemberID="viewController">
+                <viewController title="InlogScreen" id="7Ao-L4-Rgs" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8zm-tl-ATL"/>
                         <viewControllerLayoutGuide type="bottom" id="SRG-r7-TKf"/>
