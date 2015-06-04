@@ -27,9 +27,9 @@
 		6DA173031B20592100595CA0 /* bg_depcode.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173001B20592100595CA0 /* bg_depcode.jpg */; };
 		6DA173041B20592100595CA0 /* bg_checkin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173011B20592100595CA0 /* bg_checkin.jpg */; };
 		6DA173051B20592100595CA0 /* logoErasmus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173021B20592100595CA0 /* logoErasmus.png */; };
+		6DA173081B206A8C00595CA0 /* DepartementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173071B206A8C00595CA0 /* DepartementViewController.m */; };
 		6DFC4ABD1B204D10009EE68E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABC1B204D10009EE68E /* main.m */; };
 		6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABF1B204D10009EE68E /* AppDelegate.m */; };
-		6DFC4AC31B204D10009EE68E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC21B204D10009EE68E /* ViewController.m */; };
 		6DFC4AC81B204D10009EE68E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC71B204D10009EE68E /* Images.xcassets */; };
 		6DFC4ACB1B204D10009EE68E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC91B204D10009EE68E /* LaunchScreen.xib */; };
 		6DFC4AD71B204D10009EE68E /* Sid_InAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */; };
@@ -111,13 +111,13 @@
 		6DA173001B20592100595CA0 /* bg_depcode.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_depcode.jpg; sourceTree = "<group>"; };
 		6DA173011B20592100595CA0 /* bg_checkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_checkin.jpg; sourceTree = "<group>"; };
 		6DA173021B20592100595CA0 /* logoErasmus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoErasmus.png; sourceTree = "<group>"; };
+		6DA173061B206A8C00595CA0 /* DepartementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartementViewController.h; sourceTree = "<group>"; };
+		6DA173071B206A8C00595CA0 /* DepartementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartementViewController.m; sourceTree = "<group>"; };
 		6DFC4AB71B204D10009EE68E /* Sid-InApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sid-InApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFC4ABB1B204D10009EE68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DFC4ABC1B204D10009EE68E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6DFC4ABE1B204D10009EE68E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6DFC4ABF1B204D10009EE68E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6DFC4AC11B204D10009EE68E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6DFC4AC21B204D10009EE68E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6DFC4AC71B204D10009EE68E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6DFC4ACA1B204D10009EE68E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6DFC4AD01B204D10009EE68E /* Sid-InAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sid-InAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,8 +272,8 @@
 		6DFC4AE21B204DB5009EE68E /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				6DFC4AC11B204D10009EE68E /* ViewController.h */,
-				6DFC4AC21B204D10009EE68E /* ViewController.m */,
+				6DA173061B206A8C00595CA0 /* DepartementViewController.h */,
+				6DA173071B206A8C00595CA0 /* DepartementViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -437,12 +437,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DA173081B206A8C00595CA0 /* DepartementViewController.m in Sources */,
 				6DA172E61B2054EF00595CA0 /* Teacher.m in Sources */,
 				6DA172E91B20551400595CA0 /* EventContainer.m in Sources */,
 				6DA172E31B2054EE00595CA0 /* Interests.m in Sources */,
 				6DA172EC1B20551400595CA0 /* SchoolContainer.m in Sources */,
 				6DA172E01B2054EE00595CA0 /* Event.m in Sources */,
-				6DFC4AC31B204D10009EE68E /* ViewController.m in Sources */,
 				6DA172EF1B20551400595CA0 /* TeacherContainer.m in Sources */,
 				6DA172DD1B2054EE00595CA0 /* School.m in Sources */,
 				6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */,

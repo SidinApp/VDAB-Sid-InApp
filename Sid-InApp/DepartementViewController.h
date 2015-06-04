@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DepartementViewController.h
 //  Sid-InApp
 //
 //  Created by  on 04/06/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface DepartementViewController : UIViewController
 
 @end
-
