@@ -23,10 +23,13 @@
 		6DA172EF1B20551400595CA0 /* TeacherContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172EE1B20551400595CA0 /* TeacherContainer.m */; };
 		6DA172F81B20554200595CA0 /* SubscriptionContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172F71B20554100595CA0 /* SubscriptionContainer.m */; };
 		6DA172FB1B20554200595CA0 /* Subscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172FA1B20554200595CA0 /* Subscription.m */; };
+		6DA172FE1B2058D100595CA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DA172FD1B2058D100595CA0 /* Main.storyboard */; };
+		6DA173031B20592100595CA0 /* bg_depcode.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173001B20592100595CA0 /* bg_depcode.jpg */; };
+		6DA173041B20592100595CA0 /* bg_checkin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173011B20592100595CA0 /* bg_checkin.jpg */; };
+		6DA173051B20592100595CA0 /* logoErasmus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173021B20592100595CA0 /* logoErasmus.png */; };
 		6DFC4ABD1B204D10009EE68E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABC1B204D10009EE68E /* main.m */; };
 		6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABF1B204D10009EE68E /* AppDelegate.m */; };
 		6DFC4AC31B204D10009EE68E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC21B204D10009EE68E /* ViewController.m */; };
-		6DFC4AC61B204D10009EE68E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC41B204D10009EE68E /* Main.storyboard */; };
 		6DFC4AC81B204D10009EE68E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC71B204D10009EE68E /* Images.xcassets */; };
 		6DFC4ACB1B204D10009EE68E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC91B204D10009EE68E /* LaunchScreen.xib */; };
 		6DFC4AD71B204D10009EE68E /* Sid_InAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */; };
@@ -104,6 +107,10 @@
 		6DA172F71B20554100595CA0 /* SubscriptionContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionContainer.m; sourceTree = "<group>"; };
 		6DA172F91B20554200595CA0 /* Subscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subscription.h; sourceTree = "<group>"; };
 		6DA172FA1B20554200595CA0 /* Subscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subscription.m; sourceTree = "<group>"; };
+		6DA172FD1B2058D100595CA0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		6DA173001B20592100595CA0 /* bg_depcode.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_depcode.jpg; sourceTree = "<group>"; };
+		6DA173011B20592100595CA0 /* bg_checkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_checkin.jpg; sourceTree = "<group>"; };
+		6DA173021B20592100595CA0 /* logoErasmus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoErasmus.png; sourceTree = "<group>"; };
 		6DFC4AB71B204D10009EE68E /* Sid-InApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sid-InApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFC4ABB1B204D10009EE68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DFC4ABC1B204D10009EE68E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -111,7 +118,6 @@
 		6DFC4ABF1B204D10009EE68E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6DFC4AC11B204D10009EE68E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6DFC4AC21B204D10009EE68E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		6DFC4AC51B204D10009EE68E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6DFC4AC71B204D10009EE68E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6DFC4ACA1B204D10009EE68E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6DFC4AD01B204D10009EE68E /* Sid-InAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sid-InAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +158,16 @@
 				6DA172CA1B204FEE00595CA0 /* RestKitFrameworkTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6DA172FF1B20590B00595CA0 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				6DA173001B20592100595CA0 /* bg_depcode.jpg */,
+				6DA173011B20592100595CA0 /* bg_checkin.jpg */,
+				6DA173021B20592100595CA0 /* logoErasmus.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		6DFC4AAE1B204D10009EE68E = {
@@ -265,7 +281,7 @@
 		6DFC4AE31B204DCC009EE68E /* view */ = {
 			isa = PBXGroup;
 			children = (
-				6DFC4AC41B204D10009EE68E /* Main.storyboard */,
+				6DA172FD1B2058D100595CA0 /* Main.storyboard */,
 				6DFC4AC91B204D10009EE68E /* LaunchScreen.xib */,
 			);
 			name = view;
@@ -274,6 +290,7 @@
 		6DFC4AE41B204DEF009EE68E /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				6DA172FF1B20590B00595CA0 /* images */,
 				6DFC4AC71B204D10009EE68E /* Images.xcassets */,
 			);
 			name = resource;
@@ -397,9 +414,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DFC4AC61B204D10009EE68E /* Main.storyboard in Resources */,
 				6DFC4ACB1B204D10009EE68E /* LaunchScreen.xib in Resources */,
+				6DA173031B20592100595CA0 /* bg_depcode.jpg in Resources */,
 				6DFC4AC81B204D10009EE68E /* Images.xcassets in Resources */,
+				6DA172FE1B2058D100595CA0 /* Main.storyboard in Resources */,
+				6DA173041B20592100595CA0 /* bg_checkin.jpg in Resources */,
+				6DA173051B20592100595CA0 /* logoErasmus.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,14 +477,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6DFC4AC41B204D10009EE68E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6DFC4AC51B204D10009EE68E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6DFC4AC91B204D10009EE68E /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
