@@ -13,6 +13,16 @@
 		6DA172D51B20512D00595CA0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172D01B20512C00595CA0 /* MobileCoreServices.framework */; };
 		6DA172D61B20512D00595CA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172D11B20512C00595CA0 /* Security.framework */; };
 		6DA172D71B20512D00595CA0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172D21B20512C00595CA0 /* SystemConfiguration.framework */; };
+		6DA172DA1B20547200595CA0 /* Sid-In.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172D91B20547200595CA0 /* Sid-In.xcdatamodel */; };
+		6DA172DD1B2054EE00595CA0 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172DC1B2054EE00595CA0 /* School.m */; };
+		6DA172E01B2054EE00595CA0 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172DF1B2054EE00595CA0 /* Event.m */; };
+		6DA172E31B2054EE00595CA0 /* Interests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172E21B2054EE00595CA0 /* Interests.m */; };
+		6DA172E61B2054EF00595CA0 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172E51B2054EF00595CA0 /* Teacher.m */; };
+		6DA172E91B20551400595CA0 /* EventContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172E81B20551400595CA0 /* EventContainer.m */; };
+		6DA172EC1B20551400595CA0 /* SchoolContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172EB1B20551400595CA0 /* SchoolContainer.m */; };
+		6DA172EF1B20551400595CA0 /* TeacherContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172EE1B20551400595CA0 /* TeacherContainer.m */; };
+		6DA172F81B20554200595CA0 /* SubscriptionContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172F71B20554100595CA0 /* SubscriptionContainer.m */; };
+		6DA172FB1B20554200595CA0 /* Subscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172FA1B20554200595CA0 /* Subscription.m */; };
 		6DFC4ABD1B204D10009EE68E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABC1B204D10009EE68E /* main.m */; };
 		6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABF1B204D10009EE68E /* AppDelegate.m */; };
 		6DFC4AC31B204D10009EE68E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC21B204D10009EE68E /* ViewController.m */; };
@@ -20,7 +30,6 @@
 		6DFC4AC81B204D10009EE68E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC71B204D10009EE68E /* Images.xcassets */; };
 		6DFC4ACB1B204D10009EE68E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC91B204D10009EE68E /* LaunchScreen.xib */; };
 		6DFC4AD71B204D10009EE68E /* Sid_InAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */; };
-		6DFC4AE71B204EAE009EE68E /* Sid-In.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AE51B204EAE009EE68E /* Sid-In.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +85,25 @@
 		6DA172D11B20512C00595CA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6DA172D21B20512C00595CA0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6DA172D81B20525300595CA0 /* Sid-InApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sid-InApp-Prefix.pch"; sourceTree = "<group>"; };
+		6DA172D91B20547200595CA0 /* Sid-In.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sid-In.xcdatamodel"; sourceTree = "<group>"; };
+		6DA172DB1B2054EE00595CA0 /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
+		6DA172DC1B2054EE00595CA0 /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
+		6DA172DE1B2054EE00595CA0 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		6DA172DF1B2054EE00595CA0 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		6DA172E11B2054EE00595CA0 /* Interests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interests.h; sourceTree = "<group>"; };
+		6DA172E21B2054EE00595CA0 /* Interests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interests.m; sourceTree = "<group>"; };
+		6DA172E41B2054EF00595CA0 /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
+		6DA172E51B2054EF00595CA0 /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
+		6DA172E71B20551400595CA0 /* EventContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventContainer.h; sourceTree = "<group>"; };
+		6DA172E81B20551400595CA0 /* EventContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventContainer.m; sourceTree = "<group>"; };
+		6DA172EA1B20551400595CA0 /* SchoolContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolContainer.h; sourceTree = "<group>"; };
+		6DA172EB1B20551400595CA0 /* SchoolContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolContainer.m; sourceTree = "<group>"; };
+		6DA172ED1B20551400595CA0 /* TeacherContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherContainer.h; sourceTree = "<group>"; };
+		6DA172EE1B20551400595CA0 /* TeacherContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherContainer.m; sourceTree = "<group>"; };
+		6DA172F61B20554100595CA0 /* SubscriptionContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionContainer.h; sourceTree = "<group>"; };
+		6DA172F71B20554100595CA0 /* SubscriptionContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionContainer.m; sourceTree = "<group>"; };
+		6DA172F91B20554200595CA0 /* Subscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subscription.h; sourceTree = "<group>"; };
+		6DA172FA1B20554200595CA0 /* Subscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subscription.m; sourceTree = "<group>"; };
 		6DFC4AB71B204D10009EE68E /* Sid-InApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sid-InApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFC4ABB1B204D10009EE68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DFC4ABC1B204D10009EE68E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,7 +117,6 @@
 		6DFC4AD01B204D10009EE68E /* Sid-InAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sid-InAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFC4AD51B204D10009EE68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sid_InAppTests.m; sourceTree = "<group>"; };
-		6DFC4AE61B204EAE009EE68E /* Sid-In.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sid-In.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +230,25 @@
 		6DFC4AE11B204DB2009EE68E /* model */ = {
 			isa = PBXGroup;
 			children = (
-				6DFC4AE51B204EAE009EE68E /* Sid-In.xcdatamodeld */,
+				6DA172F91B20554200595CA0 /* Subscription.h */,
+				6DA172FA1B20554200595CA0 /* Subscription.m */,
+				6DA172F61B20554100595CA0 /* SubscriptionContainer.h */,
+				6DA172F71B20554100595CA0 /* SubscriptionContainer.m */,
+				6DA172ED1B20551400595CA0 /* TeacherContainer.h */,
+				6DA172EE1B20551400595CA0 /* TeacherContainer.m */,
+				6DA172EA1B20551400595CA0 /* SchoolContainer.h */,
+				6DA172EB1B20551400595CA0 /* SchoolContainer.m */,
+				6DA172E71B20551400595CA0 /* EventContainer.h */,
+				6DA172E81B20551400595CA0 /* EventContainer.m */,
+				6DA172E41B2054EF00595CA0 /* Teacher.h */,
+				6DA172E51B2054EF00595CA0 /* Teacher.m */,
+				6DA172E11B2054EE00595CA0 /* Interests.h */,
+				6DA172E21B2054EE00595CA0 /* Interests.m */,
+				6DA172DE1B2054EE00595CA0 /* Event.h */,
+				6DA172DF1B2054EE00595CA0 /* Event.m */,
+				6DA172DB1B2054EE00595CA0 /* School.h */,
+				6DA172DC1B2054EE00595CA0 /* School.m */,
+				6DA172D91B20547200595CA0 /* Sid-In.xcdatamodel */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -372,10 +417,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DA172E61B2054EF00595CA0 /* Teacher.m in Sources */,
+				6DA172E91B20551400595CA0 /* EventContainer.m in Sources */,
+				6DA172E31B2054EE00595CA0 /* Interests.m in Sources */,
+				6DA172EC1B20551400595CA0 /* SchoolContainer.m in Sources */,
+				6DA172E01B2054EE00595CA0 /* Event.m in Sources */,
 				6DFC4AC31B204D10009EE68E /* ViewController.m in Sources */,
+				6DA172EF1B20551400595CA0 /* TeacherContainer.m in Sources */,
+				6DA172DD1B2054EE00595CA0 /* School.m in Sources */,
 				6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */,
+				6DA172FB1B20554200595CA0 /* Subscription.m in Sources */,
+				6DA172DA1B20547200595CA0 /* Sid-In.xcdatamodel in Sources */,
+				6DA172F81B20554200595CA0 /* SubscriptionContainer.m in Sources */,
 				6DFC4ABD1B204D10009EE68E /* main.m in Sources */,
-				6DFC4AE71B204EAE009EE68E /* Sid-In.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,19 +657,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		6DFC4AE51B204EAE009EE68E /* Sid-In.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				6DFC4AE61B204EAE009EE68E /* Sid-In.xcdatamodel */,
-			);
-			currentVersion = 6DFC4AE61B204EAE009EE68E /* Sid-In.xcdatamodel */;
-			path = "Sid-In.xcdatamodeld";
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 6DFC4AAF1B204D10009EE68E /* Project object */;
 }
