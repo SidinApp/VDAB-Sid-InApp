@@ -10,6 +10,24 @@
 
 @interface StudentFormViewController ()
 
+// verplicht
+@property (weak, nonatomic) IBOutlet UITextField *firstNameInput;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameInput;
+@property (weak, nonatomic) IBOutlet UITextField *mailInput;
+
+@property (weak, nonatomic) IBOutlet UISwitch *digxInterestSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *multecInterestSwitch;
+
+// optioneel
+@property (weak, nonatomic) IBOutlet UISwitch *werkstudentInterestSwitch;
+
+@property (weak, nonatomic) IBOutlet UITextField *streetInput;
+@property (weak, nonatomic) IBOutlet UITextField *streetNumberInput;
+@property (weak, nonatomic) IBOutlet UITextField *cityInput;
+@property (weak, nonatomic) IBOutlet UITextField *zipInput;
+
+@property (weak, nonatomic) IBOutlet UITextField *schoolInput;
+
 @end
 
 @implementation StudentFormViewController

@@ -10,6 +10,11 @@
 
 @interface StudentCheckInViewController ()
 
+//@property (nonatomic, strong) Teacher *teacher;
+//@property (nonatomic, strong) Event *event;
+
+@property (weak, nonatomic) IBOutlet UILabel *loginLabel;
+
 @end
 
 @implementation StudentCheckInViewController
@@ -17,12 +22,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.loginLabel.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//-(void)setTeacher:(Teacher *)teacher{
+//    self.teacher = teacher;
+//}
+//
+//-(void)setEvent:(Event *)event{
+//    self.event = event;
+//}
 
 /*
 #pragma mark - Navigation

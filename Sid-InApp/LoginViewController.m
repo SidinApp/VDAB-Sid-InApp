@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "StudentCheckInViewController.h"
 
 #import <RestKit/CoreData.h>
 #import <RestKit/RestKit.h>
@@ -20,13 +21,27 @@
     Event *event;
 }
 
+@property (weak, nonatomic) IBOutlet UIPickerView *teacherPicker;
+@property (weak, nonatomic) IBOutlet UIPickerView *eventPicker;
+
+@property (weak, nonatomic) IBOutlet UILabel *loginLabel;
+
+@property NSArray *teachers;
+@property NSArray *events;
+
 @end
 
 @implementation LoginViewController
 
+// BELANGRIJK: wanneer de pickers niet werden gebruikt: warning geven!!!!
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self fetchTeachersFromContext];
+    [self fetchEventsFromContext];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,14 +49,117 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+#pragma mark - UIPickerView
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    Teacher *teacherResult;
+    Event *eventResult;
+    switch (pickerView.tag) {
+        case 0:
+            teacherResult = _teachers[row];
+            return teacherResult.name;
+            break;
+        case 1:
+            eventResult = _events[row];
+            return eventResult.name;
+            break;
+    }
+    return nil;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    int count = 0;
+    switch (pickerView.tag) {
+        case 0:
+            count = [_teachers count];
+            break;
+        case 1:
+            count = [_events count];
+            break;
+    }
+    return count;
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    switch (pickerView.tag) {
+        case 0:
+            teacher = _teachers[row];
+            break;
+        case 1:
+            event = _events[row];
+            break;
+    }
+    
+    NSString *teacherText = @"-";;
+    NSString *eventText = @"-";
+    
+    if (![teacher isEqual:nil]) {
+        teacherText = teacher.name;
+    }
+    if (![event isEqual:nil]) {
+        eventText = event.name;
+    }
+    self.loginLabel.text = [NSString stringWithFormat:@"%@ @ %@", teacherText, eventText];
+}
+
+#pragma mark - CoreData
+-(void)fetchTeachersFromContext{
+    
+    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Teacher"];
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    fetchRequest.sortDescriptors = @[sortDescriptor];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    _teachers = fetchedObjects;
+}
+
+-(void)fetchEventsFromContext{
+    
+    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    fetchRequest.sortDescriptors = @[sortDescriptor];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    _events = fetchedObjects;
+}
+
+//*
 #pragma mark - Navigation
+//- (IBAction)login:(id)sender {
+//    [self performSegueWithIdentifier:@"modalSegueToCheckIn" sender:teacher];
+//}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"modalSegueToCheckIn"]) {
+        StudentCheckInViewController *viewController = [segue destinationViewController];
+//        [viewController setTeacher:teacher];
+//        [viewController setEvent:event];
+        viewController.teacher = teacher;
+        viewController.event = event;
+//        viewController.teacher = sender;
+    }
 }
-*/
+//*/
 
 @end

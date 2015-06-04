@@ -16,4 +16,7 @@
 @property (nonatomic, strong) Teacher *teacher;
 @property (nonatomic, strong) Event *event;
 
+//-(void)setTeacher:(Teacher *)teacher;
+//-(void)setEvent:(Event *)event;
+
 @end

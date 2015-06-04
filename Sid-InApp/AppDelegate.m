@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SidInUtils.h"
 
 @interface AppDelegate ()
 
@@ -15,26 +16,43 @@
 @implementation AppDelegate
 
 
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    // kleur text STATUS BAR: wit
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
+    // set status bar stijl
+    [self setStatusBarStyle];
+    
     // RESTKit
-    NSURL *baseURL = [NSURL URLWithString:@"http://vdabsidin3.appspot.com"];
+    [self initializeRestKit];
+    
+    // DEBUG
+    [self printDbLocation];
+    
+    return YES;
+}
+
+-(void)printDbLocation{
+    NSLog(@"Locatie van de databank: %@",[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
+}
+
+
+-(void)initializeRestKit{
+    
+    NSURL *baseURL = [NSURL URLWithString:BASE_SERVICE_URL];
     RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:baseURL];
     NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
     objectManager.managedObjectStore = managedObjectStore;
-        [managedObjectStore createPersistentStoreCoordinator];
-    NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"SidInDB.sqlite"];
+    [managedObjectStore createPersistentStoreCoordinator];
+    NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:DATABASE_NAME];
     NSString *seedPath = [[NSBundle mainBundle] pathForResource:@"RKSeedDatabase" ofType:@"sqlite"];
     NSError *error;
     NSPersistentStore *persistentStore = [managedObjectStore addSQLitePersistentStoreAtPath:storePath fromSeedDatabaseAtPath:seedPath withConfiguration:nil options:nil error:&error];
     NSAssert(persistentStore, @"Er is een fout opgetreden bij het toevoegen van de persistent store: %@", error);
     [managedObjectStore createManagedObjectContexts];
-        managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
+    managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
     
     
     // RESTKit: entiteiten mappen op RESTKit
@@ -51,45 +69,45 @@
     RKEntityMapping *eventMapping = [RKEntityMapping mappingForEntityForName:@"Event" inManagedObjectStore:managedObjectStore];
     eventMapping.identificationAttributes = @[@"id"];
     [eventMapping addAttributeMappingsFromDictionary:@{
-                                                      @"id" : @"id",
-                                                      @"name" : @"name",
-                                                      @"acadyear" : @"acadyear",
-                                                      }];
+                                                       @"id" : @"id",
+                                                       @"name" : @"name",
+                                                       @"acadyear" : @"acadyear",
+                                                       }];
     RKEntityMapping *eventContainerMapping = [RKEntityMapping mappingForEntityForName:@"EventContainer" inManagedObjectStore:managedObjectStore];
     [eventContainerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"events" toKeyPath:@"events" withMapping:eventMapping]];
     
     RKEntityMapping *schoolMapping = [RKEntityMapping mappingForEntityForName:@"School" inManagedObjectStore:managedObjectStore];
     schoolMapping.identificationAttributes = @[@"id"];
     [schoolMapping addAttributeMappingsFromDictionary:@{
-                                                      @"id" : @"id",
-                                                      @"name" : @"name",
-                                                      @"gemeente" : @"gemeente",
-                                                      @"postcode" : @"postcode",
-                                                      }];
+                                                        @"id" : @"id",
+                                                        @"name" : @"name",
+                                                        @"gemeente" : @"gemeente",
+                                                        @"postcode" : @"postcode",
+                                                        }];
     RKEntityMapping *schoolContainerMapping = [RKEntityMapping mappingForEntityForName:@"SchoolContainer" inManagedObjectStore:managedObjectStore];
     [schoolContainerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"schools" toKeyPath:@"schools" withMapping:schoolMapping]];
     
     RKEntityMapping *interestsMapping = [RKEntityMapping mappingForEntityForName:@"Interests" inManagedObjectStore:managedObjectStore];
     [interestsMapping addAttributeMappingsFromDictionary:@{
-                                                        @"digx" : @"digx",
-                                                        @"multec" : @"multec",
-                                                        @"werkstudent" : @"werkstudent",
-                                                        }];
+                                                           @"digx" : @"digx",
+                                                           @"multec" : @"multec",
+                                                           @"werkstudent" : @"werkstudent",
+                                                           }];
     
     RKEntityMapping *subscriptionMapping = [RKEntityMapping mappingForEntityForName:@"Subscription" inManagedObjectStore:managedObjectStore];
     subscriptionMapping.identificationAttributes = @[@"id"];
     [subscriptionMapping addAttributeMappingsFromDictionary:@{
-                                                           @"id" : @"id",
-                                                           @"firstName" : @"firstName",
-                                                           @"lastName" : @"lastName",
-                                                           @"email" : @"email",
-                                                           @"street" : @"street",
-                                                           @"streetNumber" : @"streetNumber",
-                                                           @"zip" : @"zip",
-                                                           @"city" : @"city",
-                                                           @"timeStamp" : @"timeStamp",
-                                                           @"new" : @"isNew",
-                                                           }];
+                                                              @"id" : @"id",
+                                                              @"firstName" : @"firstName",
+                                                              @"lastName" : @"lastName",
+                                                              @"email" : @"email",
+                                                              @"street" : @"street",
+                                                              @"streetNumber" : @"streetNumber",
+                                                              @"zip" : @"zip",
+                                                              @"city" : @"city",
+                                                              @"timeStamp" : @"timeStamp",
+                                                              @"new" : @"isNew",
+                                                              }];
     [subscriptionMapping addPropertyMappingsFromArray:@[
                                                         [RKRelationshipMapping relationshipMappingFromKeyPath:@"interests" toKeyPath:@"interests" withMapping:interestsMapping],
                                                         [RKRelationshipMapping relationshipMappingFromKeyPath:@"teacher" toKeyPath:@"teacher" withMapping:teacherMapping],
@@ -101,10 +119,10 @@
     RKEntityMapping *imageMapping = [RKEntityMapping mappingForEntityForName:@"Image" inManagedObjectStore:managedObjectStore];
     imageMapping.identificationAttributes = @[@"id"];
     [imageMapping addAttributeMappingsFromDictionary:@{
-                                                         @"id" : @"id",
-                                                         @"priority" : @"priority",
-                                                         @"image" : @"image",
-                                                         }];
+                                                       @"id" : @"id",
+                                                       @"priority" : @"priority",
+                                                       @"image" : @"image",
+                                                       }];
     RKEntityMapping *imageContainerMapping = [RKEntityMapping mappingForEntityForName:@"ImageContainer" inManagedObjectStore:managedObjectStore];
     [imageContainerMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"images" toKeyPath:@"images" withMapping:imageMapping]];
     
@@ -113,60 +131,59 @@
     
     // RESTKit: teachers GET:/api/teachers
     RKResponseDescriptor *teachersGETResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:teacherContainerMapping
-                                                                                                    method:RKRequestMethodGET
-                                                                                               pathPattern:@"/rest/teachers"
-                                                                                                   keyPath:nil
-                                                                                               statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+                                                                                                       method:RKRequestMethodGET
+                                                                                                  pathPattern:TEACHERS_URL_PATTERN
+                                                                                                      keyPath:nil
+                                                                                                  statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [objectManager addResponseDescriptor:teachersGETResponseDescriptor];
     
     // RESTKit: events GET:/api/events
     RKResponseDescriptor *eventsGETResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:eventContainerMapping
-                                                                                                       method:RKRequestMethodGET
-                                                                                                  pathPattern:@"/rest/events"
-                                                                                                      keyPath:nil
-                                                                                                  statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+                                                                                                     method:RKRequestMethodGET
+                                                                                                pathPattern:EVENTS_URL_PATTERN
+                                                                                                    keyPath:nil
+                                                                                                statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [objectManager addResponseDescriptor:eventsGETResponseDescriptor];
     
     // RESTKit: schools GET:/api/schools
     RKResponseDescriptor *schoolsGETResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:schoolContainerMapping
-                                                                                                     method:RKRequestMethodGET
-                                                                                                pathPattern:@"/rest/schools"
-                                                                                                    keyPath:nil
-                                                                                                statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+                                                                                                      method:RKRequestMethodGET
+                                                                                                 pathPattern:SCHOOLS_URL_PATTERN
+                                                                                                     keyPath:nil
+                                                                                                 statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [objectManager addResponseDescriptor:schoolsGETResponseDescriptor];
     
     // RESTKit: subscriptions GET:/api/subscriptions
     RKResponseDescriptor *subscriptionsGETResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:subscriptionContainerMapping
-                                                                                                      method:RKRequestMethodGET
-                                                                                                 pathPattern:@"/rest/subscriptions"
-                                                                                                     keyPath:nil
+                                                                                                            method:RKRequestMethodGET
+                                                                                                       pathPattern:SUBSCRIPTIONS_URL_PATTERN
+                                                                                                           keyPath:nil
                                                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [objectManager addResponseDescriptor:subscriptionsGETResponseDescriptor];
     
     // RESTKit: subscription POST:/api/subscription
     RKResponseDescriptor *subscriptionPOSTResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:subscriptionMapping
                                                                                                             method:RKRequestMethodPOST
-                                                                                                       pathPattern:@"/rest/subscription"
+                                                                                                       pathPattern:SUBSCRIPTION_URL_PATTERN
                                                                                                            keyPath:nil
                                                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [objectManager addResponseDescriptor:subscriptionPOSTResponseDescriptor];
     
     // RESTKit: images GET:/api/image
     RKResponseDescriptor *imagesGETResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:imageContainerMapping
-                                                                                                            method:RKRequestMethodGET
-                                                                                                       pathPattern:@"/rest/image"
-                                                                                                           keyPath:nil
-                                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+                                                                                                     method:RKRequestMethodGET
+                                                                                                pathPattern:IMAGE_URL_PATTERN
+                                                                                                    keyPath:nil
+                                                                                                statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [objectManager addResponseDescriptor:imagesGETResponseDescriptor];
     
     
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
-    
-    NSLog(@"Locatie van de databank: %@",[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
+}
 
-    
-    return YES;
+-(void)setStatusBarStyle{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
