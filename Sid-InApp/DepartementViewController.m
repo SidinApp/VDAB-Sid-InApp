@@ -11,6 +11,8 @@
 #import <RestKit/CoreData.h>
 #import <RestKit/RestKit.h>
 
+#import "Subscription.h"
+
 
 @interface DepartementViewController ()
 
@@ -33,8 +35,12 @@
         succesResult = [NSMutableString stringWithFormat:@"NIET GESLAAGD"];
     }
     
-    NSLog(@"Ophalen van de departementale data: %@", succesResult);
-}
+//    NSManagedObjectContext *c = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+//    
+//    Subscription *s = [[Subscription alloc] initWithEntity:@"Subscription" insertIntoManagedObjectContext:c];
+//    s.firstName = @"test";
+    
+    NSLog(@"Ophalen van de departementale data: %@", succesResult);}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

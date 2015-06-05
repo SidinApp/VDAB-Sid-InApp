@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="vjF-3y-hFR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="vjF-3y-hFR">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -46,11 +46,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="V6b-pI-cZn"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dw2-MB-ipf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3564" y="-1065"/>
+            <point key="canvasLocation" x="-2584" y="-1065"/>
         </scene>
         <!--InlogScreen-->
         <scene sceneID="ts8-PL-Ufe">
@@ -131,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyo-6y-EtR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2503" y="-1065"/>
+            <point key="canvasLocation" x="-1523" y="-1065"/>
         </scene>
         <!--IncheckVC-->
         <scene sceneID="uMQ-K2-XQc">
@@ -189,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqs-Ic-UFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1214" y="-1072"/>
+            <point key="canvasLocation" x="-234" y="-1072"/>
         </scene>
         <!--Menu-->
         <scene sceneID="GdT-wy-fCP">
@@ -231,13 +232,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.44999999999999962" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_checkin.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="e19-lo-o9V" customClass="BG_CheckIn">
-                                <rect key="frame" x="-3" y="0.0" width="1075" height="802"/>
-                                <color key="backgroundColor" red="1" green="0.77475761700000001" blue="0.64311081749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.7567343232" green="0.96710372109999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
-                                </accessibility>
+                            <imageView userInteractionEnabled="NO" alpha="0.44999999999999962" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_checkin.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="r1Q-pF-WWG" customClass="BG_CheckIn">
+                                <rect key="frame" x="-26" y="-17" width="1075" height="802"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Voornaam" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1x-yZ-bw8">
                                 <rect key="frame" x="16" y="32" width="78" height="21"/>
@@ -385,28 +381,35 @@
                                 <state key="normal" title="Bewaren">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="Opslaan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SKR-x8-2yk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="cityInput" destination="iQB-Oz-3N9" id="zuU-7j-l8P"/>
-                        <outlet property="digxInterestSwitch" destination="A1t-B4-hYP" id="vlh-gF-pjh"/>
-                        <outlet property="firstNameInput" destination="4KD-cO-L2d" id="Yj0-st-w54"/>
-                        <outlet property="lastNameInput" destination="w27-iF-ONc" id="dPx-2N-oCi"/>
-                        <outlet property="mailInput" destination="kDD-61-gdt" id="jFI-dx-wtr"/>
-                        <outlet property="multecInterestSwitch" destination="Wv9-y5-Fgl" id="DE6-5d-4dx"/>
-                        <outlet property="schoolInput" destination="f8M-4u-1AF" id="H13-Wy-fdV"/>
-                        <outlet property="streetInput" destination="kTM-Us-X7I" id="2WU-kK-pSZ"/>
-                        <outlet property="streetNumberInput" destination="Xpp-dS-Nls" id="tQs-Jg-wdm"/>
-                        <outlet property="werkstudentInterestSwitch" destination="hbQ-Bd-MBa" id="vfe-IG-JB8"/>
-                        <outlet property="zipInput" destination="wQc-uD-PB6" id="bKa-uT-1bm"/>
+                        <outlet property="btnSave" destination="48x-Zc-D3S" id="Xcb-I7-xwO"/>
+                        <outlet property="lblDigx" destination="6j1-60-bLN" id="YRw-84-Aaa"/>
+                        <outlet property="lblInterests" destination="oXl-cS-FEr" id="LQE-RS-dUT"/>
+                        <outlet property="lblMultec" destination="pOr-8p-zn9" id="8vf-N1-uSi"/>
+                        <outlet property="swDig" destination="A1t-B4-hYP" id="IOl-a4-0xD"/>
+                        <outlet property="swMultec" destination="Wv9-y5-Fgl" id="wqm-Ho-uCc"/>
+                        <outlet property="swWorkStudent" destination="hbQ-Bd-MBa" id="f2t-kc-Gji"/>
+                        <outlet property="tfCity" destination="iQB-Oz-3N9" id="Giv-vu-ZMr"/>
+                        <outlet property="tfEmail" destination="kDD-61-gdt" id="gQi-hn-oFg"/>
+                        <outlet property="tfFirstName" destination="4KD-cO-L2d" id="GAE-WS-uRa"/>
+                        <outlet property="tfLastName" destination="w27-iF-ONc" id="mHn-8l-gdd"/>
+                        <outlet property="tfSchool" destination="f8M-4u-1AF" id="rqw-84-hs7"/>
+                        <outlet property="tfStreet" destination="kTM-Us-X7I" id="zya-3Q-0aD"/>
+                        <outlet property="tfStreetNumber" destination="Xpp-dS-Nls" id="5hf-HH-OSf"/>
+                        <outlet property="tfZip" destination="wQc-uD-PB6" id="OHi-eW-4uq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-76" y="-1065"/>
+            <point key="canvasLocation" x="904" y="-1065"/>
         </scene>
     </scenes>
     <resources>

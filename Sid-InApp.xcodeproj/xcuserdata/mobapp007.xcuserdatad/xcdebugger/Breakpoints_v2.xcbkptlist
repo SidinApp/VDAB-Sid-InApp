@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sid-InApp/DepartementViewController.m"
-            timestampString = "455118432.544783"
+            timestampString = "455188970.202289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "-initializeDataForDepartement"
             landmarkType = "5">
          </BreakpointContent>

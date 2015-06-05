@@ -334,8 +334,8 @@
 		6DFC4AE31B204DCC009EE68E /* view */ = {
 			isa = PBXGroup;
 			children = (
-				4C5D9F581B20CD4100443C81 /* MainLayout.storyboard */,
 				6DA172FD1B2058D100595CA0 /* Main.storyboard */,
+				4C5D9F581B20CD4100443C81 /* MainLayout.storyboard */,
 				6DFC4AC91B204D10009EE68E /* LaunchScreen.xib */,
 			);
 			name = view;

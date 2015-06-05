@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Teacher.h"
+#import "Event.h"
 
 @interface StudentFormViewController : UIViewController
+
+@property (nonatomic, strong) Teacher *teacher;
+@property (nonatomic, strong) Event *event;
 
 @end
