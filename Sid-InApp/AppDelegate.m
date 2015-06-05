@@ -10,7 +10,10 @@
 #import "SidInUtils.h"
 
 @interface AppDelegate ()
-
+{
+    NSURL *storeURL;
+    NSPersistentStore *persStoreCoord;
+}
 @end
 
 @implementation AppDelegate
@@ -50,6 +53,7 @@
     NSString *seedPath = [[NSBundle mainBundle] pathForResource:@"RKSeedDatabase" ofType:@"sqlite"];
     NSError *error;
     NSPersistentStore *persistentStore = [managedObjectStore addSQLitePersistentStoreAtPath:storePath fromSeedDatabaseAtPath:seedPath withConfiguration:nil options:nil error:&error];
+    storeURL = persistentStore.URL;
     NSAssert(persistentStore, @"Er is een fout opgetreden bij het toevoegen van de persistent store: %@", error);
     [managedObjectStore createManagedObjectContexts];
     managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
@@ -184,6 +188,18 @@
 
 -(void)setStatusBarStyle{
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+-(void)deleteAndRecreateStore{
+    NSError *error;
+    NSManagedObjectContext *managedObjectContext = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+    
+    NSPersistentStoreCoordinator *storeCoord = managedObjectContext.persistentStoreCoordinator;
+    
+    [storeCoord removePersistentStore:storeCoord.persistentStores[0] error:&error];
+    [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:&error];
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

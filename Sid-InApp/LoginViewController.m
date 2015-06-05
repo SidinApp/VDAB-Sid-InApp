@@ -15,6 +15,7 @@
 #import "Teacher.h"
 #import "Event.h"
 
+#import "AppDelegate.h"
 @interface LoginViewController ()
 {
     Teacher *teacher;
@@ -47,6 +48,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)amLogout:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate deleteAndRecreateStore];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 #pragma mark - UIPickerView

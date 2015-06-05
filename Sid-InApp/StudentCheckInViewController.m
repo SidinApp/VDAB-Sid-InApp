@@ -15,6 +15,7 @@
 //@property (nonatomic, strong) Event *event;
 
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;
+@property (weak, nonatomic) IBOutlet UIButton *btnLogout;
 
 @end
 
@@ -40,6 +41,12 @@
 //-(void)setEvent:(Event *)event{
 //    self.event = event;
 //}
+
+- (IBAction)dLogout:(id)sender {
+    
+            [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 
  #pragma mark - Navigation
