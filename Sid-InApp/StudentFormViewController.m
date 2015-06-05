@@ -211,8 +211,9 @@
     }
     
     
-    //
-    if(!([sub.firstName  isEqualToString:@""]) && !([sub.lastName  isEqualToString:@""]) && !([sub.email  isEqualToString:@""]) && !(sub.interests.digx == 0 && sub.interests.multec == 0)){
+    if(!(sub.firstName.length == 0) && !(sub.lastName.length == 0) && !(sub.email.length == 0) && !(sub.interests.digx == 0 && sub.interests.multec == 0)){
+        
+
         
         NSError *error;
         [managedObjectContext saveToPersistentStore:&error];
