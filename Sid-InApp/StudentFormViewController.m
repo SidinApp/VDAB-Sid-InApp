@@ -82,24 +82,22 @@
 - (IBAction)Opslaan:(id)sender {
     
     NSManagedObjectContext *managedObjectContext = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-    NSManagedObjectContext *managedObjectContextInterests = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+    //NSManagedObjectContext *managedObjectContextInterests = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Subscription" inManagedObjectContext: managedObjectContext];
     
     sub = [[Subscription alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:managedObjectContext];
     
-    entityDescription = [NSEntityDescription entityForName:@"Interests" inManagedObjectContext: managedObjectContextInterests];
+   /* entityDescription = [NSEntityDescription entityForName:@"Interests" inManagedObjectContext: managedObjectContextInterests];
     
-    interests = [[Interests alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:managedObjectContextInterests];
+    interests = [[Interests alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:managedObjectContextInterests];*/
+    
+    entityDescription = [NSEntityDescription entityForName:@"Interests" inManagedObjectContext: managedObjectContext];
+    interests = [[Interests alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:managedObjectContext];
     
     //-------------------Voornaam-------------------------------------------------
     
     if ([tfFirstName.text isEqualToString:@""]) {
-        tfFirstName.layer.borderColor =[[UIColor redColor]CGColor];
-        tfFirstName.layer.borderWidth = 1.0f;
-    } else if(tfFirstName.text.length < 2) {
-        tfFirstName.text = @"";
-        tfFirstName.placeholder = @"Je naam moet minstens 2 tekens lang zijn.";
         tfFirstName.layer.borderColor =[[UIColor redColor]CGColor];
         tfFirstName.layer.borderWidth = 1.0f;
     } else {
@@ -110,11 +108,6 @@
     //--------------------Achternaam-----------------------------------------------
     
     if ([tfLastName.text isEqualToString:@""]) {
-        tfLastName.layer.borderColor =[[UIColor redColor]CGColor];
-        tfLastName.layer.borderWidth = 1.0f;
-    } else if(tfLastName.text.length < 2){
-        tfLastName.text = @"";
-        tfLastName.placeholder = @"Je achternaam moet minstens 2 tekens lang zijn.";
         tfLastName.layer.borderColor =[[UIColor redColor]CGColor];
         tfLastName.layer.borderWidth = 1.0f;
     } else {
