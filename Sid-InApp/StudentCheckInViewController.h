@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) Teacher *teacher;
 @property (nonatomic, strong) Event *event;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
 //-(void)setTeacher:(Teacher *)teacher;
 //-(void)setEvent:(Event *)event;

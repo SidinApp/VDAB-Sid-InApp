@@ -32,7 +32,6 @@
 		6DA173051B20592100595CA0 /* logoErasmus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173021B20592100595CA0 /* logoErasmus.png */; };
 		6DA173081B206A8C00595CA0 /* DepartementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173071B206A8C00595CA0 /* DepartementViewController.m */; };
 		6DA1730B1B20772F00595CA0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA1730A1B20772F00595CA0 /* LoginViewController.m */; };
-		6DA1730E1B20836900595CA0 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA1730D1B20836900595CA0 /* Image.m */; };
 		6DA173111B20836A00595CA0 /* ImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173101B20836A00595CA0 /* ImageContainer.m */; };
 		6DA173141B208EFF00595CA0 /* StudentCheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173131B208EFF00595CA0 /* StudentCheckInViewController.m */; };
 		6DA173171B208F0D00595CA0 /* StudentFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173161B208F0D00595CA0 /* StudentFormViewController.m */; };
@@ -41,6 +40,9 @@
 		6DFC4AC81B204D10009EE68E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC71B204D10009EE68E /* Images.xcassets */; };
 		6DFC4ACB1B204D10009EE68E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC91B204D10009EE68E /* LaunchScreen.xib */; };
 		6DFC4AD71B204D10009EE68E /* Sid_InAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */; };
+		6F7A15801B26E8E700ED455A /* GTMBAse64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A157E1B26E8E700ED455A /* GTMBAse64.m */; };
+		6F7A15831B26EADB00ED455A /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A15821B26EADB00ED455A /* Image.m */; };
+		6F7A158E1B27097800ED455A /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A158D1B27097800ED455A /* CarouselViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,8 +130,6 @@
 		6DA173071B206A8C00595CA0 /* DepartementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartementViewController.m; sourceTree = "<group>"; };
 		6DA173091B20772F00595CA0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6DA1730A1B20772F00595CA0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		6DA1730C1B20836900595CA0 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
-		6DA1730D1B20836900595CA0 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		6DA1730F1B20836A00595CA0 /* ImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageContainer.h; sourceTree = "<group>"; };
 		6DA173101B20836A00595CA0 /* ImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageContainer.m; sourceTree = "<group>"; };
 		6DA173121B208EFF00595CA0 /* StudentCheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentCheckInViewController.h; sourceTree = "<group>"; };
@@ -146,6 +146,13 @@
 		6DFC4AD01B204D10009EE68E /* Sid-InAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sid-InAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFC4AD51B204D10009EE68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sid_InAppTests.m; sourceTree = "<group>"; };
+		6F7A157D1B26E8E700ED455A /* GTMBAse64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBAse64.h; sourceTree = "<group>"; };
+		6F7A157E1B26E8E700ED455A /* GTMBAse64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBAse64.m; sourceTree = "<group>"; };
+		6F7A157F1B26E8E700ED455A /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		6F7A15811B26EADB00ED455A /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		6F7A15821B26EADB00ED455A /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		6F7A158C1B27097800ED455A /* CarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselViewController.h; sourceTree = "<group>"; };
+		6F7A158D1B27097800ED455A /* CarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +184,9 @@
 			children = (
 				4C5D9F511B20C79300443C81 /* SidInUtils.h */,
 				4C5D9F521B20C79300443C81 /* SidInUtils.m */,
+				6F7A157D1B26E8E700ED455A /* GTMBAse64.h */,
+				6F7A157E1B26E8E700ED455A /* GTMBAse64.m */,
+				6F7A157F1B26E8E700ED455A /* GTMDefines.h */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -291,8 +301,6 @@
 			children = (
 				6DA1730F1B20836A00595CA0 /* ImageContainer.h */,
 				6DA173101B20836A00595CA0 /* ImageContainer.m */,
-				6DA1730C1B20836900595CA0 /* Image.h */,
-				6DA1730D1B20836900595CA0 /* Image.m */,
 				6DA172F91B20554200595CA0 /* Subscription.h */,
 				6DA172FA1B20554200595CA0 /* Subscription.m */,
 				6DA172F61B20554100595CA0 /* SubscriptionContainer.h */,
@@ -312,6 +320,8 @@
 				6DA172DB1B2054EE00595CA0 /* School.h */,
 				6DA172DC1B2054EE00595CA0 /* School.m */,
 				6DA172D91B20547200595CA0 /* Sid-In.xcdatamodel */,
+				6F7A15811B26EADB00ED455A /* Image.h */,
+				6F7A15821B26EADB00ED455A /* Image.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -327,6 +337,8 @@
 				6DA173131B208EFF00595CA0 /* StudentCheckInViewController.m */,
 				6DA173151B208F0D00595CA0 /* StudentFormViewController.h */,
 				6DA173161B208F0D00595CA0 /* StudentFormViewController.m */,
+				6F7A158C1B27097800ED455A /* CarouselViewController.h */,
+				6F7A158D1B27097800ED455A /* CarouselViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -494,9 +506,12 @@
 			files = (
 				6DA173081B206A8C00595CA0 /* DepartementViewController.m in Sources */,
 				6DA173111B20836A00595CA0 /* ImageContainer.m in Sources */,
+				6F7A15801B26E8E700ED455A /* GTMBAse64.m in Sources */,
 				6DA172E61B2054EF00595CA0 /* Teacher.m in Sources */,
 				6DA172E91B20551400595CA0 /* EventContainer.m in Sources */,
 				6DA173141B208EFF00595CA0 /* StudentCheckInViewController.m in Sources */,
+				6F7A158E1B27097800ED455A /* CarouselViewController.m in Sources */,
+				6F7A15831B26EADB00ED455A /* Image.m in Sources */,
 				6DA172E31B2054EE00595CA0 /* Interests.m in Sources */,
 				6DA1730B1B20772F00595CA0 /* LoginViewController.m in Sources */,
 				6DA172EC1B20551400595CA0 /* SchoolContainer.m in Sources */,
@@ -504,7 +519,6 @@
 				6DA172EF1B20551400595CA0 /* TeacherContainer.m in Sources */,
 				6DA172DD1B2054EE00595CA0 /* School.m in Sources */,
 				4C5D9F531B20C79300443C81 /* SidInUtils.m in Sources */,
-				6DA1730E1B20836900595CA0 /* Image.m in Sources */,
 				6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */,
 				4C5D9F5D1B20FB3100443C81 /* ViewController.m in Sources */,
 				6DA172FB1B20554200595CA0 /* Subscription.m in Sources */,

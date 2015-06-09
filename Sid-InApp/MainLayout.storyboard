@@ -142,7 +142,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyo-6y-EtR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1523" y="-1065"/>
+            <point key="canvasLocation" x="-1423" y="-1072"/>
+        </scene>
+        <!--Carousel View Controller-->
+        <scene sceneID="GEn-MO-vsT">
+            <objects>
+                <viewController id="Hy1-sf-kPY" customClass="CarouselViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wJf-fM-FzZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="4EK-uq-w4l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p8n-NL-Cxd">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7xX-ht-lki">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="scrollView" destination="7xX-ht-lki" id="iZh-4i-p6B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UX3-Mr-arI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234" y="-94"/>
         </scene>
         <!--IncheckVC-->
         <scene sceneID="uMQ-K2-XQc">
@@ -196,6 +223,15 @@
                                     <action selector="dLogout:" destination="G01-cP-3zD" eventType="touchUpInside" id="W0k-Od-7KX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRg-So-WlS">
+                                <rect key="frame" x="476" y="722" width="50" height="30"/>
+                                <state key="normal" title="Images">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Hy1-sf-kPY" kind="modal" identifier="modalSegueToCarousel" id="4en-jB-TDQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -239,7 +275,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpy-oT-B5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="-2017"/>
+            <point key="canvasLocation" x="68" y="-2017.0000000000002"/>
         </scene>
         <!--RegistrationVC-->
         <scene sceneID="tne-QT-ifu">
