@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Teacher.h"
 #import "Event.h"
+#import "School.h"
 
 @interface StudentFormViewController : UIViewController
 
 @property (nonatomic, strong) Teacher *teacher;
 @property (nonatomic, strong) Event *event;
+@property (weak, nonatomic) IBOutlet UITextField *tfSchool;
+@property (nonatomic, strong) School *school;
 
 @end

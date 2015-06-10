@@ -40,6 +40,7 @@
 		6DFC4AC81B204D10009EE68E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC71B204D10009EE68E /* Images.xcassets */; };
 		6DFC4ACB1B204D10009EE68E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC91B204D10009EE68E /* LaunchScreen.xib */; };
 		6DFC4AD71B204D10009EE68E /* Sid_InAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */; };
+		6F1E452D1B28388100458A39 /* SchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E452C1B28388100458A39 /* SchoolTableViewController.m */; };
 		6F7A15801B26E8E700ED455A /* GTMBAse64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A157E1B26E8E700ED455A /* GTMBAse64.m */; };
 		6F7A15831B26EADB00ED455A /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A15821B26EADB00ED455A /* Image.m */; };
 		6F7A158E1B27097800ED455A /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A158D1B27097800ED455A /* CarouselViewController.m */; };
@@ -146,6 +147,8 @@
 		6DFC4AD01B204D10009EE68E /* Sid-InAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sid-InAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFC4AD51B204D10009EE68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sid_InAppTests.m; sourceTree = "<group>"; };
+		6F1E452B1B28388100458A39 /* SchoolTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolTableViewController.h; sourceTree = "<group>"; };
+		6F1E452C1B28388100458A39 /* SchoolTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolTableViewController.m; sourceTree = "<group>"; };
 		6F7A157D1B26E8E700ED455A /* GTMBAse64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBAse64.h; sourceTree = "<group>"; };
 		6F7A157E1B26E8E700ED455A /* GTMBAse64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBAse64.m; sourceTree = "<group>"; };
 		6F7A157F1B26E8E700ED455A /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 				6DA173161B208F0D00595CA0 /* StudentFormViewController.m */,
 				6F7A158C1B27097800ED455A /* CarouselViewController.h */,
 				6F7A158D1B27097800ED455A /* CarouselViewController.m */,
+				6F1E452B1B28388100458A39 /* SchoolTableViewController.h */,
+				6F1E452C1B28388100458A39 /* SchoolTableViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 				TargetAttributes = {
 					6DFC4AB61B204D10009EE68E = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = YH5Q937JE3;
 					};
 					6DFC4ACF1B204D10009EE68E = {
 						CreatedOnToolsVersion = 6.3;
@@ -511,6 +517,7 @@
 				6DA172E91B20551400595CA0 /* EventContainer.m in Sources */,
 				6DA173141B208EFF00595CA0 /* StudentCheckInViewController.m in Sources */,
 				6F7A158E1B27097800ED455A /* CarouselViewController.m in Sources */,
+				6F1E452D1B28388100458A39 /* SchoolTableViewController.m in Sources */,
 				6F7A15831B26EADB00ED455A /* Image.m in Sources */,
 				6DA172E31B2054EE00595CA0 /* Interests.m in Sources */,
 				6DA1730B1B20772F00595CA0 /* LoginViewController.m in Sources */,
@@ -650,6 +657,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "Sid-InApp/Sid-InApp-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -660,6 +669,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -667,6 +677,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "Sid-InApp/Sid-InApp-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -677,6 +689,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

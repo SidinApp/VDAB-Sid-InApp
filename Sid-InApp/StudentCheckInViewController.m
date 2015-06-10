@@ -38,29 +38,6 @@
     
     self.loginLabel.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
     
-    
- /*
-        
-  
-    [self fetchImagesFromContext];
-    
-    Image *image = _images[0];
-    NSString *imgString = image.image;
-    
-    NSLog(@"EL DATA: %@", imgString);
-    
-    NSData *imageData = [GTMBase64 decodeString:imgString];
-
-    UIImage *sImage = [UIImage imageWithData:imageData];
-    
-    NSLog(@"%@", sImage);
-    
-    [imgView setImage:sImage];
-  
-  
-  */
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,7 +65,6 @@
     
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"image" ascending:YES];
     fetchRequest.sortDescriptors = @[sortDescriptor];
-    
     
     
     NSError *error;

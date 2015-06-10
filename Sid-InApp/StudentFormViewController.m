@@ -9,12 +9,14 @@
 #import "StudentFormViewController.h"
 #import "Subscription.h"
 #import "Interests.h"
+#import "School.h"
 #import <RestKit/CoreData.h>
 
 @interface StudentFormViewController ()
 {
     Subscription *sub;
     Interests *interests;
+    NSArray *subscriptions;
     
 }
 
@@ -44,7 +46,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfCity;
 @property (weak, nonatomic) IBOutlet UITextField *tfStreetNumber;
 @property (weak, nonatomic) IBOutlet UITextField *tfZip;
-@property (weak, nonatomic) IBOutlet UITextField *tfSchool;
 
 //switches
 @property (weak, nonatomic) IBOutlet UISwitch *swDig;
@@ -71,13 +72,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self fetchSubscriptionFromContext];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)tfEmailChanged:(id)sender {
+    
+    int counter = subscriptions.count;
+    
+    for(int i = 0; i < counter; i++){
+        
+        Subscription *tempSub = subscriptions[i];
+        NSString *tempMail = tempSub.email;
+        
+        if ([tfEmail.text isEqualToString: tempMail]) {
+            tfFirstName.text = tempSub.firstName;
+            tfLastName.text = tempSub.lastName;
+            
+            if([tempSub.interests.digx isEqual:[NSNumber numberWithInt:1]]){
+                swDig.on = YES;
+            }
+            if([tempSub.interests.multec isEqual: [NSNumber numberWithInt:1]]){
+                swMultec.on = YES;
+            }
+            
+            tfStreet.text = tempSub.street;
+            tfStreetNumber.text = tempSub.streetNumber;
+            tfCity.text = tempSub.city;
+            tfZip.text = tempSub.zip;
+            tfSchool.text = tempSub.school.name;
+            if([tempSub.interests.werkstudent isEqual:[NSNumber numberWithInt:1]]){
+                swWorkStudent.on = YES;
+            }
+            
+        }
+    }
+}
+- (IBAction)tfSchoolTapped:(id)sender {
+    
+    NSLog(@"GEKLIKT");
+    
+    [self performSegueWithIdentifier:@"popoverSchools" sender:sender];
+}
+
 
 - (IBAction)Opslaan:(id)sender {
     
@@ -122,6 +162,7 @@
         tfEmail.layer.borderColor =[[UIColor redColor]CGColor];
         tfEmail.layer.borderWidth = 1.0f;
     } else {
+
         tfEmail.layer.borderColor=[[UIColor clearColor]CGColor];
         sub.email = tfEmail.text;
     }
@@ -203,9 +244,15 @@
         sub.zip = tfZip.text;
     }
     
+    //----------------School---------------------------------------------------------
+    sub.school = self.school;
+    sub.teacher = self.teacher;
+    sub.event = self.event;
+    
     
     if(!(sub.firstName.length == 0) && !(sub.lastName.length == 0) && !(sub.email.length == 0) && !(sub.interests.digx == 0 && sub.interests.multec == 0)){
         
+
 
         
         NSError *error;
@@ -213,8 +260,6 @@
         
         [self dismissViewControllerAnimated:YES completion:nil];
     }
-    
-    
     
 }
 
@@ -250,5 +295,15 @@
     return [emailTest evaluateWithObject:mail];
 }
 
+-(void)fetchSubscriptionFromContext{
+    
+    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Subscription"];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    subscriptions = fetchedObjects;
+}
 
 @end
