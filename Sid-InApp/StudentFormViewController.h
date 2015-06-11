@@ -17,5 +17,6 @@
 @property (nonatomic, strong) Event *event;
 @property (weak, nonatomic) IBOutlet UITextField *tfSchool;
 @property (nonatomic, strong) School *school;
+@property (weak, nonatomic) IBOutlet UILabel *lblTeacher;
 
 @end

@@ -28,7 +28,7 @@
 
 @implementation StudentCheckInViewController
 
-@synthesize imgView;
+@synthesize lblSuccess;
 
 
 
@@ -38,6 +38,15 @@
     
     self.loginLabel.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
     
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    NSLog(@"viewWillAppear triggered");
+     [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(hideLabel) userInfo:nil repeats:NO];
+}
+
+- (void) hideLabel {
+    lblSuccess.text = @"";
 }
 
 - (void)didReceiveMemoryWarning {

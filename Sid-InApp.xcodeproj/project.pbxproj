@@ -25,7 +25,6 @@
 		6DA172EC1B20551400595CA0 /* SchoolContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172EB1B20551400595CA0 /* SchoolContainer.m */; };
 		6DA172EF1B20551400595CA0 /* TeacherContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172EE1B20551400595CA0 /* TeacherContainer.m */; };
 		6DA172F81B20554200595CA0 /* SubscriptionContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172F71B20554100595CA0 /* SubscriptionContainer.m */; };
-		6DA172FB1B20554200595CA0 /* Subscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172FA1B20554200595CA0 /* Subscription.m */; };
 		6DA172FE1B2058D100595CA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DA172FD1B2058D100595CA0 /* Main.storyboard */; };
 		6DA173031B20592100595CA0 /* bg_depcode.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173001B20592100595CA0 /* bg_depcode.jpg */; };
 		6DA173041B20592100595CA0 /* bg_checkin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173011B20592100595CA0 /* bg_checkin.jpg */; };
@@ -44,6 +43,7 @@
 		6F7A15801B26E8E700ED455A /* GTMBAse64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A157E1B26E8E700ED455A /* GTMBAse64.m */; };
 		6F7A15831B26EADB00ED455A /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A15821B26EADB00ED455A /* Image.m */; };
 		6F7A158E1B27097800ED455A /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A158D1B27097800ED455A /* CarouselViewController.m */; };
+		6F7DE5FF1B2986D200273173 /* Subscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DE5FE1B2986D200273173 /* Subscription.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,8 +121,6 @@
 		6DA172EE1B20551400595CA0 /* TeacherContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherContainer.m; sourceTree = "<group>"; };
 		6DA172F61B20554100595CA0 /* SubscriptionContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionContainer.h; sourceTree = "<group>"; };
 		6DA172F71B20554100595CA0 /* SubscriptionContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionContainer.m; sourceTree = "<group>"; };
-		6DA172F91B20554200595CA0 /* Subscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subscription.h; sourceTree = "<group>"; };
-		6DA172FA1B20554200595CA0 /* Subscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subscription.m; sourceTree = "<group>"; };
 		6DA172FD1B2058D100595CA0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6DA173001B20592100595CA0 /* bg_depcode.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_depcode.jpg; sourceTree = "<group>"; };
 		6DA173011B20592100595CA0 /* bg_checkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_checkin.jpg; sourceTree = "<group>"; };
@@ -156,6 +154,8 @@
 		6F7A15821B26EADB00ED455A /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		6F7A158C1B27097800ED455A /* CarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselViewController.h; sourceTree = "<group>"; };
 		6F7A158D1B27097800ED455A /* CarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselViewController.m; sourceTree = "<group>"; };
+		6F7DE5FD1B2986D200273173 /* Subscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subscription.h; sourceTree = "<group>"; };
+		6F7DE5FE1B2986D200273173 /* Subscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subscription.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,8 +304,6 @@
 			children = (
 				6DA1730F1B20836A00595CA0 /* ImageContainer.h */,
 				6DA173101B20836A00595CA0 /* ImageContainer.m */,
-				6DA172F91B20554200595CA0 /* Subscription.h */,
-				6DA172FA1B20554200595CA0 /* Subscription.m */,
 				6DA172F61B20554100595CA0 /* SubscriptionContainer.h */,
 				6DA172F71B20554100595CA0 /* SubscriptionContainer.m */,
 				6DA172ED1B20551400595CA0 /* TeacherContainer.h */,
@@ -323,6 +321,8 @@
 				6DA172DB1B2054EE00595CA0 /* School.h */,
 				6DA172DC1B2054EE00595CA0 /* School.m */,
 				6DA172D91B20547200595CA0 /* Sid-In.xcdatamodel */,
+				6F7DE5FD1B2986D200273173 /* Subscription.h */,
+				6F7DE5FE1B2986D200273173 /* Subscription.m */,
 				6F7A15811B26EADB00ED455A /* Image.h */,
 				6F7A15821B26EADB00ED455A /* Image.m */,
 			);
@@ -528,11 +528,11 @@
 				4C5D9F531B20C79300443C81 /* SidInUtils.m in Sources */,
 				6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */,
 				4C5D9F5D1B20FB3100443C81 /* ViewController.m in Sources */,
-				6DA172FB1B20554200595CA0 /* Subscription.m in Sources */,
 				6DA172DA1B20547200595CA0 /* Sid-In.xcdatamodel in Sources */,
 				6DA172F81B20554200595CA0 /* SubscriptionContainer.m in Sources */,
 				6DA173171B208F0D00595CA0 /* StudentFormViewController.m in Sources */,
 				6DFC4ABD1B204D10009EE68E /* main.m in Sources */,
+				6F7DE5FF1B2986D200273173 /* Subscription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +588,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Robrecht Mathys (FKAB9LP6JM)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -632,6 +633,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Robrecht Mathys (FKAB9LP6JM)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

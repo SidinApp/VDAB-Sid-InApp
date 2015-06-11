@@ -7,6 +7,7 @@
 //
 
 #import "StudentFormViewController.h"
+#import "StudentCheckInViewController.h"
 #import "Subscription.h"
 #import "Interests.h"
 #import "School.h"
@@ -68,11 +69,12 @@
 @implementation StudentFormViewController
 
 
-@synthesize tfEmail, tfCity, tfFirstName, tfLastName, tfSchool, tfStreet, tfStreetNumber, tfZip, swDig, swMultec, swWorkStudent, lblDigx, lblInterests, lblMultec;
+@synthesize tfEmail, tfCity, tfFirstName, tfLastName, tfSchool, tfStreet, tfStreetNumber, tfZip, swDig, swMultec, swWorkStudent, lblDigx, lblInterests, lblMultec, lblTeacher;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self fetchSubscriptionFromContext];
+    self.lblTeacher.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,6 +109,8 @@
             if([tempSub.interests.werkstudent isEqual:[NSNumber numberWithInt:1]]){
                 swWorkStudent.on = YES;
             }
+            self.school = tempSub.school;
+            tfSchool.text = tempSub.school.name;
             
         }
     }
@@ -140,6 +144,7 @@
     if ([tfFirstName.text isEqualToString:@""]) {
         tfFirstName.layer.borderColor =[[UIColor redColor]CGColor];
         tfFirstName.layer.borderWidth = 1.0f;
+        tfFirstName.placeholder = @"Veld is verplicht!";
     } else {
         tfFirstName.layer.borderColor=[[UIColor clearColor]CGColor];
         sub.firstName = tfFirstName.text;
@@ -150,6 +155,7 @@
     if ([tfLastName.text isEqualToString:@""]) {
         tfLastName.layer.borderColor =[[UIColor redColor]CGColor];
         tfLastName.layer.borderWidth = 1.0f;
+        tfLastName.placeholder = @"Veld is verplicht!";
     } else {
         tfLastName.layer.borderColor=[[UIColor clearColor]CGColor];
         sub.lastName = tfLastName.text;
@@ -161,6 +167,7 @@
     if ([tfEmail.text isEqualToString:@""] || ![self validateEmail:tfEmail.text]){
         tfEmail.layer.borderColor =[[UIColor redColor]CGColor];
         tfEmail.layer.borderWidth = 1.0f;
+        tfEmail.placeholder = @"Veld is verplicht!";
     } else {
 
         tfEmail.layer.borderColor=[[UIColor clearColor]CGColor];
@@ -233,8 +240,11 @@
     }
     
     //------------------Postcode-----------------------------------------------------
-    
-    if(![tfZip.text isEqualToString:@""] && !(tfZip.text.length == 4)) {
+    if(tfZip.text.length ==0){
+        tfZip.placeholder = @"Veld is verplicht";
+        tfZip.layer.borderColor =[[UIColor redColor]CGColor];
+        tfZip.layer.borderWidth = 1.0f;
+    } else if(!(tfZip.text.length == 4)) {
         tfZip.text = @"";
         tfZip.placeholder = @"Postcode is 4 tekens";
         tfZip.layer.borderColor =[[UIColor redColor]CGColor];
@@ -245,18 +255,36 @@
     }
     
     //----------------School---------------------------------------------------------
+    
+    if(!sub.school){
     sub.school = self.school;
+    }
+    
+    //----------------Teacher & event------------------------------------------------
     sub.teacher = self.teacher;
     sub.event = self.event;
     
+    //--------------isNew------------------------------------------------------------
+    sub.isNew = [NSNumber numberWithInt:1];
     
-    if(!(sub.firstName.length == 0) && !(sub.lastName.length == 0) && !(sub.email.length == 0) && !(sub.interests.digx == 0 && sub.interests.multec == 0)){
-        
+    //---------------Timestamp-------------------------------------------------------
+    
+    NSDate *dateNow = [NSDate date];
+    long timeStamp = (long) ([dateNow timeIntervalSince1970]*1000.0);
+    //NSDate *fromLong = [NSDate dateWithTimeIntervalSince1970:timeStamp/1000];
+    sub.timeStamp = [NSNumber numberWithLong:timeStamp];
 
-
+    
+    
+    
+    //---------------Controle vereiste velden ingevuld-------------------------------
+    if(!(sub.firstName.length == 0) && !(sub.lastName.length == 0) && !(sub.zip.length ==0) && !(sub.email.length == 0) && !(sub.interests.digx == 0 && sub.interests.multec == 0)){
         
         NSError *error;
         [managedObjectContext saveToPersistentStore:&error];
+        
+        StudentCheckInViewController *cvc = (StudentCheckInViewController *)self.presentingViewController;
+        cvc.lblSuccess.text = @"Successfully saved!";
         
         [self dismissViewControllerAnimated:YES completion:nil];
     }

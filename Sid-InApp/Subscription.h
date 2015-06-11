@@ -2,7 +2,7 @@
 //  Subscription.h
 //  Sid-InApp
 //
-//  Created by  on 04/06/15.
+//  Created by  on 11/06/15.
 //  Copyright (c) 2015 Ehb.be. All rights reserved.
 //
 
@@ -21,7 +21,7 @@
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSString * street;
 @property (nonatomic, retain) NSString * streetNumber;
-@property (nonatomic, retain) NSDate * timeStamp;
+@property (nonatomic, retain) NSNumber * timeStamp;
 @property (nonatomic, retain) NSString * zip;
 @property (nonatomic, retain) Event *event;
 @property (nonatomic, retain) Interests *interests;

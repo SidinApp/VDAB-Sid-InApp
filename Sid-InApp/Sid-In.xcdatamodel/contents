@@ -39,7 +39,7 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="streetNumber" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" syncable="YES"/>
         <relationship name="interests" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Interests" syncable="YES"/>
@@ -65,7 +65,7 @@
         <element name="Interests" positionX="88" positionY="-72" width="128" height="88"/>
         <element name="School" positionX="-0" positionY="-324" width="128" height="103"/>
         <element name="SchoolContainer" positionX="-173" positionY="-324" width="128" height="58"/>
-        <element name="Subscription" positionX="-369" positionY="-207" width="128" height="253"/>
+        <element name="Subscription" positionX="-369" positionY="-207" width="128" height="255"/>
         <element name="SubscriptionContainer" positionX="-369" positionY="-315" width="128" height="58"/>
         <element name="Teacher" positionX="-2" positionY="-477" width="128" height="90"/>
         <element name="TeacherContainer" positionX="-108" positionY="-216" width="128" height="60"/>
