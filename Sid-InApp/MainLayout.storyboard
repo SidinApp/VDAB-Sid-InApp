@@ -159,6 +159,12 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7xX-ht-lki">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KLOOTZAK!!!!!!!!!!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDK-8I-cIg">
+                                <rect key="frame" x="212" y="232" width="367" height="163"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

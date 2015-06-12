@@ -10,7 +10,7 @@
 
 #import "SynchronizationService.h"
 
-@interface CarouselViewController : UIViewController <UIScrollViewDelegate>
+@interface CarouselViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, strong) SynchronizationService *synchronizationService;

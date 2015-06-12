@@ -30,7 +30,26 @@
     scrollView.delegate = self;
     [self toNextPage:scrollView];
     
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapReceived:)];
+    [tapGestureRecognizer setDelegate:self];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+    
 }
+
+-(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer{
+    
+        NSLog(@"TOUCHES BEGAN CAROUSELVC");
+    
+        [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+//    
+//    NSLog(@"TOUCHES BEGAN CAROUSELVC");
+//    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

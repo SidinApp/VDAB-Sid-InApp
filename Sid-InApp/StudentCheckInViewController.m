@@ -15,6 +15,9 @@
 #import "GTMBAse64.h"
 
 @interface StudentCheckInViewController ()
+{
+    NSTimer *timer;
+}
 
 //@property (nonatomic, strong) Teacher *teacher;
 //@property (nonatomic, strong) Event *event;
@@ -36,13 +39,47 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(goToScreensaver) userInfo:nil repeats:NO];
+    
     self.loginLabel.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
     
+}
+
+-(void)goToScreensaver{
+    // https://www.youtube.com/watch?v=ruRccI-AWRo
+    
+    [self performSegueWithIdentifier:@"modalSegueToCarousel" sender:self];
+    
+}
+
+-(void)resetTimer{
+    
+    [timer invalidate];
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(goToScreensaver) userInfo:nil repeats:NO];
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    [timer invalidate];
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    [self resetTimer];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
     NSLog(@"viewWillAppear triggered");
      [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(hideLabel) userInfo:nil repeats:NO];
+    
+    [super viewWillAppear:animated];
+    [self resetTimer];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    [timer invalidate];
 }
 
 - (void) hideLabel {
