@@ -13,6 +13,7 @@
 #import <RestKit/RestKit.h>
 
 #import "School.h"
+#import "SchoolList.h"
 
 #import "AppDelegate.h"
 
@@ -74,7 +75,7 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    School *school = [schools objectAtIndex:indexPath.row];
+    SchoolEntity *school = [schools objectAtIndex:indexPath.row];
     
     NSString *schoolName = cell.textLabel.text;
     
@@ -133,16 +134,17 @@
 
 -(void)fetchSchoolsFromContext{
     
-    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"School"];
-    
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    fetchRequest.sortDescriptors = @[sortDescriptor];
-    
-    NSError *error;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
-    schools = fetchedObjects;
+//    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"School"];
+//    
+//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+//    fetchRequest.sortDescriptors = @[sortDescriptor];
+//    
+//    NSError *error;
+//    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+//    
+//    schools = fetchedObjects;
+    schools = [self.synchronizationService.persistentStoreManager fetchAll:[School entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
 }
 
 @end

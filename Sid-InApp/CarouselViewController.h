@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SynchronizationService.h"
+
 @interface CarouselViewController : UIViewController <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (nonatomic, strong) SynchronizationService *synchronizationService;
 
 -(void)toNextPage:(UIScrollView *)scrollview;
 

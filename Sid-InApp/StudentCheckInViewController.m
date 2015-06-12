@@ -94,11 +94,13 @@
          viewController.teacher = self.teacher;
          viewController.event = self.event;
          //        viewController.teacher = sender;
+         viewController.synchronizationService = self.synchronizationService;
  
      }
      
      if([[segue identifier] isEqual:@"modalSegueToCarousel"]) {
          CarouselViewController *viewController = [segue destinationViewController];
+         viewController.synchronizationService = self.synchronizationService;
      }
  
  }

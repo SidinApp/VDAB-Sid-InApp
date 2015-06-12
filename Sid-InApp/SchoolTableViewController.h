@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SynchronizationService.h"
+
 @interface SchoolTableViewController : UITableViewController <UIPopoverControllerDelegate>
+
+@property (nonatomic, strong) SynchronizationService *synchronizationService;
 
 @end

@@ -9,14 +9,15 @@
 #import "StudentFormViewController.h"
 #import "StudentCheckInViewController.h"
 #import "Subscription.h"
+#import "SubscriptionEntity.h"
 #import "Interests.h"
 #import "School.h"
 #import <RestKit/CoreData.h>
 
 @interface StudentFormViewController ()
 {
-    Subscription *sub;
-    Interests *interests;
+    SubscriptionEntity *sub;
+    InterestsEntity *interests;
     NSArray *subscriptions;
     
 }
@@ -87,7 +88,7 @@
     
     for(int i = 0; i < counter; i++){
         
-        Subscription *tempSub = subscriptions[i];
+        SubscriptionEntity *tempSub = subscriptions[i];
         NSString *tempMail = tempSub.email;
         
         if ([tfEmail.text isEqualToString: tempMail]) {
@@ -125,19 +126,24 @@
 
 - (IBAction)Opslaan:(id)sender {
     
-    NSManagedObjectContext *managedObjectContext = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-    //NSManagedObjectContext *managedObjectContextInterests = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+//    NSManagedObjectContext *managedObjectContext = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+//    //NSManagedObjectContext *managedObjectContextInterests = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+//    
+//    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Subscription" inManagedObjectContext: managedObjectContext];
+//    
+//    sub = [[SubscriptionEntity alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:managedObjectContext];
     
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Subscription" inManagedObjectContext: managedObjectContext];
-    
-    sub = [[Subscription alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:managedObjectContext];
+    sub = (SubscriptionEntity *)[self.synchronizationService.persistentStoreManager insert:[Subscription entityName]];
     
    /* entityDescription = [NSEntityDescription entityForName:@"Interests" inManagedObjectContext: managedObjectContextInterests];
     
     interests = [[Interests alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:managedObjectContextInterests];*/
     
-    entityDescription = [NSEntityDescription entityForName:@"Interests" inManagedObjectContext: managedObjectContext];
-    interests = [[Interests alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:managedObjectContext];
+//    entityDescription = [NSEntityDescription entityForName:@"Interests" inManagedObjectContext: managedObjectContext];
+//    
+//    interests = [[InterestsEntity alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:managedObjectContext];
+    
+    interests = (InterestsEntity *)[self.synchronizationService.persistentStoreManager insert:[Interests entityName]];
     
     //-------------------Voornaam-------------------------------------------------
     
@@ -280,8 +286,10 @@
     //---------------Controle vereiste velden ingevuld-------------------------------
     if(!(sub.firstName.length == 0) && !(sub.lastName.length == 0) && !(sub.zip.length ==0) && !(sub.email.length == 0) && !(sub.interests.digx == 0 && sub.interests.multec == 0)){
         
-        NSError *error;
-        [managedObjectContext saveToPersistentStore:&error];
+//        NSError *error;
+//        [managedObjectContext saveToPersistentStore:&error];
+        
+        [self.synchronizationService.persistentStoreManager save:sub];
         
         StudentCheckInViewController *cvc = (StudentCheckInViewController *)self.presentingViewController;
         cvc.lblSuccess.text = @"Successfully saved!";
@@ -325,13 +333,40 @@
 
 -(void)fetchSubscriptionFromContext{
     
-    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Subscription"];
+//    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Subscription"];
+//    
+//    NSError *error;
+//    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+//    
+//    subscriptions = fetchedObjects;
     
-    NSError *error;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    subscriptions = [self.synchronizationService.persistentStoreManager fetchAll:[Subscription entityName]];
     
-    subscriptions = fetchedObjects;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([[segue identifier] isEqualToString:@"modalSegueToStudentForm"]) {
+//        StudentFormViewController *viewController = [segue destinationViewController];
+//        //        [viewController setTeacher:teacher];
+//        //        [viewController setEvent:event];
+//        viewController.teacher = self.teacher;
+//        viewController.event = self.event;
+//        //        viewController.teacher = sender;
+//        viewController.synchronizationService = self.synchronizationService;
+//        
+//    }
+//    
+//    if([[segue identifier] isEqual:@"modalSegueToCarousel"]) {
+//        CarouselViewController *viewController = [segue destinationViewController];
+//    }
+    
+    if ([[segue identifier] isEqualToString:@"popoverSchools"]) {
+        SchoolTableViewController *tableViewController = [segue destinationViewController];
+        tableViewController.synchronizationService = self.synchronizationService;
+    }
+    
+}
+
 
 @end

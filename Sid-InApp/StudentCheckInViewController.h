@@ -11,11 +11,15 @@
 #import "Teacher.h"
 #import "Event.h"
 
+#import "SynchronizationService.h"
+
 @interface StudentCheckInViewController : UIViewController
 
-@property (nonatomic, strong) Teacher *teacher;
-@property (nonatomic, strong) Event *event;
+@property (nonatomic, strong) TeacherEntity *teacher;
+@property (nonatomic, strong) EventEntity *event;
 @property (weak, nonatomic) IBOutlet UILabel *lblSuccess;
+
+@property (nonatomic, strong) SynchronizationService *synchronizationService;
 
 //-(void)setTeacher:(Teacher *)teacher;
 //-(void)setEvent:(Event *)event;

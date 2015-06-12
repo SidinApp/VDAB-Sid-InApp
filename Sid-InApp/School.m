@@ -1,19 +1,53 @@
 //
 //  School.m
-//  Sid-InApp
+//  Sid-In App Data Model
 //
-//  Created by  on 04/06/15.
-//  Copyright (c) 2015 Ehb.be. All rights reserved.
+//  Created by Bert Remmerie on 07/06/15.
+//  Copyright (c) 2015 EhB.be. All rights reserved.
 //
 
 #import "School.h"
 
+//#import "SchoolEntity.h"
 
 @implementation School
 
-@dynamic gemeente;
-@dynamic id;
-@dynamic name;
-@dynamic postcode;
++(NSString *)entityName{
+    return @"SchoolEntity";
+}
+
+
++(RKEntityMapping *)createEntityMapping:(RKManagedObjectStore *)managedObjectStore{
+    
+    RKEntityMapping *result = [RKEntityMapping mappingForEntityForName:[School entityName]
+                                                  inManagedObjectStore:managedObjectStore];
+    
+    // kies een unieke identifier
+    result.identificationAttributes = @[@"id"];
+    
+    // indien json identifiers zelfde zijn als identifiers in de entitydescription
+    [result addAttributeMappingsFromArray:@[@"id", @"name", @"gemeente", @"postcode"]];
+    
+    return result;
+}
+
++(RKObjectMapping *)createObjectMapping{
+    
+    RKObjectMapping *result = [RKObjectMapping mappingForClass:[School class]];
+    
+    [result addAttributeMappingsFromArray:@[@"id", @"name", @"gemeente", @"postcode"]];
+    
+    return result;
+}
 
 @end
+
+//+(NSManagedObject *)createEntity:(NSManagedObjectContext *)managedObjectContext{
+//
+//    // NSManagedObject as EventEntity
+//
+//    SchoolEntity *result = [NSEntityDescription insertNewObjectForEntityForName:[School entityName]
+//                                                         inManagedObjectContext:managedObjectContext];
+//    return result;
+//}
+//

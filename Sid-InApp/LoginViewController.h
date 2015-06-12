@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SynchronizationService.h"
+
 @interface LoginViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+
+@property (nonatomic, strong) SynchronizationService *synchronizationService;
 
 @end

@@ -11,12 +11,19 @@
 #import "Event.h"
 #import "School.h"
 
+#import "SynchronizationService.h"
+#import "SchoolTableViewController.h"
+
 @interface StudentFormViewController : UIViewController
 
-@property (nonatomic, strong) Teacher *teacher;
-@property (nonatomic, strong) Event *event;
+@property (nonatomic, strong) TeacherEntity *teacher;
+@property (nonatomic, strong) EventEntity *event;
 @property (weak, nonatomic) IBOutlet UITextField *tfSchool;
-@property (nonatomic, strong) School *school;
+@property (nonatomic, strong) SchoolEntity *school;
 @property (weak, nonatomic) IBOutlet UILabel *lblTeacher;
+
+@property (nonatomic, strong) SynchronizationService *synchronizationService;
+
+@property(nonatomic, strong) SchoolTableViewController *schoolTableViewController;
 
 @end

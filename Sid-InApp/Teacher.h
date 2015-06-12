@@ -1,19 +1,21 @@
 //
 //  Teacher.h
-//  Sid-InApp
+//  Sid-In App Data Model
 //
-//  Created by  on 04/06/15.
-//  Copyright (c) 2015 Ehb.be. All rights reserved.
+//  Created by Bert Remmerie on 07/06/15.
+//  Copyright (c) 2015 EhB.be. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "ModelMapping.h"
 
+#import "TeacherEntity.h"
 
-@interface Teacher : NSManagedObject
+@interface Teacher : NSObject <ModelMapping>
 
-@property (nonatomic, retain) NSNumber * acadyear;
-@property (nonatomic, retain) NSNumber * id;
-@property (nonatomic, retain) NSString * name;
+// copy ipv retain
+
+@property (nonatomic, copy) NSNumber * acadyear;
+@property (nonatomic, copy) NSNumber * id;
+@property (nonatomic, copy) NSString * name;
 
 @end

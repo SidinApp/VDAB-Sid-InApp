@@ -1,19 +1,21 @@
 //
 //  Interests.h
-//  Sid-InApp
+//  Sid-In App Data Model
 //
-//  Created by  on 04/06/15.
-//  Copyright (c) 2015 Ehb.be. All rights reserved.
+//  Created by Bert Remmerie on 07/06/15.
+//  Copyright (c) 2015 EhB.be. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
+#import "ModelMapping.h"
 
-@interface Interests : NSManagedObject
+#import "InterestsEntity.h"
 
-@property (nonatomic, retain) NSNumber * digx;
-@property (nonatomic, retain) NSNumber * multec;
-@property (nonatomic, retain) NSNumber * werkstudent;
+@interface Interests : NSObject <ModelMapping>
+
+@property (nonatomic, copy) NSNumber * digx;
+@property (nonatomic, copy) NSNumber * multec;
+@property (nonatomic, copy) NSNumber * werkstudent;
 
 @end

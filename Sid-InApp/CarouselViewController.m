@@ -68,21 +68,25 @@
 }
 
 -(void)fetchImagesFromContext{
-    
-    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Image"];
-    
-    NSError *error;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
-    _imagesData = fetchedObjects;
+//    
+//    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Image"];
+//    
+//    NSError *error;
+//    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+//    
+//    _imagesData = fetchedObjects;
+//    
+//    _images = [[NSMutableArray alloc]init];
+
+    _imagesData = [self.synchronizationService.persistentStoreManager fetchAll:[Image entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"priority" ascending:YES]];
     
     _images = [[NSMutableArray alloc]init];
     
     for(int i = 0; i < _imagesData.count; i++){
         
         //image uit array halen
-        Image *image = _imagesData[i];
+        ImageEntity *image = _imagesData[i];
         
         //image string ophalen
         NSString *imgString = image.image;

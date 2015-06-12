@@ -7,31 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C5D9F531B20C79300443C81 /* SidInUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D9F521B20C79300443C81 /* SidInUtils.m */; };
 		4C5D9F591B20CD4100443C81 /* MainLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D9F581B20CD4100443C81 /* MainLayout.storyboard */; };
 		4C5D9F5D1B20FB3100443C81 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D9F5C1B20FB3100443C81 /* ViewController.m */; };
+		6D8BB3D71B2AD82D00F550B2 /* RestfulStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3D21B2AD82D00F550B2 /* RestfulStack.m */; };
+		6D8BB3D81B2AD82D00F550B2 /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3D41B2AD82D00F550B2 /* PersistentStack.m */; };
+		6D8BB3D91B2AD82D00F550B2 /* SidInUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3D61B2AD82D00F550B2 /* SidInUtils.m */; };
+		6D8BB3DE1B2AD83800F550B2 /* SynchronizationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3DB1B2AD83700F550B2 /* SynchronizationService.m */; };
+		6D8BB3DF1B2AD83800F550B2 /* PersistentStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3DD1B2AD83700F550B2 /* PersistentStoreManager.m */; };
+		6D8BB3F91B2AD8B800F550B2 /* EventEntityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3E51B2AD8B800F550B2 /* EventEntityList.m */; };
+		6D8BB3FB1B2AD8B800F550B2 /* ImageEntityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3E91B2AD8B800F550B2 /* ImageEntityList.m */; };
+		6D8BB3FE1B2AD8B800F550B2 /* SchoolEntityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3EF1B2AD8B800F550B2 /* SchoolEntityList.m */; };
+		6D8BB4011B2AD8B800F550B2 /* TeacherEntityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3F51B2AD8B800F550B2 /* TeacherEntityList.m */; };
+		6D8BB4021B2AD8B800F550B2 /* SubscriptionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3F71B2AD8B800F550B2 /* SubscriptionEntity.m */; };
+		6D8BB41A1B2AD8D900F550B2 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4051B2AD8D900F550B2 /* Event.m */; };
+		6D8BB41B1B2AD8D900F550B2 /* EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4071B2AD8D900F550B2 /* EventList.m */; };
+		6D8BB41C1B2AD8D900F550B2 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4091B2AD8D900F550B2 /* Image.m */; };
+		6D8BB41D1B2AD8D900F550B2 /* ImageList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB40B1B2AD8D900F550B2 /* ImageList.m */; };
+		6D8BB41E1B2AD8D900F550B2 /* Interests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB40D1B2AD8D900F550B2 /* Interests.m */; };
+		6D8BB41F1B2AD8D900F550B2 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB40F1B2AD8D900F550B2 /* School.m */; };
+		6D8BB4201B2AD8D900F550B2 /* SchoolList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4111B2AD8D900F550B2 /* SchoolList.m */; };
+		6D8BB4211B2AD8D900F550B2 /* Subscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4131B2AD8D900F550B2 /* Subscription.m */; };
+		6D8BB4221B2AD8D900F550B2 /* SubscriptionList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4151B2AD8D900F550B2 /* SubscriptionList.m */; };
+		6D8BB4231B2AD8D900F550B2 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4171B2AD8D900F550B2 /* Teacher.m */; };
+		6D8BB4241B2AD8D900F550B2 /* TeacherList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4191B2AD8D900F550B2 /* TeacherList.m */; };
+		6D8BB4281B2AD8EF00F550B2 /* Sid-InApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4261B2AD8EF00F550B2 /* Sid-InApp.xcdatamodeld */; };
+		6D8BB42B1B2ADB3E00F550B2 /* EventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB42A1B2ADB3E00F550B2 /* EventEntity.m */; };
+		6D8BB42E1B2ADB5600F550B2 /* ImageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB42D1B2ADB5600F550B2 /* ImageEntity.m */; };
+		6D8BB4311B2ADB5700F550B2 /* SchoolEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4301B2ADB5700F550B2 /* SchoolEntity.m */; };
+		6D8BB4341B2ADB5700F550B2 /* TeacherEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4331B2ADB5700F550B2 /* TeacherEntity.m */; };
+		6D8BB4371B2ADB5700F550B2 /* InterestsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4361B2ADB5700F550B2 /* InterestsEntity.m */; };
+		6D8BB43A1B2AE31E00F550B2 /* SubscriptionEntityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB4391B2AE31E00F550B2 /* SubscriptionEntityList.m */; };
 		6DA172CD1B2050F400595CA0 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172C41B204FEE00595CA0 /* libRestKit.a */; };
 		6DA172D31B20512D00595CA0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172CE1B20512C00595CA0 /* CFNetwork.framework */; };
 		6DA172D41B20512D00595CA0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172CF1B20512C00595CA0 /* CoreData.framework */; };
 		6DA172D51B20512D00595CA0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172D01B20512C00595CA0 /* MobileCoreServices.framework */; };
 		6DA172D61B20512D00595CA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172D11B20512C00595CA0 /* Security.framework */; };
 		6DA172D71B20512D00595CA0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172D21B20512C00595CA0 /* SystemConfiguration.framework */; };
-		6DA172DA1B20547200595CA0 /* Sid-In.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172D91B20547200595CA0 /* Sid-In.xcdatamodel */; };
-		6DA172DD1B2054EE00595CA0 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172DC1B2054EE00595CA0 /* School.m */; };
-		6DA172E01B2054EE00595CA0 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172DF1B2054EE00595CA0 /* Event.m */; };
-		6DA172E31B2054EE00595CA0 /* Interests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172E21B2054EE00595CA0 /* Interests.m */; };
-		6DA172E61B2054EF00595CA0 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172E51B2054EF00595CA0 /* Teacher.m */; };
-		6DA172E91B20551400595CA0 /* EventContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172E81B20551400595CA0 /* EventContainer.m */; };
-		6DA172EC1B20551400595CA0 /* SchoolContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172EB1B20551400595CA0 /* SchoolContainer.m */; };
-		6DA172EF1B20551400595CA0 /* TeacherContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172EE1B20551400595CA0 /* TeacherContainer.m */; };
-		6DA172F81B20554200595CA0 /* SubscriptionContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA172F71B20554100595CA0 /* SubscriptionContainer.m */; };
 		6DA172FE1B2058D100595CA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DA172FD1B2058D100595CA0 /* Main.storyboard */; };
 		6DA173031B20592100595CA0 /* bg_depcode.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173001B20592100595CA0 /* bg_depcode.jpg */; };
 		6DA173041B20592100595CA0 /* bg_checkin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173011B20592100595CA0 /* bg_checkin.jpg */; };
 		6DA173051B20592100595CA0 /* logoErasmus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173021B20592100595CA0 /* logoErasmus.png */; };
 		6DA173081B206A8C00595CA0 /* DepartementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173071B206A8C00595CA0 /* DepartementViewController.m */; };
 		6DA1730B1B20772F00595CA0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA1730A1B20772F00595CA0 /* LoginViewController.m */; };
-		6DA173111B20836A00595CA0 /* ImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173101B20836A00595CA0 /* ImageContainer.m */; };
 		6DA173141B208EFF00595CA0 /* StudentCheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173131B208EFF00595CA0 /* StudentCheckInViewController.m */; };
 		6DA173171B208F0D00595CA0 /* StudentFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173161B208F0D00595CA0 /* StudentFormViewController.m */; };
 		6DFC4ABD1B204D10009EE68E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABC1B204D10009EE68E /* main.m */; };
@@ -41,9 +58,7 @@
 		6DFC4AD71B204D10009EE68E /* Sid_InAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */; };
 		6F1E452D1B28388100458A39 /* SchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E452C1B28388100458A39 /* SchoolTableViewController.m */; };
 		6F7A15801B26E8E700ED455A /* GTMBAse64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A157E1B26E8E700ED455A /* GTMBAse64.m */; };
-		6F7A15831B26EADB00ED455A /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A15821B26EADB00ED455A /* Image.m */; };
 		6F7A158E1B27097800ED455A /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A158D1B27097800ED455A /* CarouselViewController.m */; };
-		6F7DE5FF1B2986D200273173 /* Subscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DE5FE1B2986D200273173 /* Subscription.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,11 +107,66 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4C5D9F511B20C79300443C81 /* SidInUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidInUtils.h; sourceTree = "<group>"; };
-		4C5D9F521B20C79300443C81 /* SidInUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidInUtils.m; sourceTree = "<group>"; };
 		4C5D9F581B20CD4100443C81 /* MainLayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainLayout.storyboard; sourceTree = "<group>"; };
 		4C5D9F5B1B20FB3100443C81 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4C5D9F5C1B20FB3100443C81 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6D8BB3D01B2AD81600F550B2 /* Dao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dao.h; sourceTree = "<group>"; };
+		6D8BB3D11B2AD82D00F550B2 /* RestfulStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestfulStack.h; sourceTree = "<group>"; };
+		6D8BB3D21B2AD82D00F550B2 /* RestfulStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestfulStack.m; sourceTree = "<group>"; };
+		6D8BB3D31B2AD82D00F550B2 /* PersistentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentStack.h; sourceTree = "<group>"; };
+		6D8BB3D41B2AD82D00F550B2 /* PersistentStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentStack.m; sourceTree = "<group>"; };
+		6D8BB3D51B2AD82D00F550B2 /* SidInUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidInUtils.h; sourceTree = "<group>"; };
+		6D8BB3D61B2AD82D00F550B2 /* SidInUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidInUtils.m; sourceTree = "<group>"; };
+		6D8BB3DA1B2AD83700F550B2 /* SynchronizationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizationService.h; sourceTree = "<group>"; };
+		6D8BB3DB1B2AD83700F550B2 /* SynchronizationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronizationService.m; sourceTree = "<group>"; };
+		6D8BB3DC1B2AD83700F550B2 /* PersistentStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentStoreManager.h; sourceTree = "<group>"; };
+		6D8BB3DD1B2AD83700F550B2 /* PersistentStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentStoreManager.m; sourceTree = "<group>"; };
+		6D8BB3E01B2AD85F00F550B2 /* ModelMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelMapping.h; sourceTree = "<group>"; };
+		6D8BB3E41B2AD8B800F550B2 /* EventEntityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventEntityList.h; sourceTree = "<group>"; };
+		6D8BB3E51B2AD8B800F550B2 /* EventEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventEntityList.m; sourceTree = "<group>"; };
+		6D8BB3E81B2AD8B800F550B2 /* ImageEntityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageEntityList.h; sourceTree = "<group>"; };
+		6D8BB3E91B2AD8B800F550B2 /* ImageEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageEntityList.m; sourceTree = "<group>"; };
+		6D8BB3EE1B2AD8B800F550B2 /* SchoolEntityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolEntityList.h; sourceTree = "<group>"; };
+		6D8BB3EF1B2AD8B800F550B2 /* SchoolEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolEntityList.m; sourceTree = "<group>"; };
+		6D8BB3F41B2AD8B800F550B2 /* TeacherEntityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherEntityList.h; sourceTree = "<group>"; };
+		6D8BB3F51B2AD8B800F550B2 /* TeacherEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherEntityList.m; sourceTree = "<group>"; };
+		6D8BB3F61B2AD8B800F550B2 /* SubscriptionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionEntity.h; sourceTree = "<group>"; };
+		6D8BB3F71B2AD8B800F550B2 /* SubscriptionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionEntity.m; sourceTree = "<group>"; };
+		6D8BB4041B2AD8D900F550B2 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		6D8BB4051B2AD8D900F550B2 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		6D8BB4061B2AD8D900F550B2 /* EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventList.h; sourceTree = "<group>"; };
+		6D8BB4071B2AD8D900F550B2 /* EventList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventList.m; sourceTree = "<group>"; };
+		6D8BB4081B2AD8D900F550B2 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		6D8BB4091B2AD8D900F550B2 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		6D8BB40A1B2AD8D900F550B2 /* ImageList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageList.h; sourceTree = "<group>"; };
+		6D8BB40B1B2AD8D900F550B2 /* ImageList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageList.m; sourceTree = "<group>"; };
+		6D8BB40C1B2AD8D900F550B2 /* Interests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interests.h; sourceTree = "<group>"; };
+		6D8BB40D1B2AD8D900F550B2 /* Interests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interests.m; sourceTree = "<group>"; };
+		6D8BB40E1B2AD8D900F550B2 /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
+		6D8BB40F1B2AD8D900F550B2 /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
+		6D8BB4101B2AD8D900F550B2 /* SchoolList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolList.h; sourceTree = "<group>"; };
+		6D8BB4111B2AD8D900F550B2 /* SchoolList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolList.m; sourceTree = "<group>"; };
+		6D8BB4121B2AD8D900F550B2 /* Subscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subscription.h; sourceTree = "<group>"; };
+		6D8BB4131B2AD8D900F550B2 /* Subscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subscription.m; sourceTree = "<group>"; };
+		6D8BB4141B2AD8D900F550B2 /* SubscriptionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionList.h; sourceTree = "<group>"; };
+		6D8BB4151B2AD8D900F550B2 /* SubscriptionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionList.m; sourceTree = "<group>"; };
+		6D8BB4161B2AD8D900F550B2 /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
+		6D8BB4171B2AD8D900F550B2 /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
+		6D8BB4181B2AD8D900F550B2 /* TeacherList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherList.h; sourceTree = "<group>"; };
+		6D8BB4191B2AD8D900F550B2 /* TeacherList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherList.m; sourceTree = "<group>"; };
+		6D8BB4271B2AD8EF00F550B2 /* Sid-InApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sid-InApp.xcdatamodel"; sourceTree = "<group>"; };
+		6D8BB4291B2ADB3E00F550B2 /* EventEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventEntity.h; sourceTree = "<group>"; };
+		6D8BB42A1B2ADB3E00F550B2 /* EventEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventEntity.m; sourceTree = "<group>"; };
+		6D8BB42C1B2ADB5600F550B2 /* ImageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageEntity.h; sourceTree = "<group>"; };
+		6D8BB42D1B2ADB5600F550B2 /* ImageEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageEntity.m; sourceTree = "<group>"; };
+		6D8BB42F1B2ADB5700F550B2 /* SchoolEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolEntity.h; sourceTree = "<group>"; };
+		6D8BB4301B2ADB5700F550B2 /* SchoolEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolEntity.m; sourceTree = "<group>"; };
+		6D8BB4321B2ADB5700F550B2 /* TeacherEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherEntity.h; sourceTree = "<group>"; };
+		6D8BB4331B2ADB5700F550B2 /* TeacherEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherEntity.m; sourceTree = "<group>"; };
+		6D8BB4351B2ADB5700F550B2 /* InterestsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestsEntity.h; sourceTree = "<group>"; };
+		6D8BB4361B2ADB5700F550B2 /* InterestsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestsEntity.m; sourceTree = "<group>"; };
+		6D8BB4381B2AE31E00F550B2 /* SubscriptionEntityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionEntityList.h; sourceTree = "<group>"; };
+		6D8BB4391B2AE31E00F550B2 /* SubscriptionEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionEntityList.m; sourceTree = "<group>"; };
 		6DA172BC1B204FEE00595CA0 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		6DA172CE1B20512C00595CA0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		6DA172CF1B20512C00595CA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -104,23 +174,6 @@
 		6DA172D11B20512C00595CA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6DA172D21B20512C00595CA0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6DA172D81B20525300595CA0 /* Sid-InApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sid-InApp-Prefix.pch"; sourceTree = "<group>"; };
-		6DA172D91B20547200595CA0 /* Sid-In.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Sid-In.xcdatamodel"; sourceTree = "<group>"; };
-		6DA172DB1B2054EE00595CA0 /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
-		6DA172DC1B2054EE00595CA0 /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
-		6DA172DE1B2054EE00595CA0 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		6DA172DF1B2054EE00595CA0 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		6DA172E11B2054EE00595CA0 /* Interests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interests.h; sourceTree = "<group>"; };
-		6DA172E21B2054EE00595CA0 /* Interests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interests.m; sourceTree = "<group>"; };
-		6DA172E41B2054EF00595CA0 /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
-		6DA172E51B2054EF00595CA0 /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
-		6DA172E71B20551400595CA0 /* EventContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventContainer.h; sourceTree = "<group>"; };
-		6DA172E81B20551400595CA0 /* EventContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventContainer.m; sourceTree = "<group>"; };
-		6DA172EA1B20551400595CA0 /* SchoolContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolContainer.h; sourceTree = "<group>"; };
-		6DA172EB1B20551400595CA0 /* SchoolContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolContainer.m; sourceTree = "<group>"; };
-		6DA172ED1B20551400595CA0 /* TeacherContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherContainer.h; sourceTree = "<group>"; };
-		6DA172EE1B20551400595CA0 /* TeacherContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherContainer.m; sourceTree = "<group>"; };
-		6DA172F61B20554100595CA0 /* SubscriptionContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionContainer.h; sourceTree = "<group>"; };
-		6DA172F71B20554100595CA0 /* SubscriptionContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionContainer.m; sourceTree = "<group>"; };
 		6DA172FD1B2058D100595CA0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6DA173001B20592100595CA0 /* bg_depcode.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_depcode.jpg; sourceTree = "<group>"; };
 		6DA173011B20592100595CA0 /* bg_checkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_checkin.jpg; sourceTree = "<group>"; };
@@ -129,8 +182,6 @@
 		6DA173071B206A8C00595CA0 /* DepartementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartementViewController.m; sourceTree = "<group>"; };
 		6DA173091B20772F00595CA0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6DA1730A1B20772F00595CA0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		6DA1730F1B20836A00595CA0 /* ImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageContainer.h; sourceTree = "<group>"; };
-		6DA173101B20836A00595CA0 /* ImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageContainer.m; sourceTree = "<group>"; };
 		6DA173121B208EFF00595CA0 /* StudentCheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentCheckInViewController.h; sourceTree = "<group>"; };
 		6DA173131B208EFF00595CA0 /* StudentCheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentCheckInViewController.m; sourceTree = "<group>"; };
 		6DA173151B208F0D00595CA0 /* StudentFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentFormViewController.h; sourceTree = "<group>"; };
@@ -150,12 +201,8 @@
 		6F7A157D1B26E8E700ED455A /* GTMBAse64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBAse64.h; sourceTree = "<group>"; };
 		6F7A157E1B26E8E700ED455A /* GTMBAse64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBAse64.m; sourceTree = "<group>"; };
 		6F7A157F1B26E8E700ED455A /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		6F7A15811B26EADB00ED455A /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
-		6F7A15821B26EADB00ED455A /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		6F7A158C1B27097800ED455A /* CarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselViewController.h; sourceTree = "<group>"; };
 		6F7A158D1B27097800ED455A /* CarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselViewController.m; sourceTree = "<group>"; };
-		6F7DE5FD1B2986D200273173 /* Subscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subscription.h; sourceTree = "<group>"; };
-		6F7DE5FE1B2986D200273173 /* Subscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subscription.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +232,6 @@
 		4C5D9F571B20C85C00443C81 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				4C5D9F511B20C79300443C81 /* SidInUtils.h */,
-				4C5D9F521B20C79300443C81 /* SidInUtils.m */,
 				6F7A157D1B26E8E700ED455A /* GTMBAse64.h */,
 				6F7A157E1B26E8E700ED455A /* GTMBAse64.m */,
 				6F7A157F1B26E8E700ED455A /* GTMDefines.h */,
@@ -201,6 +246,82 @@
 				4C5D9F5C1B20FB3100443C81 /* ViewController.m */,
 			);
 			name = deprecated;
+			sourceTree = "<group>";
+		};
+		6D8BB3CF1B2AD75500F550B2 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				6D8BB3D01B2AD81600F550B2 /* Dao.h */,
+				6D8BB3D11B2AD82D00F550B2 /* RestfulStack.h */,
+				6D8BB3D21B2AD82D00F550B2 /* RestfulStack.m */,
+				6D8BB3D31B2AD82D00F550B2 /* PersistentStack.h */,
+				6D8BB3D41B2AD82D00F550B2 /* PersistentStack.m */,
+				6D8BB3D51B2AD82D00F550B2 /* SidInUtils.h */,
+				6D8BB3D61B2AD82D00F550B2 /* SidInUtils.m */,
+				6D8BB3DA1B2AD83700F550B2 /* SynchronizationService.h */,
+				6D8BB3DB1B2AD83700F550B2 /* SynchronizationService.m */,
+				6D8BB3DC1B2AD83700F550B2 /* PersistentStoreManager.h */,
+				6D8BB3DD1B2AD83700F550B2 /* PersistentStoreManager.m */,
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
+		6D8BB4031B2AD8C000F550B2 /* managed */ = {
+			isa = PBXGroup;
+			children = (
+				6D8BB4291B2ADB3E00F550B2 /* EventEntity.h */,
+				6D8BB4381B2AE31E00F550B2 /* SubscriptionEntityList.h */,
+				6D8BB4391B2AE31E00F550B2 /* SubscriptionEntityList.m */,
+				6D8BB42A1B2ADB3E00F550B2 /* EventEntity.m */,
+				6D8BB3E41B2AD8B800F550B2 /* EventEntityList.h */,
+				6D8BB3E51B2AD8B800F550B2 /* EventEntityList.m */,
+				6D8BB42C1B2ADB5600F550B2 /* ImageEntity.h */,
+				6D8BB42D1B2ADB5600F550B2 /* ImageEntity.m */,
+				6D8BB3E81B2AD8B800F550B2 /* ImageEntityList.h */,
+				6D8BB3E91B2AD8B800F550B2 /* ImageEntityList.m */,
+				6D8BB4351B2ADB5700F550B2 /* InterestsEntity.h */,
+				6D8BB4361B2ADB5700F550B2 /* InterestsEntity.m */,
+				6D8BB42F1B2ADB5700F550B2 /* SchoolEntity.h */,
+				6D8BB4301B2ADB5700F550B2 /* SchoolEntity.m */,
+				6D8BB3EE1B2AD8B800F550B2 /* SchoolEntityList.h */,
+				6D8BB3EF1B2AD8B800F550B2 /* SchoolEntityList.m */,
+				6D8BB3F61B2AD8B800F550B2 /* SubscriptionEntity.h */,
+				6D8BB3F71B2AD8B800F550B2 /* SubscriptionEntity.m */,
+				6D8BB4321B2ADB5700F550B2 /* TeacherEntity.h */,
+				6D8BB4331B2ADB5700F550B2 /* TeacherEntity.m */,
+				6D8BB3F41B2AD8B800F550B2 /* TeacherEntityList.h */,
+				6D8BB3F51B2AD8B800F550B2 /* TeacherEntityList.m */,
+			);
+			name = managed;
+			sourceTree = "<group>";
+		};
+		6D8BB4251B2AD8DE00F550B2 /* unmanaged */ = {
+			isa = PBXGroup;
+			children = (
+				6D8BB4041B2AD8D900F550B2 /* Event.h */,
+				6D8BB4051B2AD8D900F550B2 /* Event.m */,
+				6D8BB4061B2AD8D900F550B2 /* EventList.h */,
+				6D8BB4071B2AD8D900F550B2 /* EventList.m */,
+				6D8BB4081B2AD8D900F550B2 /* Image.h */,
+				6D8BB4091B2AD8D900F550B2 /* Image.m */,
+				6D8BB40A1B2AD8D900F550B2 /* ImageList.h */,
+				6D8BB40B1B2AD8D900F550B2 /* ImageList.m */,
+				6D8BB40C1B2AD8D900F550B2 /* Interests.h */,
+				6D8BB40D1B2AD8D900F550B2 /* Interests.m */,
+				6D8BB40E1B2AD8D900F550B2 /* School.h */,
+				6D8BB40F1B2AD8D900F550B2 /* School.m */,
+				6D8BB4101B2AD8D900F550B2 /* SchoolList.h */,
+				6D8BB4111B2AD8D900F550B2 /* SchoolList.m */,
+				6D8BB4121B2AD8D900F550B2 /* Subscription.h */,
+				6D8BB4131B2AD8D900F550B2 /* Subscription.m */,
+				6D8BB4141B2AD8D900F550B2 /* SubscriptionList.h */,
+				6D8BB4151B2AD8D900F550B2 /* SubscriptionList.m */,
+				6D8BB4161B2AD8D900F550B2 /* Teacher.h */,
+				6D8BB4171B2AD8D900F550B2 /* Teacher.m */,
+				6D8BB4181B2AD8D900F550B2 /* TeacherList.h */,
+				6D8BB4191B2AD8D900F550B2 /* TeacherList.m */,
+			);
+			name = unmanaged;
 			sourceTree = "<group>";
 		};
 		6DA172BD1B204FEE00595CA0 /* Products */ = {
@@ -251,6 +372,7 @@
 		6DFC4AB91B204D10009EE68E /* Sid-InApp */ = {
 			isa = PBXGroup;
 			children = (
+				6D8BB3CF1B2AD75500F550B2 /* services */,
 				4C5D9F5E1B20FB3400443C81 /* deprecated */,
 				4C5D9F571B20C85C00443C81 /* utils */,
 				6DFC4AE41B204DEF009EE68E /* resource */,
@@ -302,29 +424,10 @@
 		6DFC4AE11B204DB2009EE68E /* model */ = {
 			isa = PBXGroup;
 			children = (
-				6DA1730F1B20836A00595CA0 /* ImageContainer.h */,
-				6DA173101B20836A00595CA0 /* ImageContainer.m */,
-				6DA172F61B20554100595CA0 /* SubscriptionContainer.h */,
-				6DA172F71B20554100595CA0 /* SubscriptionContainer.m */,
-				6DA172ED1B20551400595CA0 /* TeacherContainer.h */,
-				6DA172EE1B20551400595CA0 /* TeacherContainer.m */,
-				6DA172EA1B20551400595CA0 /* SchoolContainer.h */,
-				6DA172EB1B20551400595CA0 /* SchoolContainer.m */,
-				6DA172E71B20551400595CA0 /* EventContainer.h */,
-				6DA172E81B20551400595CA0 /* EventContainer.m */,
-				6DA172E41B2054EF00595CA0 /* Teacher.h */,
-				6DA172E51B2054EF00595CA0 /* Teacher.m */,
-				6DA172E11B2054EE00595CA0 /* Interests.h */,
-				6DA172E21B2054EE00595CA0 /* Interests.m */,
-				6DA172DE1B2054EE00595CA0 /* Event.h */,
-				6DA172DF1B2054EE00595CA0 /* Event.m */,
-				6DA172DB1B2054EE00595CA0 /* School.h */,
-				6DA172DC1B2054EE00595CA0 /* School.m */,
-				6DA172D91B20547200595CA0 /* Sid-In.xcdatamodel */,
-				6F7DE5FD1B2986D200273173 /* Subscription.h */,
-				6F7DE5FE1B2986D200273173 /* Subscription.m */,
-				6F7A15811B26EADB00ED455A /* Image.h */,
-				6F7A15821B26EADB00ED455A /* Image.m */,
+				6D8BB3E01B2AD85F00F550B2 /* ModelMapping.h */,
+				6D8BB4251B2AD8DE00F550B2 /* unmanaged */,
+				6D8BB4031B2AD8C000F550B2 /* managed */,
+				6D8BB4261B2AD8EF00F550B2 /* Sid-InApp.xcdatamodeld */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -510,29 +613,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D8BB41B1B2AD8D900F550B2 /* EventList.m in Sources */,
+				6D8BB41D1B2AD8D900F550B2 /* ImageList.m in Sources */,
+				6D8BB41C1B2AD8D900F550B2 /* Image.m in Sources */,
+				6D8BB3F91B2AD8B800F550B2 /* EventEntityList.m in Sources */,
+				6D8BB4011B2AD8B800F550B2 /* TeacherEntityList.m in Sources */,
+				6D8BB41A1B2AD8D900F550B2 /* Event.m in Sources */,
+				6D8BB3FE1B2AD8B800F550B2 /* SchoolEntityList.m in Sources */,
+				6D8BB3DF1B2AD83800F550B2 /* PersistentStoreManager.m in Sources */,
+				6D8BB42E1B2ADB5600F550B2 /* ImageEntity.m in Sources */,
+				6D8BB41F1B2AD8D900F550B2 /* School.m in Sources */,
 				6DA173081B206A8C00595CA0 /* DepartementViewController.m in Sources */,
-				6DA173111B20836A00595CA0 /* ImageContainer.m in Sources */,
+				6D8BB4311B2ADB5700F550B2 /* SchoolEntity.m in Sources */,
 				6F7A15801B26E8E700ED455A /* GTMBAse64.m in Sources */,
-				6DA172E61B2054EF00595CA0 /* Teacher.m in Sources */,
-				6DA172E91B20551400595CA0 /* EventContainer.m in Sources */,
+				6D8BB43A1B2AE31E00F550B2 /* SubscriptionEntityList.m in Sources */,
+				6D8BB4211B2AD8D900F550B2 /* Subscription.m in Sources */,
+				6D8BB41E1B2AD8D900F550B2 /* Interests.m in Sources */,
+				6D8BB4341B2ADB5700F550B2 /* TeacherEntity.m in Sources */,
+				6D8BB4201B2AD8D900F550B2 /* SchoolList.m in Sources */,
 				6DA173141B208EFF00595CA0 /* StudentCheckInViewController.m in Sources */,
+				6D8BB3D81B2AD82D00F550B2 /* PersistentStack.m in Sources */,
+				6D8BB3DE1B2AD83800F550B2 /* SynchronizationService.m in Sources */,
+				6D8BB3FB1B2AD8B800F550B2 /* ImageEntityList.m in Sources */,
+				6D8BB3D71B2AD82D00F550B2 /* RestfulStack.m in Sources */,
+				6D8BB4371B2ADB5700F550B2 /* InterestsEntity.m in Sources */,
+				6D8BB42B1B2ADB3E00F550B2 /* EventEntity.m in Sources */,
+				6D8BB4281B2AD8EF00F550B2 /* Sid-InApp.xcdatamodeld in Sources */,
+				6D8BB4231B2AD8D900F550B2 /* Teacher.m in Sources */,
 				6F7A158E1B27097800ED455A /* CarouselViewController.m in Sources */,
 				6F1E452D1B28388100458A39 /* SchoolTableViewController.m in Sources */,
-				6F7A15831B26EADB00ED455A /* Image.m in Sources */,
-				6DA172E31B2054EE00595CA0 /* Interests.m in Sources */,
 				6DA1730B1B20772F00595CA0 /* LoginViewController.m in Sources */,
-				6DA172EC1B20551400595CA0 /* SchoolContainer.m in Sources */,
-				6DA172E01B2054EE00595CA0 /* Event.m in Sources */,
-				6DA172EF1B20551400595CA0 /* TeacherContainer.m in Sources */,
-				6DA172DD1B2054EE00595CA0 /* School.m in Sources */,
-				4C5D9F531B20C79300443C81 /* SidInUtils.m in Sources */,
 				6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */,
+				6D8BB4221B2AD8D900F550B2 /* SubscriptionList.m in Sources */,
+				6D8BB4241B2AD8D900F550B2 /* TeacherList.m in Sources */,
+				6D8BB3D91B2AD82D00F550B2 /* SidInUtils.m in Sources */,
 				4C5D9F5D1B20FB3100443C81 /* ViewController.m in Sources */,
-				6DA172DA1B20547200595CA0 /* Sid-In.xcdatamodel in Sources */,
-				6DA172F81B20554200595CA0 /* SubscriptionContainer.m in Sources */,
+				6D8BB4021B2AD8B800F550B2 /* SubscriptionEntity.m in Sources */,
 				6DA173171B208F0D00595CA0 /* StudentFormViewController.m in Sources */,
 				6DFC4ABD1B204D10009EE68E /* main.m in Sources */,
-				6F7DE5FF1B2986D200273173 /* Subscription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,6 +878,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6D8BB4261B2AD8EF00F550B2 /* Sid-InApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6D8BB4271B2AD8EF00F550B2 /* Sid-InApp.xcdatamodel */,
+			);
+			currentVersion = 6D8BB4271B2AD8EF00F550B2 /* Sid-InApp.xcdatamodel */;
+			path = "Sid-InApp.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6DFC4AAF1B204D10009EE68E /* Project object */;
 }
