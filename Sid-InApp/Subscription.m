@@ -39,7 +39,7 @@
                                                  @"streetNumber" : @"streetNumber",
                                                  @"zip" : @"zip",
                                                  @"city" : @"city",
-                                                 @"timeStamp" : @"timeStamp",
+                                                 @"timestamp" : @"timestamp",
                                                  @"new" : @"isNew",
                                                  }];
     
@@ -75,7 +75,7 @@
                                                  @"streetNumber" : @"streetNumber",
                                                  @"zip" : @"zip",
                                                  @"city" : @"city",
-                                                 @"timeStamp" : @"timeStamp",
+                                                 @"timestamp" : @"timestamp",
                                                  @"new" : @"isNew",
                                                  }];
     

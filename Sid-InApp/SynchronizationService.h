@@ -33,4 +33,7 @@
 -(void)postSubscription:(SubscriptionEntity *)subscription;
 -(void)pushNewSubscriptions;
 
+-(void)startSynchronization;
+-(void)stopSynchronization;
+
 @end

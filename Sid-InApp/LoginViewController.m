@@ -18,8 +18,8 @@
 #import "AppDelegate.h"
 @interface LoginViewController ()
 {
-    Teacher *teacher;
-    Event *event;
+    TeacherEntity *teacher;
+    EventEntity *event;
 }
 
 @property (weak, nonatomic) IBOutlet UIPickerView *teacherPicker;

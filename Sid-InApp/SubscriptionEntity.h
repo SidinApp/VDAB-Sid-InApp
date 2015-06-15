@@ -1,9 +1,9 @@
 //
 //  SubscriptionEntity.h
-//  Sid-In App Data Model
+//  Sid-InApp
 //
-//  Created by Bert Remmerie on 11/06/15.
-//  Copyright (c) 2015 EhB.be. All rights reserved.
+//  Created by  on 15/06/15.
+//  Copyright (c) 2015 Ehb.be. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -21,7 +21,7 @@
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSString * street;
 @property (nonatomic, retain) NSString * streetNumber;
-@property (nonatomic, retain) NSNumber * timeStamp;
+@property (nonatomic, retain) NSNumber * timestamp;
 @property (nonatomic, retain) NSString * zip;
 @property (nonatomic, retain) EventEntity *event;
 @property (nonatomic, retain) InterestsEntity *interests;

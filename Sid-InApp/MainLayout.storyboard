@@ -8,7 +8,7 @@
         <!--Departement View Controller-->
         <scene sceneID="Cal-gZ-Hkw">
             <objects>
-                <viewController id="vjF-3y-hFR" customClass="DepartementViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="departementVC" id="vjF-3y-hFR" customClass="DepartementViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fyh-CE-wHH"/>
                         <viewControllerLayoutGuide type="bottom" id="9E7-iF-Hvv"/>
@@ -56,7 +56,7 @@
         <!--InlogScreen-->
         <scene sceneID="ts8-PL-Ufe">
             <objects>
-                <viewController title="InlogScreen" id="7Ao-L4-Rgs" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" title="InlogScreen" id="7Ao-L4-Rgs" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8zm-tl-ATL"/>
                         <viewControllerLayoutGuide type="bottom" id="SRG-r7-TKf"/>
@@ -159,7 +159,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7xX-ht-lki">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KLOOTZAK!!!!!!!!!!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDK-8I-cIg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IETS ANDERS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDK-8I-cIg">
                                 <rect key="frame" x="212" y="232" width="367" height="163"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="49"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

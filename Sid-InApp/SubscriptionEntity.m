@@ -1,9 +1,9 @@
 //
 //  SubscriptionEntity.m
-//  Sid-In App Data Model
+//  Sid-InApp
 //
-//  Created by Bert Remmerie on 11/06/15.
-//  Copyright (c) 2015 EhB.be. All rights reserved.
+//  Created by  on 15/06/15.
+//  Copyright (c) 2015 Ehb.be. All rights reserved.
 //
 
 #import "SubscriptionEntity.h"
@@ -23,7 +23,7 @@
 @dynamic lastName;
 @dynamic street;
 @dynamic streetNumber;
-@dynamic timeStamp;
+@dynamic timestamp;
 @dynamic zip;
 @dynamic event;
 @dynamic interests;

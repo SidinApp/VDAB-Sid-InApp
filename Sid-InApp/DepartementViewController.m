@@ -42,6 +42,9 @@
 //    s.firstName = @"test";
     
 //    NSLog(@"Ophalen van de departementale data: %@", succesResult);
+    
+    // test synchronization
+//    [self.synchronizationService startSynchronization];
 }
 
 - (void)didReceiveMemoryWarning {

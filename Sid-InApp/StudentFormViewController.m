@@ -203,6 +203,12 @@
         } else {
             interests.multec = [NSNumber numberWithInt:0];
         }
+        
+        if (swWorkStudent.on) {
+            interests.werkstudent = [NSNumber numberWithInt:1];
+        } else {
+            interests.werkstudent = [NSNumber numberWithInt:0];
+        }
     }
     
     sub.interests = interests;
@@ -271,14 +277,14 @@
     sub.event = self.event;
     
     //--------------isNew------------------------------------------------------------
-    sub.isNew = [NSNumber numberWithInt:1];
+//    sub.isNew = [NSNumber numberWithInt:1];
     
     //---------------Timestamp-------------------------------------------------------
     
     NSDate *dateNow = [NSDate date];
     long timeStamp = (long) ([dateNow timeIntervalSince1970]*1000.0);
     //NSDate *fromLong = [NSDate dateWithTimeIntervalSince1970:timeStamp/1000];
-    sub.timeStamp = [NSNumber numberWithLong:timeStamp];
+    sub.timestamp = [NSNumber numberWithLong:timeStamp];
 
     
     
@@ -289,7 +295,16 @@
 //        NSError *error;
 //        [managedObjectContext saveToPersistentStore:&error];
         
-        [self.synchronizationService.persistentStoreManager save:sub];
+//        [self.synchronizationService.persistentStoreManager save:sub];
+//        sub.id = nil;
+        sub.isNew = [NSNumber numberWithBool:NO];
+        
+//        sub.isNew = @NO;
+        
+//        NSLog(@"SUB %@", sub.isNew);
+//        sub.isNew = nil;
+        [self.synchronizationService postSubscription:sub];
+//        NSLog(@"SUB %@", sub.isNew);
         
         StudentCheckInViewController *cvc = (StudentCheckInViewController *)self.presentingViewController;
         cvc.lblSuccess.text = @"Successfully saved!";

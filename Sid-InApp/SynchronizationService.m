@@ -26,6 +26,8 @@
 @property (nonatomic, strong, readwrite) RestfulStack *restfulStack;
 @property (nonatomic, strong, readwrite) PersistentStoreManager *persistentStoreManager;
 
+@property (nonatomic, strong) NSTimer *timer;
+
 @end
 
 @implementation SynchronizationService
@@ -68,10 +70,15 @@
     [self.restfulStack createAndAddResponseDescriptor:mapping method:RKRequestMethodGET pathPattern:path];
     
     [self.restfulStack.objectManager getObjectsAtPath:path parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        // do something when 
+        // do something when
+        NSLog(@"Entiteiten zijn opgehaald");
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         RKLogError(@"Er is een error opgetreden tijdens het laden: %@", error);
     }];
+    
+//    [self.restfulStack.objectManager getObjectsAtPath:path parameters:nil success:nil failure:nil];
+    
+    
 }
 
 -(void)pullEvents{
@@ -91,7 +98,28 @@
 
 -(void)pullImages{
     
+    // 1
     [self pullEntities:[ImageList createEntityMapping:self.restfulStack.managedObjectStore] pathPattern:IMAGE_URL_PATTERN];
+    
+    // 2
+//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", BASE_SERVICE_URL, IMAGE_URL_PATTERN]]];
+//    
+//    RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[[self.restfulStack createResponseDescriptor:[ImageList createEntityMapping:self.restfulStack.managedObjectStore] method:RKRequestMethodGET pathPattern:IMAGE_URL_PATTERN]]];
+//    operation.managedObjectContext = self.restfulStack.managedObjectStore.mainQueueManagedObjectContext;
+//    operation.managedObjectCache = self.restfulStack.managedObjectStore.managedObjectCache;
+//    [operation setCompletionBlockWithSuccess:nil
+//                                     failure:nil];
+//    NSOperationQueue *operationQueue = [NSOperationQueue new];
+//    [operationQueue addOperation:operation];
+//    operation.successCallbackQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+//    operation.failureCallbackQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+    
+//    [self.restfulStack.objectManager enqueueObjectRequestOperation:operation];
+    
+    
+    // 3
+//    NSURLRequest *request = [self.restfulStack.objectManager requestWithObject:[Im] method:RKRequestMethodGET path:IMAGE_URL_PATTERN parameters:nil];
+    
 }
 
 -(void)pullSubscriptions{
@@ -102,32 +130,48 @@
 
 -(void)postSubscription:(SubscriptionEntity *)subscription{
     
-//    subscription.id = nil;
+    subscription.id = nil;
+    
+    __block SubscriptionEntity *subscriptionModified = subscription;
     
     RKEntityMapping *subscriptionEntityMapping = [Subscription createEntityMapping:self.restfulStack.managedObjectStore];
     
-    [self.restfulStack createAndAddResponseDescriptor:subscriptionEntityMapping method:RKRequestMethodPOST pathPattern:SUBSCRIPTION_ID_URL_PATTERN];
+    [self.restfulStack createAndAddResponseDescriptor:subscriptionEntityMapping method:RKRequestMethodPOST pathPattern:SUBSCRIPTION_URL_PATTERN];
     
     [self.restfulStack createAndAddRequestDescriptor:[subscriptionEntityMapping inverseMapping] objectClass:[SubscriptionEntity class] method:RKRequestMethodPOST];
     
-    [self.restfulStack.objectManager setRequestSerializationMIMEType:RKMIMETypeJSON];
+   // [self.restfulStack.objectManager setRequestSerializationMIMEType:RKMIMETypeJSON];
     [self.restfulStack.objectManager setAcceptHeaderWithMIMEType:RKMIMETypeJSON];
     
-    [self.restfulStack.objectManager postObject:subscription path:SUBSCRIPTION_ID_URL_PATTERN parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+    
+    [self.restfulStack.objectManager postObject:subscription path:SUBSCRIPTION_URL_PATTERN parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         // subscription isNew = false + opslaan
         
-        NSArray *result = [self.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"id==%@", subscription.id] forEntity:[Subscription entityName]];
+//        NSArray *result = [self.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"id==%@", subscription.id] forEntity:[Subscription entityName]];
+//        
+//        SubscriptionEntity *subscriptionEntity = nil;
+//        
+//        if ([result count] != 0) {
+//            subscriptionEntity = [result objectAtIndex:0];
+//            subscriptionEntity.isNew = [NSNumber numberWithInt:0];
+//            [self.persistentStoreManager save:subscriptionEntity];
+//        }
         
-        SubscriptionEntity *subscriptionEntity = nil;
+//        subscriptionModified.isNew = [NSNumber numberWithInt:0];
+//        subscriptionModified.isNew = @NO;
+//        [self.persistentStoreManager save];
         
-        if ([result count] != 0) {
-            subscriptionEntity = [result objectAtIndex:0];
-            subscriptionEntity.isNew = 0;
-            [self.persistentStoreManager save:subscriptionEntity];
-        }
+//        NSLog(@"SUB MOD %@", subscriptionModified.isNew);
         
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        // subscription isNew = true
+        // subscription isNew = true + opslaan
+        
+//        subscriptionModified.isNew = [NSNumber numberWithInt:1];
+        
+//        subscriptionModified.isNew = @NO;
+//         NSLog(@"SUB MOD %@", subscriptionModified.isNew);
+        
+        [self.persistentStoreManager save];
     }];
 }
 
@@ -147,6 +191,49 @@
             [self postSubscription:subscriptionEntity];
         }
     }
+}
+
+-(void)startSynchronization{
+    
+    
+    
+    
+//    [self.restfulStack.objectManager.HTTPClient setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+//        if (status == AFNetworkReachabilityStatusNotReachable) {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
+//                                                            message:@"You must be connected to the internet to use this app."
+//                                                           delegate:nil
+//                                                  cancelButtonTitle:@"OK"
+//                                                  otherButtonTitles:nil];
+//            [alert show];
+//        }
+//    }]
+    
+    [self initializeTimer];
+    
+}
+
+-(void)stopSynchronization{
+    [self.timer invalidate];
+}
+
+-(void)synchronize{
+//    [self pushNewSubscriptions];
+//    [self pullSubscriptions];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"SYNC START" message:@"synchronizing" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+//    [alert show];
+    NSLog(@"START SYNC");
+    [self resetTimer];
+}
+
+-(void)initializeTimer{
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(synchronize) userInfo:nil repeats:NO];
+}
+
+-(void)resetTimer{
+    [self.timer invalidate];
+    [self initializeTimer];
+    
 }
 
 

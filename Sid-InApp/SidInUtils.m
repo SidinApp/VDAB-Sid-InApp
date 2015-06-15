@@ -21,8 +21,8 @@ NSString *const DATAMODEL_NAME = @"Sid-InApp";
 
 NSString *const DEPARTEMENT_SERVICE_URL = @"UNKNOWN";
 
-
-NSString *const BASE_SERVICE_URL = @"http://vdabsidin3.appspot.com";
+// van 3 naar 4 vdabsidin
+NSString *const BASE_SERVICE_URL = @"http://vdabsidin4.appspot.com";
 
 
 NSString *const TEACHER = @"TeacherEntity";
@@ -50,7 +50,7 @@ NSString *const EVENTS_ACADYEAR_URL_PATTERN = @"/rest/events/:acadyear";
 
 NSString *const EVENTS_GET_ROUTE = @"events_get_route";
 NSString *const EVENTS_GET_ACADYEAR_ROUTE = @"events_get_acadyear_route";
-NSString *const EVENT_POST_ROUTE = @"teacher_post_route";
+NSString *const EVENT_POST_ROUTE = @"event_post_route";
 NSString *const EVENT_GET_ID_ROUTE = @"event_get_id_route";
 NSString *const EVENT_DELETE_ID_ROUTE = @"event_delete_id_route";
 

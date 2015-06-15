@@ -10,6 +10,7 @@
 #import "SidInUtils.h"
 
 #import "DepartementViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 {
@@ -30,16 +31,29 @@
     [self setStatusBarStyle];
     
     // RESTKIT + CORE DATA
-    [self initializeStacks];
+    [self initializeStacks];   
+    
+//    [self.synchronizationService startSynchronization];
     
     // seed persistent store from back-end
     [self.synchronizationService initializePersistentStoreFromBackEnd];
     
-    DepartementViewController *viewController = (DepartementViewController *)[self.window rootViewController];
     
-    viewController.synchronizationService = self.synchronizationService;
     
-    NSLog(@"%@", [viewController class]);
+    NSString *storyboardIdDep = @"departementVC";
+    NSString *storyboardIdLogin = @"loginVC";
+    
+    BOOL appIsInitialized = NO;
+    
+    if (!appIsInitialized) {
+        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:storyboardIdDep];
+        DepartementViewController *viewController = (DepartementViewController *)[self.window rootViewController];
+        viewController.synchronizationService = self.synchronizationService;
+    } else {
+        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:storyboardIdLogin];
+        LoginViewController *viewController = (LoginViewController *)[self.window rootViewController];
+        viewController.synchronizationService = self.synchronizationService;
+    }
     
     return YES;
 }
@@ -75,7 +89,7 @@
 
 -(void)initializeStacks{
     
-    [self enableLogging];
+//    [self enableLogging];
     
     NSURL *storeURL = [self createStoreURL:DATABASE_NAME];
     NSURL *modelURL = [self createModelURL:DATAMODEL_NAME];
