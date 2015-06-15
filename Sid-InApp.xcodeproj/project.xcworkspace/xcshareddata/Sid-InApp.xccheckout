@@ -7,13 +7,13 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>5D88303B-943B-46CA-B00E-2DF7CB55758C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Sid-InApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>47A63E07BF2C4AE0426F985EBA351C687092A209</key>
 		<string>https://github.com/blakewatters/TransitionKit.git</string>
 		<key>606F372E51CE72F1B5DC916D96E5703ED0A02CB3</key>
-		<string>github.com:SidinApp/VDAB-Sid-InApp.git</string>
+		<string>https://github.com/SidinApp/VDAB-Sid-InApp.git</string>
 		<key>822670D72DA6CB3E094E900F0D31C5A6027736AD</key>
 		<string>https://github.com/blakewatters/ISO8601DateFormatterValueTransformer.git</string>
 		<key>B4A2CA0E82E9AE44702AB02729DCFB235C2643C9</key>
@@ -26,7 +26,7 @@
 		<string>https://github.com/AFNetworking/AFNetworking.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Sid-InApp.xcodeproj/project.xcworkspace</string>
+	<string>Sid-InApp.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>47A63E07BF2C4AE0426F985EBA351C687092A209</key>
@@ -45,7 +45,7 @@
 		<string>../..RestKit/Vendor/AFNetworking/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:SidinApp/VDAB-Sid-InApp.git</string>
+	<string>https://github.com/SidinApp/VDAB-Sid-InApp.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -88,14 +88,6 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>606F372E51CE72F1B5DC916D96E5703ED0A02CB3</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Sid-InApp_robrecht</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>C80A0DCE7BA5516950B5677592E44706A6FDF392</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SOCKit</string>
@@ -107,6 +99,14 @@
 			<string>47A63E07BF2C4AE0426F985EBA351C687092A209</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TransitionKit</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>606F372E51CE72F1B5DC916D96E5703ED0A02CB3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>VDAB-Sid-InApp</string>
 		</dict>
 	</array>
 </dict>
