@@ -372,6 +372,7 @@
 		6DFC4AB91B204D10009EE68E /* Sid-InApp */ = {
 			isa = PBXGroup;
 			children = (
+				6DFC4AE01B204DAE009EE68E /* appStart */,
 				6D8BB3CF1B2AD75500F550B2 /* services */,
 				4C5D9F5E1B20FB3400443C81 /* deprecated */,
 				4C5D9F571B20C85C00443C81 /* utils */,
@@ -379,7 +380,6 @@
 				6DFC4AE31B204DCC009EE68E /* view */,
 				6DFC4AE21B204DB5009EE68E /* controller */,
 				6DFC4AE11B204DB2009EE68E /* model */,
-				6DFC4AE01B204DAE009EE68E /* appStart */,
 				6DFC4ABA1B204D10009EE68E /* Supporting Files */,
 			);
 			path = "Sid-InApp";
