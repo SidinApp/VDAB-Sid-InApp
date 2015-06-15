@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4C5D9F591B20CD4100443C81 /* MainLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D9F581B20CD4100443C81 /* MainLayout.storyboard */; };
 		4C5D9F5D1B20FB3100443C81 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D9F5C1B20FB3100443C81 /* ViewController.m */; };
+		684639591B2EC322008D59F9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 684639581B2EC322008D59F9 /* Images.xcassets */; };
 		6D8BB3D71B2AD82D00F550B2 /* RestfulStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3D21B2AD82D00F550B2 /* RestfulStack.m */; };
 		6D8BB3D81B2AD82D00F550B2 /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3D41B2AD82D00F550B2 /* PersistentStack.m */; };
 		6D8BB3D91B2AD82D00F550B2 /* SidInUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3D61B2AD82D00F550B2 /* SidInUtils.m */; };
@@ -53,7 +54,6 @@
 		6DA173171B208F0D00595CA0 /* StudentFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173161B208F0D00595CA0 /* StudentFormViewController.m */; };
 		6DFC4ABD1B204D10009EE68E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABC1B204D10009EE68E /* main.m */; };
 		6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABF1B204D10009EE68E /* AppDelegate.m */; };
-		6DFC4AC81B204D10009EE68E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC71B204D10009EE68E /* Images.xcassets */; };
 		6DFC4ACB1B204D10009EE68E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC91B204D10009EE68E /* LaunchScreen.xib */; };
 		6DFC4AD71B204D10009EE68E /* Sid_InAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */; };
 		6F1E452D1B28388100458A39 /* SchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E452C1B28388100458A39 /* SchoolTableViewController.m */; };
@@ -110,6 +110,7 @@
 		4C5D9F581B20CD4100443C81 /* MainLayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainLayout.storyboard; sourceTree = "<group>"; };
 		4C5D9F5B1B20FB3100443C81 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4C5D9F5C1B20FB3100443C81 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		684639581B2EC322008D59F9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6D8BB3D01B2AD81600F550B2 /* Dao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dao.h; sourceTree = "<group>"; };
 		6D8BB3D11B2AD82D00F550B2 /* RestfulStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestfulStack.h; sourceTree = "<group>"; };
 		6D8BB3D21B2AD82D00F550B2 /* RestfulStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestfulStack.m; sourceTree = "<group>"; };
@@ -191,7 +192,6 @@
 		6DFC4ABC1B204D10009EE68E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6DFC4ABE1B204D10009EE68E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6DFC4ABF1B204D10009EE68E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6DFC4AC71B204D10009EE68E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6DFC4ACA1B204D10009EE68E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6DFC4AD01B204D10009EE68E /* Sid-InAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sid-InAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFC4AD51B204D10009EE68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -464,8 +464,8 @@
 		6DFC4AE41B204DEF009EE68E /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				684639581B2EC322008D59F9 /* Images.xcassets */,
 				6DA172FF1B20590B00595CA0 /* images */,
-				6DFC4AC71B204D10009EE68E /* Images.xcassets */,
 			);
 			name = resource;
 			sourceTree = "<group>";
@@ -591,7 +591,7 @@
 			files = (
 				6DFC4ACB1B204D10009EE68E /* LaunchScreen.xib in Resources */,
 				6DA173031B20592100595CA0 /* bg_depcode.jpg in Resources */,
-				6DFC4AC81B204D10009EE68E /* Images.xcassets in Resources */,
+				684639591B2EC322008D59F9 /* Images.xcassets in Resources */,
 				4C5D9F591B20CD4100443C81 /* MainLayout.storyboard in Resources */,
 				6DA172FE1B2058D100595CA0 /* Main.storyboard in Resources */,
 				6DA173041B20592100595CA0 /* bg_checkin.jpg in Resources */,
