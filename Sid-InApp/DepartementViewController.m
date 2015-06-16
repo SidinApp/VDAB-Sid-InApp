@@ -17,6 +17,8 @@
 
 @interface DepartementViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *tfSecret;
+
 @end
 
 @implementation DepartementViewController
@@ -45,6 +47,8 @@
     
     // test synchronization
 //    [self.synchronizationService startSynchronization];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +56,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)startAppBtn:(UIButton *)sender {
+    
+    [self.appStart initializeApp:self.tfSecret.text];
+    
+    if ([self.appStart hasBeenInitialized]) {
+        [self performSegueWithIdentifier:@"modalSegueToLogin" sender:sender];
+    } else {
+        // popover: verkeerde code
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Departementale Code"
+                                                                                          message:@"Een foute code werd ingegeven. Probeer opnieuw."
+                                                                                         delegate:self
+                                                                                cancelButtonTitle:nil
+                                                                                otherButtonTitles:@"Ok", nil];
+        
+        alert.tag = 100;
+        
+        [alert show];
+        
+    }
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (alertView.tag == 100) {
+        self.tfSecret.text = @"";
+        self.tfSecret.layer.borderColor =[[UIColor redColor]CGColor];
+        self.tfSecret.layer.borderWidth = 1.0f;
+    }    
+}
 
 ///*
 #pragma mark - Navigation

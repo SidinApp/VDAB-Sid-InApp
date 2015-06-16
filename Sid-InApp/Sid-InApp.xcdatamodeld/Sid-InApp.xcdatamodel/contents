@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="DepartementaleCodeEntity" representedClassName="DepartementaleCodeEntity" syncable="YES">
-        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="naam" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <entity name="EventEntity" representedClassName="EventEntity" syncable="YES">
         <attribute name="acadyear" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -26,6 +21,10 @@
         <attribute name="multec" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="werkstudent" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
+    <entity name="RestEntity" representedClassName="RestEntity" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="SchoolEntity" representedClassName="SchoolEntity" syncable="YES">
         <attribute name="gemeente" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -36,6 +35,7 @@
         <relationship name="schools" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SchoolEntity" syncable="YES"/>
     </entity>
     <entity name="SubscriptionEntity" representedClassName="SubscriptionEntity" syncable="YES">
+        <attribute name="acadyear" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
@@ -70,10 +70,10 @@
         <element name="InterestsEntity" positionX="-18" positionY="27" width="128" height="90"/>
         <element name="SchoolEntity" positionX="9" positionY="54" width="128" height="105"/>
         <element name="SchoolEntityList" positionX="0" positionY="45" width="128" height="60"/>
-        <element name="SubscriptionEntity" positionX="-36" positionY="9" width="128" height="255"/>
+        <element name="SubscriptionEntity" positionX="-36" positionY="9" width="128" height="270"/>
         <element name="SubscriptionEntityList" positionX="-54" positionY="-9" width="128" height="60"/>
         <element name="TeacherEntity" positionX="-9" positionY="36" width="128" height="90"/>
         <element name="TeacherEntityList" positionX="36" positionY="81" width="128" height="60"/>
-        <element name="DepartementaleCodeEntity" positionX="-9" positionY="108" width="128" height="90"/>
+        <element name="RestEntity" positionX="-9" positionY="117" width="128" height="75"/>
     </elements>
 </model>

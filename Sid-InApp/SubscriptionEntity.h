@@ -2,7 +2,7 @@
 //  SubscriptionEntity.h
 //  Sid-InApp
 //
-//  Created by  on 15/06/15.
+//  Created by  on 16/06/15.
 //  Copyright (c) 2015 Ehb.be. All rights reserved.
 //
 
@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSString * streetNumber;
 @property (nonatomic, retain) NSNumber * timestamp;
 @property (nonatomic, retain) NSString * zip;
+@property (nonatomic, retain) NSNumber * acadyear;
 @property (nonatomic, retain) EventEntity *event;
 @property (nonatomic, retain) InterestsEntity *interests;
 @property (nonatomic, retain) SchoolEntity *school;

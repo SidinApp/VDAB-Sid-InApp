@@ -40,6 +40,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // inloggen backend
+    
+    // seed persistent store from back-end
+    //    [self.synchronizationService initializePersistentStoreFromBackEnd];
+    
     [self fetchTeachersFromContext];
     [self fetchEventsFromContext];
     

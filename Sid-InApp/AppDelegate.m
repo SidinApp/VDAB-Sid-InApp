@@ -31,14 +31,31 @@
     [self setStatusBarStyle];
     
     // RESTKIT + CORE DATA
-    [self initializeStacks];   
+//    [self initializeStacks];   
     
 //    [self.synchronizationService startSynchronization];
     
     // seed persistent store from back-end
-    [self.synchronizationService initializePersistentStoreFromBackEnd];
+//    [self.synchronizationService initializePersistentStoreFromBackEnd];
+    
+    // ==================================================================
+    /*
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://deptcodes.appspot.com/deptcode/secret3"]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
     
     
+    NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    NSString* newStr = [[NSString alloc] initWithData:response1
+                                             encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", newStr);
+    
+    // ==================================================================
     
     NSString *storyboardIdDep = @"departementVC";
     NSString *storyboardIdLogin = @"loginVC";
@@ -54,6 +71,29 @@
         LoginViewController *viewController = (LoginViewController *)[self.window rootViewController];
         viewController.synchronizationService = self.synchronizationService;
     }
+    */
+    
+    self.appStart = [[AppStart alloc] init];
+    
+    if ([self.appStart hasBeenInitialized]) {
+        
+        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+        LoginViewController *viewController = (LoginViewController *)[self.window rootViewController];
+        [self.appStart setBaseURL];
+        [self.appStart initializeRestfulStack:BASE_SERVICE_URL];
+        [self.appStart initializeSynchronizationService];
+        [self.appStart.synchronizationService initializePersistentStoreFromBackEnd];
+        viewController.synchronizationService = self.synchronizationService;
+        
+    } else {
+        
+        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"departementVC"];
+        DepartementViewController *viewController = (DepartementViewController *)[self.window rootViewController];
+        viewController.appStart = self.appStart;
+        
+        // verdere initializatie in departementVC
+    }
+    
     
     return YES;
 }
@@ -89,7 +129,7 @@
 
 -(void)initializeStacks{
     
-//    [self enableLogging];
+    [self enableLogging];
     
     NSURL *storeURL = [self createStoreURL:DATABASE_NAME];
     NSURL *modelURL = [self createModelURL:DATAMODEL_NAME];

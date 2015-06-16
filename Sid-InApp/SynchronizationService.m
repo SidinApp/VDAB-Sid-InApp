@@ -59,7 +59,7 @@
     [self pullTeachers];
     [self pullSchools];
     [self pullSubscriptions];
-    [self pullImages];
+//    [self pullImages];
 }
 
 -(void)pullEntities:(RKMapping *)mapping pathPattern:(NSString *)path{
@@ -140,8 +140,12 @@
     
     [self.restfulStack createAndAddRequestDescriptor:[subscriptionEntityMapping inverseMapping] objectClass:[SubscriptionEntity class] method:RKRequestMethodPOST];
     
-   // [self.restfulStack.objectManager setRequestSerializationMIMEType:RKMIMETypeJSON];
+    [self.restfulStack.objectManager setRequestSerializationMIMEType:RKMIMETypeJSON];
     [self.restfulStack.objectManager setAcceptHeaderWithMIMEType:RKMIMETypeJSON];
+    
+    // http://stackoverflow.com/questions/19583395/restkit-error-on-get-operation
+//    [RKMIMETypeSerialization registerClass:[RKXMLReaderSerialization class] forMIMEType:RKMIMETypeTextXML];
+//    [objectManager setAcceptHeaderWithMIMEType:@"text/xml"];
     
     
     [self.restfulStack.objectManager postObject:subscription path:SUBSCRIPTION_URL_PATTERN parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
@@ -234,6 +238,38 @@
     [self.timer invalidate];
     [self initializeTimer];
     
+}
+
+-(NSArray *)subscriptionsByDate:(NSDate *)date{
+    
+    NSDate *today = [self convertToDateWithoutTime:date];
+    
+    NSArray *subscriptions = [self.persistentStoreManager fetchAll:[Subscription entityName]];
+    
+    NSMutableArray *results = [[NSMutableArray alloc] init];
+    
+    for (SubscriptionEntity *subscription in subscriptions) {
+        NSDate *dateSubscription = [self convertLongToDate:(long)subscription.timestamp];
+        if ([today isEqualToDate:dateSubscription]) {
+            [results addObject:subscription];
+        }
+    }
+    
+    return results;
+}
+
+-(NSDate *)convertLongToDate:(long)longDate{
+    return [NSDate dateWithTimeIntervalSince1970:longDate / 1000];
+}
+
+-(NSDate *)convertToDateWithoutTime:(NSDate *)date{
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    unsigned units = NSYearCalendarUnit | NSMoviesDirectory | NSDayCalendarUnit;
+    NSDateComponents *components = [calendar components:units fromDate:date];
+    NSDate *dateOnly = [calendar dateFromComponents:components];
+    [dateOnly dateByAddingTimeInterval:(60 * 60 * 12)];
+    return dateOnly;
 }
 
 

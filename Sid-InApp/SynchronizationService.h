@@ -36,4 +36,5 @@
 -(void)startSynchronization;
 -(void)stopSynchronization;
 
+-(NSArray *)subscriptionsByDate:(NSDate *)date;
 @end

@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		4C5D9F591B20CD4100443C81 /* MainLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D9F581B20CD4100443C81 /* MainLayout.storyboard */; };
 		4C5D9F5D1B20FB3100443C81 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D9F5C1B20FB3100443C81 /* ViewController.m */; };
-		6D07B9A81B2EFE1E00F989A1 /* DepartementaleCodeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07B9A71B2EFE1E00F989A1 /* DepartementaleCodeEntity.m */; };
-		6D07B9B41B2F1BCC00F989A1 /* SubscriptionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07B9B31B2F1BCC00F989A1 /* SubscriptionEntity.m */; };
+		6D77FA331B303BB60039EC18 /* SubscriptionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D77FA321B303BB60039EC18 /* SubscriptionEntity.m */; };
+		6D77FA391B3043150039EC18 /* AppStart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D77FA381B3043150039EC18 /* AppStart.m */; };
+		6D77FA3C1B30480A0039EC18 /* RestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D77FA3B1B30480A0039EC18 /* RestEntity.m */; };
 		6D8BB3D71B2AD82D00F550B2 /* RestfulStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3D21B2AD82D00F550B2 /* RestfulStack.m */; };
 		6D8BB3D81B2AD82D00F550B2 /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3D41B2AD82D00F550B2 /* PersistentStack.m */; };
 		6D8BB3D91B2AD82D00F550B2 /* SidInUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3D61B2AD82D00F550B2 /* SidInUtils.m */; };
@@ -111,10 +112,12 @@
 		4C5D9F581B20CD4100443C81 /* MainLayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainLayout.storyboard; sourceTree = "<group>"; };
 		4C5D9F5B1B20FB3100443C81 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4C5D9F5C1B20FB3100443C81 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		6D07B9A61B2EFE1E00F989A1 /* DepartementaleCodeEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartementaleCodeEntity.h; sourceTree = "<group>"; };
-		6D07B9A71B2EFE1E00F989A1 /* DepartementaleCodeEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartementaleCodeEntity.m; sourceTree = "<group>"; };
-		6D07B9B21B2F1BCC00F989A1 /* SubscriptionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionEntity.h; sourceTree = "<group>"; };
-		6D07B9B31B2F1BCC00F989A1 /* SubscriptionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionEntity.m; sourceTree = "<group>"; };
+		6D77FA311B303BB60039EC18 /* SubscriptionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionEntity.h; sourceTree = "<group>"; };
+		6D77FA321B303BB60039EC18 /* SubscriptionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionEntity.m; sourceTree = "<group>"; };
+		6D77FA371B3043150039EC18 /* AppStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStart.h; sourceTree = "<group>"; };
+		6D77FA381B3043150039EC18 /* AppStart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStart.m; sourceTree = "<group>"; };
+		6D77FA3A1B30480A0039EC18 /* RestEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestEntity.h; sourceTree = "<group>"; };
+		6D77FA3B1B30480A0039EC18 /* RestEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestEntity.m; sourceTree = "<group>"; };
 		6D8BB3D01B2AD81600F550B2 /* Dao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dao.h; sourceTree = "<group>"; };
 		6D8BB3D11B2AD82D00F550B2 /* RestfulStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestfulStack.h; sourceTree = "<group>"; };
 		6D8BB3D21B2AD82D00F550B2 /* RestfulStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestfulStack.m; sourceTree = "<group>"; };
@@ -265,6 +268,8 @@
 				6D8BB3DB1B2AD83700F550B2 /* SynchronizationService.m */,
 				6D8BB3DC1B2AD83700F550B2 /* PersistentStoreManager.h */,
 				6D8BB3DD1B2AD83700F550B2 /* PersistentStoreManager.m */,
+				6D77FA371B3043150039EC18 /* AppStart.h */,
+				6D77FA381B3043150039EC18 /* AppStart.m */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -292,10 +297,10 @@
 				6D8BB4331B2ADB5700F550B2 /* TeacherEntity.m */,
 				6D8BB3F41B2AD8B800F550B2 /* TeacherEntityList.h */,
 				6D8BB3F51B2AD8B800F550B2 /* TeacherEntityList.m */,
-				6D07B9A61B2EFE1E00F989A1 /* DepartementaleCodeEntity.h */,
-				6D07B9A71B2EFE1E00F989A1 /* DepartementaleCodeEntity.m */,
-				6D07B9B21B2F1BCC00F989A1 /* SubscriptionEntity.h */,
-				6D07B9B31B2F1BCC00F989A1 /* SubscriptionEntity.m */,
+				6D77FA311B303BB60039EC18 /* SubscriptionEntity.h */,
+				6D77FA321B303BB60039EC18 /* SubscriptionEntity.m */,
+				6D77FA3A1B30480A0039EC18 /* RestEntity.h */,
+				6D77FA3B1B30480A0039EC18 /* RestEntity.m */,
 			);
 			name = managed;
 			sourceTree = "<group>";
@@ -630,6 +635,7 @@
 				6D8BB41F1B2AD8D900F550B2 /* School.m in Sources */,
 				6DA173081B206A8C00595CA0 /* DepartementViewController.m in Sources */,
 				6D8BB4311B2ADB5700F550B2 /* SchoolEntity.m in Sources */,
+				6D77FA391B3043150039EC18 /* AppStart.m in Sources */,
 				6F7A15801B26E8E700ED455A /* GTMBAse64.m in Sources */,
 				6D8BB43A1B2AE31E00F550B2 /* SubscriptionEntityList.m in Sources */,
 				6D8BB4211B2AD8D900F550B2 /* Subscription.m in Sources */,
@@ -641,9 +647,8 @@
 				6D8BB3DE1B2AD83800F550B2 /* SynchronizationService.m in Sources */,
 				6D8BB3FB1B2AD8B800F550B2 /* ImageEntityList.m in Sources */,
 				6D8BB3D71B2AD82D00F550B2 /* RestfulStack.m in Sources */,
-				6D07B9B41B2F1BCC00F989A1 /* SubscriptionEntity.m in Sources */,
+				6D77FA331B303BB60039EC18 /* SubscriptionEntity.m in Sources */,
 				6D8BB4371B2ADB5700F550B2 /* InterestsEntity.m in Sources */,
-				6D07B9A81B2EFE1E00F989A1 /* DepartementaleCodeEntity.m in Sources */,
 				6D8BB42B1B2ADB3E00F550B2 /* EventEntity.m in Sources */,
 				6D8BB4281B2AD8EF00F550B2 /* Sid-InApp.xcdatamodeld in Sources */,
 				6D8BB4231B2AD8D900F550B2 /* Teacher.m in Sources */,
@@ -652,6 +657,7 @@
 				6DA1730B1B20772F00595CA0 /* LoginViewController.m in Sources */,
 				6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */,
 				6D8BB4221B2AD8D900F550B2 /* SubscriptionList.m in Sources */,
+				6D77FA3C1B30480A0039EC18 /* RestEntity.m in Sources */,
 				6D8BB4241B2AD8D900F550B2 /* TeacherList.m in Sources */,
 				6D8BB3D91B2AD82D00F550B2 /* SidInUtils.m in Sources */,
 				4C5D9F5D1B20FB3100443C81 /* ViewController.m in Sources */,

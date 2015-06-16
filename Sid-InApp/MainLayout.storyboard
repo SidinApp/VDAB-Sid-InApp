@@ -40,7 +40,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7Ao-L4-Rgs" kind="modal" identifier="modalSegueToLogin" id="cE9-Le-5tJ"/>
+                                    <action selector="startAppBtn:" destination="vjF-3y-hFR" eventType="touchUpInside" id="4EF-gD-s0K"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -48,6 +48,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="V6b-pI-cZn"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="tfSecret" destination="Nm9-PI-PAI" id="aMl-mg-CnN"/>
+                        <segue destination="7Ao-L4-Rgs" kind="modal" identifier="modalSegueToLogin" id="uNG-1r-whR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dw2-MB-ipf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
