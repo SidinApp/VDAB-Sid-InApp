@@ -40,6 +40,8 @@
 		6DFC4ACB1B204D10009EE68E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC91B204D10009EE68E /* LaunchScreen.xib */; };
 		6DFC4AD71B204D10009EE68E /* Sid_InAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */; };
 		6F1E452D1B28388100458A39 /* SchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E452C1B28388100458A39 /* SchoolTableViewController.m */; };
+		6F71149C1B300EFB0001EA63 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F71149B1B300EFB0001EA63 /* MapKit.framework */; };
+		6F7114A31B3013200001EA63 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7114A21B3013200001EA63 /* MapViewController.m */; };
 		6F7A15801B26E8E700ED455A /* GTMBAse64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A157E1B26E8E700ED455A /* GTMBAse64.m */; };
 		6F7A15831B26EADB00ED455A /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A15821B26EADB00ED455A /* Image.m */; };
 		6F7A158E1B27097800ED455A /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A158D1B27097800ED455A /* CarouselViewController.m */; };
@@ -147,6 +149,9 @@
 		6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sid_InAppTests.m; sourceTree = "<group>"; };
 		6F1E452B1B28388100458A39 /* SchoolTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolTableViewController.h; sourceTree = "<group>"; };
 		6F1E452C1B28388100458A39 /* SchoolTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolTableViewController.m; sourceTree = "<group>"; };
+		6F71149B1B300EFB0001EA63 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6F7114A11B3013200001EA63 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		6F7114A21B3013200001EA63 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		6F7A157D1B26E8E700ED455A /* GTMBAse64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBAse64.h; sourceTree = "<group>"; };
 		6F7A157E1B26E8E700ED455A /* GTMBAse64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBAse64.m; sourceTree = "<group>"; };
 		6F7A157F1B26E8E700ED455A /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -163,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F71149C1B300EFB0001EA63 /* MapKit.framework in Frameworks */,
 				6DA172D31B20512D00595CA0 /* CFNetwork.framework in Frameworks */,
 				6DA172D41B20512D00595CA0 /* CoreData.framework in Frameworks */,
 				6DA172D51B20512D00595CA0 /* MobileCoreServices.framework in Frameworks */,
@@ -227,6 +233,7 @@
 		6DFC4AAE1B204D10009EE68E = {
 			isa = PBXGroup;
 			children = (
+				6F71149B1B300EFB0001EA63 /* MapKit.framework */,
 				6DA172CE1B20512C00595CA0 /* CFNetwork.framework */,
 				6DA172CF1B20512C00595CA0 /* CoreData.framework */,
 				6DA172D01B20512C00595CA0 /* MobileCoreServices.framework */,
@@ -344,6 +351,8 @@
 				6F7A158D1B27097800ED455A /* CarouselViewController.m */,
 				6F1E452B1B28388100458A39 /* SchoolTableViewController.h */,
 				6F1E452C1B28388100458A39 /* SchoolTableViewController.m */,
+				6F7114A11B3013200001EA63 /* MapViewController.h */,
+				6F7114A21B3013200001EA63 /* MapViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -513,6 +522,7 @@
 				6DA173081B206A8C00595CA0 /* DepartementViewController.m in Sources */,
 				6DA173111B20836A00595CA0 /* ImageContainer.m in Sources */,
 				6F7A15801B26E8E700ED455A /* GTMBAse64.m in Sources */,
+				6F7114A31B3013200001EA63 /* MapViewController.m in Sources */,
 				6DA172E61B2054EF00595CA0 /* Teacher.m in Sources */,
 				6DA172E91B20551400595CA0 /* EventContainer.m in Sources */,
 				6DA173141B208EFF00595CA0 /* StudentCheckInViewController.m in Sources */,
