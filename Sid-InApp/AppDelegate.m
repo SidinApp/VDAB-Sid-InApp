@@ -75,7 +75,7 @@
 
 -(void)initializeStacks{
     
-    [self enableLogging];
+    //[self enableLogging];
     
     NSURL *storeURL = [self createStoreURL:DATABASE_NAME];
     NSURL *modelURL = [self createModelURL:DATAMODEL_NAME];

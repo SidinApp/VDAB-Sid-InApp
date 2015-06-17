@@ -414,23 +414,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="btnSave" destination="48x-Zc-D3S" id="tam-KU-GJm"/>
-                        <outlet property="lblDigx" destination="6j1-60-bLN" id="cm1-iu-vcu"/>
-                        <outlet property="lblInterests" destination="oXl-cS-FEr" id="ZVy-Id-KB2"/>
-                        <outlet property="lblMultec" destination="pOr-8p-zn9" id="E1m-Ya-CWd"/>
-                        <outlet property="swDig" destination="A1t-B4-hYP" id="cCU-sf-TJE"/>
-                        <outlet property="swMultec" destination="Wv9-y5-Fgl" id="moz-pB-Owl"/>
-                        <outlet property="swWorkStudent" destination="hbQ-Bd-MBa" id="B5a-Ch-Lpj"/>
-                        <outlet property="tfCity" destination="iQB-Oz-3N9" id="xJx-mJ-3Ab"/>
-                        <outlet property="tfEmail" destination="kDD-61-gdt" id="5Gx-xa-oQb"/>
-                        <outlet property="tfFirstName" destination="4KD-cO-L2d" id="EWg-s3-7eP"/>
-                        <outlet property="tfLastName" destination="w27-iF-ONc" id="V8J-h7-rr2"/>
-                        <outlet property="tfSchool" destination="f8M-4u-1AF" id="vUw-A5-cQ7"/>
-                        <outlet property="tfStreet" destination="kTM-Us-X7I" id="XFR-Kw-N2s"/>
-                        <outlet property="tfStreetNumber" destination="Xpp-dS-Nls" id="Pet-9J-x5K"/>
-                        <outlet property="tfZip" destination="wQc-uD-PB6" id="J50-ff-tuc"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

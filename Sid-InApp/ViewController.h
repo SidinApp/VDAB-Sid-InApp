@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface ViewController : UIViewController
 
+@interface ViewController : UIViewController //<UIPageViewControllerDataSource>
+/*
 //textfields
 @property (weak, nonatomic) IBOutlet UITextField *tfFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *tfLastName;
@@ -18,6 +19,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfStreetNumber;
 @property (weak, nonatomic) IBOutlet UITextField *tfZip;
 @property (weak, nonatomic) IBOutlet UITextField *tfSchool;
+
+
+
+
 
 //switches
 @property (weak, nonatomic) IBOutlet UISwitch *swDig;
@@ -32,8 +37,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDigx;
 @property (weak, nonatomic) IBOutlet UILabel *lblMultec;
 
-
-
+*/
 
 @end
 
