@@ -28,7 +28,7 @@
 @implementation StudentFormViewController
 
 
-@synthesize tfEmail, tfCity, tfFirstName, tfLastName, tfSchool, tfStreet, tfStreetNumber, tfZip, swDig, swMultec, swWorkStudent, lblDigx, lblInterests, lblMultec, lblTeacher,containerRegistrationForm, viewOptional, viewRequired;
+@synthesize tfEmail, tfCity, tfFirstName, tfLastName, tfSchool, tfStreet, tfStreetNumber, tfZip, swDig, swMultec, swWorkStudent, lblDigx, lblInterests, lblMultec, lblTeacher,containerRegistrationForm, viewOptional, viewRequired, lblZip;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -296,14 +296,17 @@ if(tfZip.text.length ==0){
     tfZip.placeholder = @"Veld is verplicht";
     tfZip.layer.borderColor =[[UIColor redColor]CGColor];
     tfZip.layer.borderWidth = 1.0f;
+    lblZip.textColor = [UIColor redColor];
 } else if(!(tfZip.text.length == 4)) {
     tfZip.text = @"";
     tfZip.placeholder = @"Postcode is 4 tekens";
     tfZip.layer.borderColor =[[UIColor redColor]CGColor];
     tfZip.layer.borderWidth = 1.0f;
+    lblZip.textColor = [UIColor redColor];
 } else {
     tfZip.layer.borderColor=[[UIColor clearColor]CGColor];
     sub.zip = tfZip.text;
+    lblZip.textColor = [UIColor blackColor];
 }
 
 //----------------School---------------------------------------------------------
