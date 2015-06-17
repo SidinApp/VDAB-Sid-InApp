@@ -35,5 +35,8 @@
 
 -(void)startSynchronization;
 -(void)stopSynchronization;
++(NSDate *)convertLongToDate:(long)longDate;
++(NSDate *)convertToDateWithoutTime:(NSDate *)date;
+
 
 @end

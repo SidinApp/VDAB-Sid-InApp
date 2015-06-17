@@ -59,7 +59,7 @@
     [self pullTeachers];
     [self pullSchools];
     [self pullSubscriptions];
-    [self pullImages];
+//    [self pullImages];
 }
 
 -(void)pullEntities:(RKMapping *)mapping pathPattern:(NSString *)path{
@@ -140,7 +140,7 @@
     
     [self.restfulStack createAndAddRequestDescriptor:[subscriptionEntityMapping inverseMapping] objectClass:[SubscriptionEntity class] method:RKRequestMethodPOST];
     
-   // [self.restfulStack.objectManager setRequestSerializationMIMEType:RKMIMETypeJSON];
+ [self.restfulStack.objectManager setRequestSerializationMIMEType:RKMIMETypeJSON];
     [self.restfulStack.objectManager setAcceptHeaderWithMIMEType:RKMIMETypeJSON];
     
     
@@ -234,6 +234,18 @@
     [self.timer invalidate];
     [self initializeTimer];
     
+}
+
++(NSDate *)convertLongToDate:(long)longDate{
+    return [NSDate dateWithTimeIntervalSince1970:longDate / 1000];
+}
++(NSDate *)convertToDateWithoutTime:(NSDate *)date{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    unsigned units = NSYearCalendarUnit | NSMoviesDirectory | NSDayCalendarUnit;
+    NSDateComponents *components = [calendar components:units fromDate:date];
+    NSDate *dateOnly = [calendar dateFromComponents:components];
+    [dateOnly dateByAddingTimeInterval:(60 * 60 * 12)];
+    return dateOnly;
 }
 
 

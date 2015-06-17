@@ -25,7 +25,7 @@
 @property (nonatomic, copy) NSString * email;
 @property (nonatomic, copy) NSString * firstName;
 @property (nonatomic, copy) NSNumber * id;
-@property (nonatomic, copy) NSNumber * isNew;
+@property (nonatomic, copy) NSNumber * sNew;
 @property (nonatomic, copy) NSString * lastName;
 @property (nonatomic, copy) NSString * street;
 @property (nonatomic, copy) NSString * streetNumber;

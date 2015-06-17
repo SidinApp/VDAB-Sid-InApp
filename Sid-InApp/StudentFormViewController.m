@@ -13,6 +13,7 @@
 #import "Interests.h"
 #import "School.h"
 #import <RestKit/CoreData.h>
+#import "SynchronizationService.h"
 
 @interface StudentFormViewController ()
 {
@@ -92,6 +93,7 @@
         NSString *tempMail = tempSub.email;
         
         if ([tfEmail.text isEqualToString: tempMail]) {
+            
             tfFirstName.text = tempSub.firstName;
             tfLastName.text = tempSub.lastName;
             
@@ -282,11 +284,14 @@
     //---------------Timestamp-------------------------------------------------------
     
     NSDate *dateNow = [NSDate date];
-    long timeStamp = (long) ([dateNow timeIntervalSince1970]*1000.0);
+    long timeStamp = (long)([dateNow timeIntervalSince1970]*1000.0);
     //NSDate *fromLong = [NSDate dateWithTimeIntervalSince1970:timeStamp/1000];
-    sub.timestamp = [NSNumber numberWithLong:timeStamp];
-
     
+    NSDate *longToDate = [SynchronizationService convertLongToDate:timeStamp];
+    NSDate *dateWithoutTime = [SynchronizationService convertToDateWithoutTime:longToDate];
+    
+    timeStamp = (long) (dateWithoutTime);
+    sub.timestamp = [NSNumber numberWithLong:timeStamp];    
     
     
     //---------------Controle vereiste velden ingevuld-------------------------------
@@ -297,7 +302,8 @@
         
 //        [self.synchronizationService.persistentStoreManager save:sub];
 //        sub.id = nil;
-        sub.isNew = [NSNumber numberWithBool:NO];
+        
+        sub.sNew = [NSNumber numberWithBool:NO];
         
 //        sub.isNew = @NO;
         

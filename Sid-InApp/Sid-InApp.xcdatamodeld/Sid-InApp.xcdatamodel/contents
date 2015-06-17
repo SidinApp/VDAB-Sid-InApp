@@ -40,8 +40,8 @@
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="isNew" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sNew" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="streetNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -63,6 +63,7 @@
         <relationship name="teachers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TeacherEntity" syncable="YES"/>
     </entity>
     <elements>
+        <element name="DepartementaleCodeEntity" positionX="-9" positionY="108" width="128" height="90"/>
         <element name="EventEntity" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="EventEntityList" positionX="18" positionY="63" width="128" height="60"/>
         <element name="ImageEntity" positionX="18" positionY="63" width="128" height="90"/>
@@ -74,6 +75,5 @@
         <element name="SubscriptionEntityList" positionX="-54" positionY="-9" width="128" height="60"/>
         <element name="TeacherEntity" positionX="-9" positionY="36" width="128" height="90"/>
         <element name="TeacherEntityList" positionX="36" positionY="81" width="128" height="60"/>
-        <element name="DepartementaleCodeEntity" positionX="-9" positionY="108" width="128" height="90"/>
     </elements>
 </model>

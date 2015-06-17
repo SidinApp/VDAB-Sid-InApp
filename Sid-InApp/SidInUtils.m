@@ -22,7 +22,7 @@ NSString *const DATAMODEL_NAME = @"Sid-InApp";
 NSString *const DEPARTEMENT_SERVICE_URL = @"UNKNOWN";
 
 // van 3 naar 4 vdabsidin
-NSString *const BASE_SERVICE_URL = @"http://vdabsidin4.appspot.com";
+NSString *const BASE_SERVICE_URL = @"http://vdabsidin3.appspot.com";
 
 
 NSString *const TEACHER = @"TeacherEntity";

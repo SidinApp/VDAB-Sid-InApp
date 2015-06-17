@@ -43,7 +43,7 @@
     NSString *storyboardIdDep = @"departementVC";
     NSString *storyboardIdLogin = @"loginVC";
     
-    BOOL appIsInitialized = NO;
+ /*   BOOL appIsInitialized = NO;
     
     if (!appIsInitialized) {
         self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:storyboardIdDep];
@@ -54,10 +54,14 @@
         LoginViewController *viewController = (LoginViewController *)[self.window rootViewController];
         viewController.synchronizationService = self.synchronizationService;
     }
+    */
+    
+    self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:storyboardIdDep];
+    DepartementViewController *viewController = (DepartementViewController *)[self.window rootViewController];
+    viewController.synchronizationService = self.synchronizationService;
     
     return YES;
 }
-
 -(void)setStatusBarStyle{
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
