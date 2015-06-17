@@ -82,7 +82,7 @@
         [self.appStart setBaseURL];
         [self.appStart initializeRestfulStack:BASE_SERVICE_URL];
         [self.appStart initializeSynchronizationService];
-        [self.appStart.synchronizationService initializePersistentStoreFromBackEnd];
+//        [self.appStart.synchronizationService initializePersistentStoreFromBackEnd];
         viewController.synchronizationService = self.synchronizationService;
         
     } else {

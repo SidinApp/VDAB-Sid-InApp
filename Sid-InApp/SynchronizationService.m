@@ -28,6 +28,8 @@
 
 @property (nonatomic, strong) NSTimer *timer;
 
+@property (nonatomic, strong) NSMutableArray *obervers;
+
 @end
 
 @implementation SynchronizationService
@@ -37,19 +39,11 @@
     if (self = [super init]) {
         self.restfulStack = restfulStack;
         self.persistentStoreManager = persistentStoreManager;
+        self.obervers = [[NSMutableArray alloc] init];
     }
     
     return self;
 }
-
-//-(id)initWithRestfulStack:(RestfulStack *)restfulStack{
-//    
-//    if (self = [super init]) {
-//        self.restfulStack = restfulStack;
-//    }
-//    
-//    return self;
-//}
 
 -(void)initializePersistentStoreFromBackEnd{
     
@@ -64,6 +58,7 @@
 
 -(void)pullEntities:(RKMapping *)mapping pathPattern:(NSString *)path{
     
+    ///*
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     // wordt nu gedaan in RestKit; ook de requestDescripters
@@ -71,13 +66,41 @@
     
     [self.restfulStack.objectManager getObjectsAtPath:path parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         // do something when
-        NSLog(@"Entiteiten zijn opgehaald");
+        
+        if ([path caseInsensitiveCompare:EVENTS_URL_PATTERN] == NSOrderedSame) {
+            [self updateEvents];
+//            int count = 0;
+//            count = [self.persistentStoreManager countForEntity:[Event entityName]];
+//            NSLog(@"%@", count);
+        } else if ([path caseInsensitiveCompare:TEACHERS_URL_PATTERN] == NSOrderedSame){
+            [self updateTeachers];
+        }
+        
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         RKLogError(@"Er is een error opgetreden tijdens het laden: %@", error);
+        [self update];
+    }];
+    //*/
+
+    /*
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", BASE_SERVICE_URL, path]]];
+    RKResponseDescriptor *resonseDescriptor = [self.restfulStack createAndAddResponseDescriptor:mapping method:RKRequestMethodGET pathPattern:path];
+    
+    RKManagedObjectRequestOperation *managedOperation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[resonseDescriptor]];
+    
+    managedOperation.managedObjectContext = self.restfulStack.managedObjectStore.mainQueueManagedObjectContext;
+    managedOperation.managedObjectCache = self.restfulStack.managedObjectStore.managedObjectCache;
+    
+    [managedOperation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        NSLog(@"Entiteiten zijn opgehaald");
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"Entiteiten zijn niet opgehaald");
     }];
     
-//    [self.restfulStack.objectManager getObjectsAtPath:path parameters:nil success:nil failure:nil];
     
+    [managedOperation start];
+//    [managedOperation waitUntilFinished];
+     */
     
 }
 
@@ -272,5 +295,46 @@
     return dateOnly;
 }
 
+-(void)addObserver:(id<SynchronizationObserver>)observer{
+    
+    [self.obervers addObject:observer];
+}
+
+-(void)update{
+    
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        [observer update];
+    }
+}
+
+-(void)updateEvents{
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        [observer updateEvents];
+    }
+}
+
+-(void)updateTeachers{
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        [observer updateTeachers];
+    }
+}
+
+-(void)updateSchools{
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        [observer updateSchools];
+    }
+}
+
+-(void)updateSubscriptions{
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        [observer updateSubscriptions];
+    }
+}
+
+-(void)updateImages{
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        [observer updateEvents];
+    }
+}
 
 @end

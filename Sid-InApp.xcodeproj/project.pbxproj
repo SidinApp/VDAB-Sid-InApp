@@ -173,6 +173,7 @@
 		6D8BB4361B2ADB5700F550B2 /* InterestsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestsEntity.m; sourceTree = "<group>"; };
 		6D8BB4381B2AE31E00F550B2 /* SubscriptionEntityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionEntityList.h; sourceTree = "<group>"; };
 		6D8BB4391B2AE31E00F550B2 /* SubscriptionEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionEntityList.m; sourceTree = "<group>"; };
+		6D8BDC681B31985D009401E6 /* SynchronizationObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SynchronizationObserver.h; sourceTree = "<group>"; };
 		6DA172BC1B204FEE00595CA0 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		6DA172CE1B20512C00595CA0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		6DA172CF1B20512C00595CA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -270,6 +271,7 @@
 				6D8BB3DD1B2AD83700F550B2 /* PersistentStoreManager.m */,
 				6D77FA371B3043150039EC18 /* AppStart.h */,
 				6D77FA381B3043150039EC18 /* AppStart.m */,
+				6D8BDC681B31985D009401E6 /* SynchronizationObserver.h */,
 			);
 			name = services;
 			sourceTree = "<group>";

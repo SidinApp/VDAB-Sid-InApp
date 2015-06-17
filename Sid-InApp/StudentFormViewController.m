@@ -282,10 +282,9 @@
     //---------------Timestamp-------------------------------------------------------
     
     NSDate *dateNow = [NSDate date];
-    long timeStamp = (long) ([dateNow timeIntervalSince1970]*1000.0);
+    long timeStamp = lrint([dateNow timeIntervalSince1970]*1000.0);
     //NSDate *fromLong = [NSDate dateWithTimeIntervalSince1970:timeStamp/1000];
     sub.timestamp = [NSNumber numberWithLong:timeStamp];
-
     
     
     

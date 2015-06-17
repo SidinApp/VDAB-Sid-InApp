@@ -45,8 +45,10 @@
     // seed persistent store from back-end
     //    [self.synchronizationService initializePersistentStoreFromBackEnd];
     
-    [self fetchTeachersFromContext];
-    [self fetchEventsFromContext];
+//    while ([self.teachers count] == 0 || [self.events count] == 0) {
+        [self fetchTeachersFromContext];
+        [self fetchEventsFromContext];
+//    }
     
 }
 
@@ -134,8 +136,9 @@
 //    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
 //    
 //    _teachers = fetchedObjects;
-    
-    _teachers = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Teacher entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+//    
+//    _teachers = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Teacher entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    _teachers = self.teacherList;
 }
 
 -(void)fetchEventsFromContext{
@@ -154,7 +157,8 @@
 //    
 //    _events = fetchedObjects;
     
-    _events = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Event entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+//    _events = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Event entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    _events = self.eventList;
 }
 
 //*
