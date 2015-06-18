@@ -265,6 +265,10 @@
     
     //----------------School---------------------------------------------------------
     
+    if(_tfSchool.text.length == 0){
+        sub.school = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"name == %@", @"Geen school"] forEntity:[School entityName]].firstObject;
+    }
+    
     if(!sub.school){
     sub.school = self.school;
     }

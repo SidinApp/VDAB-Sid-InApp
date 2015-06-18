@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(goToScreensaver) userInfo:nil repeats:NO];
+    timer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(goToScreensaver) userInfo:nil repeats:NO];
     
     self.lblLogin.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
     
@@ -48,7 +48,7 @@
 -(void)resetTimer{
     
     [timer invalidate];
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(goToScreensaver) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(goToScreensaver) userInfo:nil repeats:NO];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
