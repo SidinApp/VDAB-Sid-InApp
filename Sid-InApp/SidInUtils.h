@@ -18,9 +18,9 @@ extern NSString *const DATAMODEL_NAME;
 
 
 extern NSString *const DEPARTEMENT_SERVICE_URL;
+extern NSString *const REST_ENTITY;
 
-
-extern NSString *const BASE_SERVICE_URL;
+extern NSString * BASE_SERVICE_URL;
 
 
 extern NSString *const TEACHER;
@@ -72,6 +72,7 @@ extern NSString *const SUBSCRIPTION_LIST;
 extern NSString *const SUBSCRIPTION_URL_PATTERN;
 extern NSString *const SUBSCRIPTIONS_URL_PATTERN;
 extern NSString *const SUBSCRIPTION_ID_URL_PATTERN;
+extern NSString *const SUBSCRIPTIONS_ACADYEAR_URL_PATTERN;
 
 extern NSString *const SUBSCRIPTIONS_GET_ROUTE;
 extern NSString *const SUBSCRIPTION_POST_ROUTE;
@@ -81,9 +82,11 @@ extern NSString *const SUBSCRIPTION_DELETE_ID_ROUTE;
 
 extern NSString *const IMAGE;
 extern NSString *const IMAGE_LIST;
+extern NSString *const IMAGE_VERSION;
 
 extern NSString *const IMAGE_URL_PATTERN;
 extern NSString *const IMAGE_SCRIPTION_URL_PATTERN;
+extern NSString *const IMAGE_VERSION_URL_PATTERN;
 
 extern NSString *const IMAGE_GET_ROUTE;
 extern NSString *const IMAGE_POST_ROUTE;

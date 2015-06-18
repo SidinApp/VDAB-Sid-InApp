@@ -13,6 +13,7 @@
 
 @interface SubscriptionEntity : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * acadyear;
 @property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * firstName;

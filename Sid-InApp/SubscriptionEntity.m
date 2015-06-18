@@ -15,6 +15,7 @@
 
 @implementation SubscriptionEntity
 
+@dynamic acadyear;
 @dynamic city;
 @dynamic email;
 @dynamic firstName;

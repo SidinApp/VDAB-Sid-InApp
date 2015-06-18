@@ -19,7 +19,9 @@ NSString *const DATABASE_NAME = @"Sid-InApp.sqlite";
 NSString *const DATAMODEL_NAME = @"Sid-InApp";
 
 
-NSString *const DEPARTEMENT_SERVICE_URL = @"UNKNOWN";
+NSString *const DEPARTEMENT_SERVICE_URL = @"http://deptcodes.appspot.com/deptcode";
+
+NSString *const REST_ENTITY = @"RestEntity";
 
 // van 3 naar 4 vdabsidin
 NSString *const BASE_SERVICE_URL = @"http://vdabsidin3.appspot.com";
@@ -73,6 +75,7 @@ NSString *const SUBSCRIPTION_LIST = @"SubscriptionEntityList";
 NSString *const SUBSCRIPTION_URL_PATTERN = @"/rest/subscription";
 NSString *const SUBSCRIPTIONS_URL_PATTERN = @"/rest/subscriptions";
 NSString *const SUBSCRIPTION_ID_URL_PATTERN = @"/rest/subscription/:id";
+NSString *const SUBSCRIPTIONS_ACADYEAR_URL_PATTERN = @"/rest/subscriptions/:acadyear";
 
 NSString *const SUBSCRIPTIONS_GET_ROUTE = @"subscriptions_get_route";
 NSString *const SUBSCRIPTION_POST_ROUTE = @"subscription_post_route";
@@ -82,9 +85,12 @@ NSString *const SUBSCRIPTION_DELETE_ID_ROUTE = @"subscription_delete_id_route";
 
 NSString *const IMAGE = @"ImageEntity";
 NSString *const IMAGE_LIST = @"ImageEntityList";
+NSString *const IMAGE_VERSION = @"ImageVersionEntity";
 
 NSString *const IMAGE_URL_PATTERN = @"/rest/image";
 NSString *const IMAGE_SCRIPTION_URL_PATTERN = @"/rest/imagescription/:id";
+NSString *const IMAGE_VERSION_URL_PATTERN = @"/rest/imagesversion";
+
 
 NSString *const IMAGE_GET_ROUTE = @"image_get_route";
 NSString *const IMAGE_POST_ROUTE = @"image_post_route";

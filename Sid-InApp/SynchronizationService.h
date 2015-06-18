@@ -12,6 +12,7 @@
 #import "PersistentStoreManager.h"
 
 #import "Subscription.h"
+#import "SynchronizationObserver.h"
 
 @interface SynchronizationService : NSObject // <RestDao>
 
@@ -38,5 +39,12 @@
 +(NSDate *)convertLongToDate:(long)longDate;
 +(NSDate *)convertToDateWithoutTime:(NSDate *)date;
 
+
+-(NSArray *)subscriptionsByDate:(NSDate *)date;
+
+-(NSDate *)convertLongToDate:(long)longDate;
+-(NSDate *)convertToDateWithoutTime:(NSDate *)date;
+
+-(void)addObserver:(id<SynchronizationObserver>)observer;
 
 @end

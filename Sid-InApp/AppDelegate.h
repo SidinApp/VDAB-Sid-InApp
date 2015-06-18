@@ -12,6 +12,7 @@
 #import "RestfulStack.h"
 #import "SynchronizationService.h"
 #import "PersistentStoreManager.h"
+#import "AppStart.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -21,6 +22,8 @@
 @property (nonatomic, strong) RestfulStack *restfulStack;
 @property (nonatomic, strong) PersistentStoreManager *persistentStoreManager;
 @property (nonatomic, strong) SynchronizationService *synchronizationService;
+
+@property (nonatomic, strong) AppStart *appStart;
 
 @end
 

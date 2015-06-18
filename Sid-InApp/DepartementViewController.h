@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 
 #import "SynchronizationService.h"
+#import "AppStart.h"
+#import "SynchronizationObserver.h"
 
-@interface DepartementViewController : UIViewController
+@interface DepartementViewController : UIViewController <UIAlertViewDelegate, SynchronizationObserver>
 
 @property (nonatomic, strong) SynchronizationService *synchronizationService;
+
+@property (nonatomic, strong) AppStart *appStart;
 
 @end
 

@@ -14,4 +14,8 @@
 
 @property (nonatomic, strong) SynchronizationService *synchronizationService;
 
+@property (nonatomic, strong) NSArray *teacherList;
+@property (nonatomic, strong) NSArray *eventList;
+
+
 @end

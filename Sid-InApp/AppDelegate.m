@@ -31,14 +31,31 @@
     [self setStatusBarStyle];
     
     // RESTKIT + CORE DATA
-    [self initializeStacks];   
+//    [self initializeStacks];   
     
 //    [self.synchronizationService startSynchronization];
     
     // seed persistent store from back-end
-    [self.synchronizationService initializePersistentStoreFromBackEnd];
+//    [self.synchronizationService initializePersistentStoreFromBackEnd];
+    
+    // ==================================================================
+    /*
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://deptcodes.appspot.com/deptcode/secret3"]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
     
     
+    NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    NSString* newStr = [[NSString alloc] initWithData:response1
+                                             encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", newStr);
+    
+    // ==================================================================
     
     NSString *storyboardIdDep = @"departementVC";
     NSString *storyboardIdLogin = @"loginVC";
@@ -93,7 +110,7 @@
 
 -(void)initializeStacks{
     
-//    [self enableLogging];
+    [self enableLogging];
     
     NSURL *storeURL = [self createStoreURL:DATABASE_NAME];
     NSURL *modelURL = [self createModelURL:DATAMODEL_NAME];
