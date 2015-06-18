@@ -143,7 +143,7 @@
     
     NSInteger subsToday = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"timestamp == %ld",timestamp]];
     
-    NSLog(@"sub count: %lu", (unsigned long)subsToday);
+    NSLog(@"sub count: %d", subsToday);
     
     return subsToday;
 }
@@ -165,7 +165,7 @@
     NSDate *dateWithoutTime = [SynchronizationService convertToDateWithoutTime:longToDate];
     NSLog(@"dateWithoutTime: %@", dateWithoutTime);
     
-    long long timestamp = (long long) ([dateWithoutTime timeIntervalSince1970]*1000.0);
+    long timestamp = (long) ([dateWithoutTime timeIntervalSince1970]*1000.0);
     NSLog(@"currentDate: %ld", timestamp);
     
     NSURL *storeURL = [self createStoreURL:DATABASE_NAME];

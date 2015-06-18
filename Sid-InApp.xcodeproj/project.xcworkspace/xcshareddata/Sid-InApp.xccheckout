@@ -82,7 +82,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>606F372E51CE72F1B5DC916D96E5703ED0A02CB3</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Sid-InApp_robrecht</string>
+			<string>Sid-InApp</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
@@ -90,7 +90,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>D78740BB5B159EA13C82AB5AF1D92A0F3C627237</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Sid-InApp_robrechtRestKit</string>
+			<string>Sid-InAppRestKit</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
