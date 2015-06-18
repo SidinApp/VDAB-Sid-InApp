@@ -41,7 +41,6 @@
                                                  @"city" : @"city",
                                                  @"timestamp" : @"timestamp",
                                                  @"new" : @"sNew",
-                                                 @"acadyear" : @"acadyear"
                                                  }];
     
     [result addPropertyMappingsFromArray:@[
@@ -77,8 +76,7 @@
                                                  @"zip" : @"zip",
                                                  @"city" : @"city",
                                                  @"timestamp" : @"timestamp",
-                                                 @"new" : @"sNew",                                                 
-                                                 @"acadyear" : @"acadyear"
+                                                 @"new" : @"sNew",
                                                  }];
     
     

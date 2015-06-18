@@ -31,7 +31,6 @@
 @property (nonatomic, copy) NSString * streetNumber;
 @property (nonatomic, copy) NSNumber * timeStamp;
 @property (nonatomic, copy) NSString * zip;
-@property (nonatomic, copy) NSString * acadyear;
 @property (nonatomic, strong) Event  *event;
 @property (nonatomic, strong) Interests *interests;
 @property (nonatomic, strong) School *school;

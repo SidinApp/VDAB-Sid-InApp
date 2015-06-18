@@ -29,7 +29,7 @@
     NSUInteger fromBrussel = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"zip >= %@ AND zip < %@", @"1000", @"1500"]];
     NSUInteger fromAntwerpen = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"zip >= %@ AND zip < %@", @"2000", @"3000"]];
     NSUInteger fromLimburg = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"zip >= %@ AND zip < %@", @"3500", @"4000"]];
-    NSUInteger fromOostVlaanderen = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"zip >= %@ AND zip < %@", @"9000", @"10000"]];
+    NSUInteger fromOostVlaanderen = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"zip >= %@ AND zip <= %@", @"9000", @"9999"]];
     NSUInteger fromVlaamsBrabant = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"zip >= %@ AND zip < %@ OR zip >=%@ AND zip < %@", @"1500", @"2000", @"3000", @"3500"]];
     NSUInteger fromWestVlaanderen = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"zip >= %@ AND zip < %@", @"8000", @"9000"]];
     
@@ -82,40 +82,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/* GET COORDINATES FROM TOUCH
- 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    for (UITouch *touch in touches){
-        CGPoint pt = [touch  locationInView:_mapView];
-        CLLocationCoordinate2D coord= [_mapView convertPoint:pt toCoordinateFromView:_mapView];
-        NSLog(@"lat: %f /n long: %f", coord.latitude,coord.longitude);
-    }
-}
-
-
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-    CLLocationCoordinate2D coord= [_mapView convertPoint:point toCoordinateFromView:_mapView];
-    NSLog(@"lat  %f",coord.latitude);
-    NSLog(@"long %f",coord.longitude);
-    
-    
-    return NULL;
-}
-*/
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -125,16 +92,12 @@
     
     NSDate *dateNow = [NSDate date];
     long currentDate = (long) ([dateNow timeIntervalSince1970]*1000.0);
-    NSLog(@"currentDate: %ld", currentDate);
     
     NSDate *longToDate = [SynchronizationService convertLongToDate:currentDate];
-    NSLog(@"longToDate: %@", longToDate);
     
     NSDate *dateWithoutTime = [SynchronizationService convertToDateWithoutTime:longToDate];
-    NSLog(@"dateWithoutTime: %@", dateWithoutTime);
 
     long timestamp = (long) ([dateWithoutTime timeIntervalSince1970]*1000.0);
-    NSLog(@"currentDate: %ld", timestamp);
     
     NSURL *storeURL = [self createStoreURL:DATABASE_NAME];
     NSURL *modelURL = [self createModelURL:DATAMODEL_NAME];
@@ -142,8 +105,6 @@
     PersistentStoreManager *persistentStoreManager = [[PersistentStoreManager alloc] initWithPersistentStack:persistentStack];
     
     NSInteger subsToday = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"timestamp == %ld",timestamp]];
-    
-    NSLog(@"sub count: %d", subsToday);
     
     return subsToday;
 }
@@ -157,16 +118,12 @@
     
     NSDate *dateNow = [NSDate date];
     long currentDate = (long) ([dateNow timeIntervalSince1970]*1000.0);
-    NSLog(@"currentDate: %ld", currentDate);
     
     NSDate *longToDate = [SynchronizationService convertLongToDate:currentDate];
-    NSLog(@"longToDate: %@", longToDate);
     
     NSDate *dateWithoutTime = [SynchronizationService convertToDateWithoutTime:longToDate];
-    NSLog(@"dateWithoutTime: %@", dateWithoutTime);
     
     long timestamp = (long) ([dateWithoutTime timeIntervalSince1970]*1000.0);
-    NSLog(@"currentDate: %ld", timestamp);
     
     NSURL *storeURL = [self createStoreURL:DATABASE_NAME];
     NSURL *modelURL = [self createModelURL:DATAMODEL_NAME];
@@ -179,8 +136,8 @@
     NSString *fullName = [NSString stringWithFormat:@"%@ %@", currentSub.firstName, currentSub.lastName];
     NSString *interests;
 
-    if(currentSub.interests.digx == 1){
-        if(currentSub.interests.multec == 1){
+    if(currentSub.interests.digx == [NSNumber numberWithInt:1]){
+        if(currentSub.interests.multec == [NSNumber numberWithInt:1]){
             interests = @"Dig-x & Multec";
         } else {
             interests = @"Dig-x";

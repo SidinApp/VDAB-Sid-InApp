@@ -14,6 +14,7 @@
 #import "School.h"
 #import <RestKit/CoreData.h>
 #import "SynchronizationService.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface StudentFormViewController ()
 {
@@ -22,66 +23,73 @@
     NSArray *subscriptions;
     
 }
-
-//// verplicht
-//@property (weak, nonatomic) IBOutlet UITextField *firstNameInput;
-//@property (weak, nonatomic) IBOutlet UITextField *lastNameInput;
-//@property (weak, nonatomic) IBOutlet UITextField *mailInput;
-//
-//@property (weak, nonatomic) IBOutlet UISwitch *digxInterestSwitch;
-//@property (weak, nonatomic) IBOutlet UISwitch *multecInterestSwitch;
-//
-//// optioneel
-//@property (weak, nonatomic) IBOutlet UISwitch *werkstudentInterestSwitch;
-//
-//@property (weak, nonatomic) IBOutlet UITextField *streetInput;
-//@property (weak, nonatomic) IBOutlet UITextField *streetNumberInput;
-//@property (weak, nonatomic) IBOutlet UITextField *cityInput;
-//@property (weak, nonatomic) IBOutlet UITextField *zipInput;
-//
-//@property (weak, nonatomic) IBOutlet UITextField *schoolInput;
-
-//textfields
-@property (weak, nonatomic) IBOutlet UITextField *tfFirstName;
-@property (weak, nonatomic) IBOutlet UITextField *tfLastName;
-@property (weak, nonatomic) IBOutlet UITextField *tfEmail;
-@property (weak, nonatomic) IBOutlet UITextField *tfStreet;
-@property (weak, nonatomic) IBOutlet UITextField *tfCity;
-@property (weak, nonatomic) IBOutlet UITextField *tfStreetNumber;
-@property (weak, nonatomic) IBOutlet UITextField *tfZip;
-
-//switches
-@property (weak, nonatomic) IBOutlet UISwitch *swDig;
-@property (weak, nonatomic) IBOutlet UISwitch *swMultec;
-@property (weak, nonatomic) IBOutlet UISwitch *swWorkStudent;
-
-//buttons
-@property (weak, nonatomic) IBOutlet UIButton *btnSave;
-
-//labels
-@property (weak, nonatomic) IBOutlet UILabel *lblInterests;
-@property (weak, nonatomic) IBOutlet UILabel *lblDigx;
-@property (weak, nonatomic) IBOutlet UILabel *lblMultec;
-
-//variable
-
-
 @end
 
 @implementation StudentFormViewController
-
-
-@synthesize tfEmail, tfCity, tfFirstName, tfLastName, tfSchool, tfStreet, tfStreetNumber, tfZip, swDig, swMultec, swWorkStudent, lblDigx, lblInterests, lblMultec, lblTeacher;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self fetchSubscriptionFromContext];
     self.lblTeacher.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
+    
+    UISwipeGestureRecognizer *recognizerRight;
+    recognizerRight.delegate=self;
+    
+    recognizerRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
+    [recognizerRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [_viewOptional addGestureRecognizer:recognizerRight];
+    
+    
+    UISwipeGestureRecognizer *recognizerLeft;
+    recognizerLeft.delegate=self;
+    recognizerLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeleft:)];
+    [recognizerLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [_viewRequired addGestureRecognizer:recognizerLeft];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+-(void)swipeleft:(UISwipeGestureRecognizer *)swipeGesture
+{
+    
+    
+    CATransition *animation = [CATransition animation];
+    [animation setDelegate:self];
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromRight];
+    [animation setDuration:0.50];
+    [animation setTimingFunction:
+     [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    
+    
+    _viewOptional.hidden=NO;
+    _viewRequired.hidden=YES;
+    
+    [_viewOptional.layer addAnimation:animation forKey:kCATransition];
+    
+    
+    
+}
+-(void)swipeRight:(UISwipeGestureRecognizer *)swipeGesture
+{
+    
+    CATransition *animation = [CATransition animation];
+    [animation setDelegate:self];
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromLeft];
+    [animation setDuration:0.40];
+    [animation setTimingFunction:
+     [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    
+    
+    _viewRequired.hidden=NO;
+    _viewOptional.hidden=YES;
+    
+    
+    [_viewOptional.layer addAnimation:animation forKey:kCATransition];
+    
 }
 - (IBAction)tfEmailChanged:(id)sender {
     
@@ -92,35 +100,33 @@
         SubscriptionEntity *tempSub = subscriptions[i];
         NSString *tempMail = tempSub.email;
         
-        if ([tfEmail.text isEqualToString: tempMail]) {
+        if ([_tfEmail.text isEqualToString: tempMail]) {
             
-            tfFirstName.text = tempSub.firstName;
-            tfLastName.text = tempSub.lastName;
+            _tfFirstName.text = tempSub.firstName;
+            _tfLastName.text = tempSub.lastName;
             
             if([tempSub.interests.digx isEqual:[NSNumber numberWithInt:1]]){
-                swDig.on = YES;
+                _swDig.on = YES;
             }
             if([tempSub.interests.multec isEqual: [NSNumber numberWithInt:1]]){
-                swMultec.on = YES;
+                _swMultec.on = YES;
             }
             
-            tfStreet.text = tempSub.street;
-            tfStreetNumber.text = tempSub.streetNumber;
-            tfCity.text = tempSub.city;
-            tfZip.text = tempSub.zip;
-            tfSchool.text = tempSub.school.name;
+            _tfStreet.text = tempSub.street;
+            _tfStreetNumber.text = tempSub.streetNumber;
+            _tfCity.text = tempSub.city;
+            _tfZip.text = tempSub.zip;
+            _tfSchool.text = tempSub.school.name;
             if([tempSub.interests.werkstudent isEqual:[NSNumber numberWithInt:1]]){
-                swWorkStudent.on = YES;
+                _swWorkStudent.on = YES;
             }
             self.school = tempSub.school;
-            tfSchool.text = tempSub.school.name;
+            _tfSchool.text = tempSub.school.name;
             
         }
     }
 }
 - (IBAction)tfSchoolTapped:(id)sender {
-    
-    NSLog(@"GEKLIKT");
     
     [self performSegueWithIdentifier:@"popoverSchools" sender:sender];
 }
@@ -128,85 +134,74 @@
 
 - (IBAction)Opslaan:(id)sender {
     
-//    NSManagedObjectContext *managedObjectContext = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-//    //NSManagedObjectContext *managedObjectContextInterests = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-//    
-//    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Subscription" inManagedObjectContext: managedObjectContext];
-//    
-//    sub = [[SubscriptionEntity alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:managedObjectContext];
-    
     sub = (SubscriptionEntity *)[self.synchronizationService.persistentStoreManager insert:[Subscription entityName]];
-    
-   /* entityDescription = [NSEntityDescription entityForName:@"Interests" inManagedObjectContext: managedObjectContextInterests];
-    
-    interests = [[Interests alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:managedObjectContextInterests];*/
-    
-//    entityDescription = [NSEntityDescription entityForName:@"Interests" inManagedObjectContext: managedObjectContext];
-//    
-//    interests = [[InterestsEntity alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:managedObjectContext];
     
     interests = (InterestsEntity *)[self.synchronizationService.persistentStoreManager insert:[Interests entityName]];
     
     //-------------------Voornaam-------------------------------------------------
     
-    if ([tfFirstName.text isEqualToString:@""]) {
-        tfFirstName.layer.borderColor =[[UIColor redColor]CGColor];
-        tfFirstName.layer.borderWidth = 1.0f;
-        tfFirstName.placeholder = @"Veld is verplicht!";
+    if ([_tfFirstName.text isEqualToString:@""]) {
+        _tfFirstName.layer.borderColor =[[UIColor redColor]CGColor];
+        _tfFirstName.layer.borderWidth = 1.0f;
+        _tfFirstName.placeholder = @"Veld is verplicht!";
     } else {
-        tfFirstName.layer.borderColor=[[UIColor clearColor]CGColor];
-        sub.firstName = tfFirstName.text;
+        _tfFirstName.layer.borderColor=[[UIColor clearColor]CGColor];
+        sub.firstName = _tfFirstName.text;
     }
     
     //--------------------Achternaam-----------------------------------------------
     
-    if ([tfLastName.text isEqualToString:@""]) {
-        tfLastName.layer.borderColor =[[UIColor redColor]CGColor];
-        tfLastName.layer.borderWidth = 1.0f;
-        tfLastName.placeholder = @"Veld is verplicht!";
+    if ([_tfLastName.text isEqualToString:@""]) {
+        _tfLastName.layer.borderColor =[[UIColor redColor]CGColor];
+        _tfLastName.layer.borderWidth = 1.0f;
+        _tfLastName.placeholder = @"Veld is verplicht!";
     } else {
-        tfLastName.layer.borderColor=[[UIColor clearColor]CGColor];
-        sub.lastName = tfLastName.text;
+        _tfLastName.layer.borderColor=[[UIColor clearColor]CGColor];
+        sub.lastName = _tfLastName.text;
     }
     
     //-------------------Mail-----------------------------------------------------
     
     
-    if ([tfEmail.text isEqualToString:@""] || ![self validateEmail:tfEmail.text]){
-        tfEmail.layer.borderColor =[[UIColor redColor]CGColor];
-        tfEmail.layer.borderWidth = 1.0f;
-        tfEmail.placeholder = @"Veld is verplicht!";
+    if ([_tfEmail.text isEqualToString:@""] || ![self validateEmail:_tfEmail.text]){
+        _tfEmail.layer.borderColor =[[UIColor redColor]CGColor];
+        _tfEmail.layer.borderWidth = 1.0f;
+        _tfEmail.placeholder = @"Veld is verplicht!";
     } else {
 
-        tfEmail.layer.borderColor=[[UIColor clearColor]CGColor];
-        sub.email = tfEmail.text;
+        _tfEmail.layer.borderColor=[[UIColor clearColor]CGColor];
+        sub.email = _tfEmail.text;
     }
     
     //-----------------Interesses--------------------------------------------------
     
     
     if([self countSwitches] == 0){
-        lblMultec.textColor = [UIColor redColor];
-        lblDigx.textColor = [UIColor redColor];
-        lblInterests.textColor = [UIColor redColor];
-    } else {
-        lblMultec.textColor = [UIColor blackColor];
-        lblDigx.textColor = [UIColor blackColor];
-        lblInterests.textColor = [UIColor blackColor];
+        _imgMultec.layer.borderColor =[[UIColor redColor]CGColor];
+        _imgDigx.layer.borderColor =[[UIColor redColor]CGColor];
         
-        if (swDig.on) {
+        _swDig.layer.borderColor  =[[UIColor redColor]CGColor];
+        _swMultec.layer.borderColor =[[UIColor redColor]CGColor];
+        
+        _lblInterests.textColor = [UIColor redColor];
+    } else {
+        _imgMultec.layer.borderColor=[[UIColor clearColor]CGColor];
+        _imgMultec.layer.borderColor=[[UIColor clearColor]CGColor];
+        _lblInterests.textColor = [UIColor blackColor];
+        
+        if (_swDig.on) {
             interests.digx = [NSNumber numberWithInt:1];
         } else {
             interests.digx = [NSNumber numberWithInt:0];
         }
         
-        if (swMultec.on){
+        if (_swMultec.on){
             interests.multec = [NSNumber numberWithInt:1];
         } else {
             interests.multec = [NSNumber numberWithInt:0];
         }
         
-        if (swWorkStudent.on) {
+        if (_swWorkStudent.on) {
             interests.werkstudent = [NSNumber numberWithInt:1];
         } else {
             interests.werkstudent = [NSNumber numberWithInt:0];
@@ -218,54 +213,54 @@
     
     //------------------Straat-----------------------------------------------------
     
-    if(![tfStreet.text isEqualToString:@""] && tfStreet.text.length < 3){
-        tfStreet.text = @"";
-        tfStreet.placeholder = @"Straatnaam moet minstens 3 tekens lang zijn.";
-        tfStreet.layer.borderColor =[[UIColor redColor]CGColor];
-        tfStreet.layer.borderWidth = 1.0f;
+    if(![_tfStreet.text isEqualToString:@""] && _tfStreet.text.length < 3){
+        _tfStreet.text = @"";
+        _tfStreet.placeholder = @"Straatnaam moet minstens 3 tekens lang zijn.";
+        _tfStreet.layer.borderColor =[[UIColor redColor]CGColor];
+        _tfStreet.layer.borderWidth = 1.0f;
     } else {
-        tfStreet.layer.borderColor=[[UIColor clearColor]CGColor];
-        sub.street = tfStreet.text;
+        _tfStreet.layer.borderColor=[[UIColor clearColor]CGColor];
+        sub.street = _tfStreet.text;
     }
     
     //------------------Nummer-----------------------------------------------------
     
-    if(![tfStreetNumber.text isEqualToString:@""] && (tfStreetNumber.text.length < 1 || tfStreetNumber.text.length > 4)) {
-        tfStreetNumber.text = @"";
-        tfStreetNumber.placeholder = @"Huisnummer moet tussen 1 en 4 tekens lang zijn.";
-        tfStreetNumber.layer.borderColor =[[UIColor redColor]CGColor];
-        tfStreetNumber.layer.borderWidth = 1.0f;
+    if(![_tfStreetNumber.text isEqualToString:@""] && (_tfStreetNumber.text.length < 1 || _tfStreetNumber.text.length > 4)) {
+        _tfStreetNumber.text = @"";
+        _tfStreetNumber.placeholder = @"Huisnummer moet tussen 1 en 4 tekens lang zijn.";
+        _tfStreetNumber.layer.borderColor =[[UIColor redColor]CGColor];
+        _tfStreetNumber.layer.borderWidth = 1.0f;
     } else {
-        tfStreetNumber.layer.borderColor=[[UIColor clearColor]CGColor];
-        sub.streetNumber = tfStreetNumber.text;
+        _tfStreetNumber.layer.borderColor=[[UIColor clearColor]CGColor];
+        sub.streetNumber = _tfStreetNumber.text;
     }
     
     
     //------------------Gemeente-----------------------------------------------------
     
-    if(![tfCity.text isEqualToString:@""] && tfCity.text.length < 3) {
-        tfCity.text = @"";
-        tfCity.placeholder = @"Gemeente moet minstens 3 tekens lang zijn.";
-        tfCity.layer.borderColor =[[UIColor redColor]CGColor];
-        tfCity.layer.borderWidth = 1.0f;
+    if(![_tfCity.text isEqualToString:@""] && _tfCity.text.length < 3) {
+        _tfCity.text = @"";
+        _tfCity.placeholder = @"Gemeente moet minstens 3 tekens lang zijn.";
+        _tfCity.layer.borderColor =[[UIColor redColor]CGColor];
+        _tfCity.layer.borderWidth = 1.0f;
     } else {
-        tfCity.layer.borderColor=[[UIColor clearColor]CGColor];
-        sub.city = tfCity.text;
+        _tfCity.layer.borderColor=[[UIColor clearColor]CGColor];
+        sub.city = _tfCity.text;
     }
     
     //------------------Postcode-----------------------------------------------------
-    if(tfZip.text.length ==0){
-        tfZip.placeholder = @"Veld is verplicht";
-        tfZip.layer.borderColor =[[UIColor redColor]CGColor];
-        tfZip.layer.borderWidth = 1.0f;
-    } else if(!(tfZip.text.length == 4)) {
-        tfZip.text = @"";
-        tfZip.placeholder = @"Postcode is 4 tekens";
-        tfZip.layer.borderColor =[[UIColor redColor]CGColor];
-        tfZip.layer.borderWidth = 1.0f;
+    if(_tfZip.text.length ==0){
+        _tfZip.placeholder = @"Veld is verplicht";
+        _tfZip.layer.borderColor =[[UIColor redColor]CGColor];
+        _tfZip.layer.borderWidth = 1.0f;
+    } else if(!(_tfZip.text.length == 4)) {
+        _tfZip.text = @"";
+        _tfZip.placeholder = @"Postcode is 4 tekens";
+        _tfZip.layer.borderColor =[[UIColor redColor]CGColor];
+        _tfZip.layer.borderWidth = 1.0f;
     } else {
-        tfZip.layer.borderColor=[[UIColor clearColor]CGColor];
-        sub.zip = tfZip.text;
+        _tfZip.layer.borderColor=[[UIColor clearColor]CGColor];
+        sub.zip = _tfZip.text;
     }
     
     //----------------School---------------------------------------------------------
@@ -277,9 +272,6 @@
     //----------------Teacher & event------------------------------------------------
     sub.teacher = self.teacher;
     sub.event = self.event;
-    
-    //--------------isNew------------------------------------------------------------
-//    sub.isNew = [NSNumber numberWithInt:1];
     
     //---------------Timestamp-------------------------------------------------------
     
@@ -325,11 +317,11 @@
 - (int) countSwitches {
     int teller = 0;
     
-    if(swDig.isOn){
+    if(_swDig.isOn){
         teller += 1;
     }
     
-    if (swMultec.isOn) {
+    if (_swMultec.isOn) {
         teller +=1;
     }
     
@@ -356,33 +348,10 @@
 
 -(void)fetchSubscriptionFromContext{
     
-//    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Subscription"];
-//    
-//    NSError *error;
-//    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-//    
-//    subscriptions = fetchedObjects;
-    
     subscriptions = [self.synchronizationService.persistentStoreManager fetchAll:[Subscription entityName]];
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"modalSegueToStudentForm"]) {
-//        StudentFormViewController *viewController = [segue destinationViewController];
-//        //        [viewController setTeacher:teacher];
-//        //        [viewController setEvent:event];
-//        viewController.teacher = self.teacher;
-//        viewController.event = self.event;
-//        //        viewController.teacher = sender;
-//        viewController.synchronizationService = self.synchronizationService;
-//        
-//    }
-//    
-//    if([[segue identifier] isEqual:@"modalSegueToCarousel"]) {
-//        CarouselViewController *viewController = [segue destinationViewController];
-//    }
     
     if ([[segue identifier] isEqualToString:@"popoverSchools"]) {
         SchoolTableViewController *tableViewController = [segue destinationViewController];

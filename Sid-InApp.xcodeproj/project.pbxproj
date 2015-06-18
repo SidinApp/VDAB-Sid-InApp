@@ -52,18 +52,19 @@
 		6DA173171B208F0D00595CA0 /* StudentFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA173161B208F0D00595CA0 /* StudentFormViewController.m */; };
 		6DFC4ABD1B204D10009EE68E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABC1B204D10009EE68E /* main.m */; };
 		6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABF1B204D10009EE68E /* AppDelegate.m */; };
-		6DFC4AC81B204D10009EE68E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC71B204D10009EE68E /* Images.xcassets */; };
 		6DFC4ACB1B204D10009EE68E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DFC4AC91B204D10009EE68E /* LaunchScreen.xib */; };
 		6DFC4AD71B204D10009EE68E /* Sid_InAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */; };
 		6F1E452D1B28388100458A39 /* SchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E452C1B28388100458A39 /* SchoolTableViewController.m */; };
 		6F7114BE1B3050A70001EA63 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7114BD1B3050A70001EA63 /* MapViewController.m */; };
-		6F714DD01B31977C00CFF0B9 /* SubscriptionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F714DCF1B31977C00CFF0B9 /* SubscriptionEntity.m */; };
 		6F7A15801B26E8E700ED455A /* GTMBAse64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A157E1B26E8E700ED455A /* GTMBAse64.m */; };
 		6F7A158E1B27097800ED455A /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A158D1B27097800ED455A /* CarouselViewController.m */; };
 		6F87DA631B32F6310067640E /* RestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87DA621B32F6310067640E /* RestEntity.m */; };
 		6F87DA6D1B32F9280067640E /* AppStart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87DA661B32F9280067640E /* AppStart.m */; };
 		6F87DA6E1B32F9280067640E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F87DA681B32F9280067640E /* LaunchScreen.xib */; };
 		6F87DA701B32F9280067640E /* ImageVersionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87DA6C1B32F9280067640E /* ImageVersionEntity.m */; };
+		6F87DA781B32FC0D0067640E /* Steffi_MainLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F87DA751B32FC0D0067640E /* Steffi_MainLayout.storyboard */; };
+		6F87DA7F1B32FC2F0067640E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F87DA7E1B32FC2F0067640E /* Images.xcassets */; };
+		6F87DA8D1B3303CA0067640E /* SubscriptionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87DA8C1B3303CA0067640E /* SubscriptionEntity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,7 +196,6 @@
 		6DFC4ABC1B204D10009EE68E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6DFC4ABE1B204D10009EE68E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6DFC4ABF1B204D10009EE68E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6DFC4AC71B204D10009EE68E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6DFC4ACA1B204D10009EE68E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6DFC4AD01B204D10009EE68E /* Sid-InAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sid-InAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFC4AD51B204D10009EE68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -204,8 +204,6 @@
 		6F1E452C1B28388100458A39 /* SchoolTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolTableViewController.m; sourceTree = "<group>"; };
 		6F7114BC1B3050A70001EA63 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		6F7114BD1B3050A70001EA63 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		6F714DCE1B31977C00CFF0B9 /* SubscriptionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionEntity.h; sourceTree = "<group>"; };
-		6F714DCF1B31977C00CFF0B9 /* SubscriptionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionEntity.m; sourceTree = "<group>"; };
 		6F7A157D1B26E8E700ED455A /* GTMBAse64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBAse64.h; sourceTree = "<group>"; };
 		6F7A157E1B26E8E700ED455A /* GTMBAse64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBAse64.m; sourceTree = "<group>"; };
 		6F7A157F1B26E8E700ED455A /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -218,6 +216,10 @@
 		6F87DA691B32F9280067640E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		6F87DA6B1B32F9280067640E /* ImageVersionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageVersionEntity.h; sourceTree = "<group>"; };
 		6F87DA6C1B32F9280067640E /* ImageVersionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageVersionEntity.m; sourceTree = "<group>"; };
+		6F87DA751B32FC0D0067640E /* Steffi_MainLayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Steffi_MainLayout.storyboard; sourceTree = "<group>"; };
+		6F87DA7E1B32FC2F0067640E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6F87DA8B1B3303CA0067640E /* SubscriptionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionEntity.h; sourceTree = "<group>"; };
+		6F87DA8C1B3303CA0067640E /* SubscriptionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionEntity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,10 +311,10 @@
 				6D8BB4331B2ADB5700F550B2 /* TeacherEntity.m */,
 				6D8BB3F41B2AD8B800F550B2 /* TeacherEntityList.h */,
 				6D8BB3F51B2AD8B800F550B2 /* TeacherEntityList.m */,
-				6F714DCE1B31977C00CFF0B9 /* SubscriptionEntity.h */,
-				6F714DCF1B31977C00CFF0B9 /* SubscriptionEntity.m */,
 				6F87DA611B32F6310067640E /* RestEntity.h */,
 				6F87DA621B32F6310067640E /* RestEntity.m */,
+				6F87DA8B1B3303CA0067640E /* SubscriptionEntity.h */,
+				6F87DA8C1B3303CA0067640E /* SubscriptionEntity.m */,
 			);
 			name = managed;
 			sourceTree = "<group>";
@@ -479,6 +481,7 @@
 		6DFC4AE31B204DCC009EE68E /* view */ = {
 			isa = PBXGroup;
 			children = (
+				6F87DA751B32FC0D0067640E /* Steffi_MainLayout.storyboard */,
 				6DA172FD1B2058D100595CA0 /* Main.storyboard */,
 				4C5D9F581B20CD4100443C81 /* MainLayout_bert.storyboard */,
 				6DFC4AC91B204D10009EE68E /* LaunchScreen.xib */,
@@ -489,8 +492,8 @@
 		6DFC4AE41B204DEF009EE68E /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				6F87DA7E1B32FC2F0067640E /* Images.xcassets */,
 				6DA172FF1B20590B00595CA0 /* images */,
-				6DFC4AC71B204D10009EE68E /* Images.xcassets */,
 			);
 			name = resource;
 			sourceTree = "<group>";
@@ -625,7 +628,8 @@
 			files = (
 				6DFC4ACB1B204D10009EE68E /* LaunchScreen.xib in Resources */,
 				6DA173031B20592100595CA0 /* bg_depcode.jpg in Resources */,
-				6DFC4AC81B204D10009EE68E /* Images.xcassets in Resources */,
+				6F87DA781B32FC0D0067640E /* Steffi_MainLayout.storyboard in Resources */,
+				6F87DA7F1B32FC2F0067640E /* Images.xcassets in Resources */,
 				4C5D9F591B20CD4100443C81 /* MainLayout_bert.storyboard in Resources */,
 				6F87DA6E1B32F9280067640E /* LaunchScreen.xib in Resources */,
 				6DA172FE1B2058D100595CA0 /* Main.storyboard in Resources */,
@@ -655,6 +659,7 @@
 				6D8BB3F91B2AD8B800F550B2 /* EventEntityList.m in Sources */,
 				6D8BB4011B2AD8B800F550B2 /* TeacherEntityList.m in Sources */,
 				6D8BB41A1B2AD8D900F550B2 /* Event.m in Sources */,
+				6F87DA8D1B3303CA0067640E /* SubscriptionEntity.m in Sources */,
 				6F87DA631B32F6310067640E /* RestEntity.m in Sources */,
 				6D8BB3FE1B2AD8B800F550B2 /* SchoolEntityList.m in Sources */,
 				6D8BB3DF1B2AD83800F550B2 /* PersistentStoreManager.m in Sources */,
@@ -675,7 +680,6 @@
 				6D8BB3D71B2AD82D00F550B2 /* RestfulStack.m in Sources */,
 				6F87DA701B32F9280067640E /* ImageVersionEntity.m in Sources */,
 				6D8BB4371B2ADB5700F550B2 /* InterestsEntity.m in Sources */,
-				6F714DD01B31977C00CFF0B9 /* SubscriptionEntity.m in Sources */,
 				6D8BB42B1B2ADB3E00F550B2 /* EventEntity.m in Sources */,
 				6F7114BE1B3050A70001EA63 /* MapViewController.m in Sources */,
 				6D8BB4281B2AD8EF00F550B2 /* Sid-InApp.xcdatamodeld in Sources */,

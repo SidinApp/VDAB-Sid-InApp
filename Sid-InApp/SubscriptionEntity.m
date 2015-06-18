@@ -15,13 +15,12 @@
 
 @implementation SubscriptionEntity
 
-@dynamic acadyear;
 @dynamic city;
 @dynamic email;
 @dynamic firstName;
 @dynamic id;
-@dynamic sNew;
 @dynamic lastName;
+@dynamic sNew;
 @dynamic street;
 @dynamic streetNumber;
 @dynamic timestamp;

@@ -19,12 +19,6 @@
     NSTimer *timer;
 }
 
-//@property (nonatomic, strong) Teacher *teacher;
-//@property (nonatomic, strong) Event *event;
-
-@property (weak, nonatomic) IBOutlet UILabel *loginLabel;
-@property (weak, nonatomic) IBOutlet UIButton *btnLogout;
-
 @property NSArray *images;
 
 @end
@@ -37,11 +31,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(goToScreensaver) userInfo:nil repeats:NO];
     
-    self.loginLabel.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
+    self.lblLogin.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
     
 }
 
@@ -69,7 +62,6 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-    NSLog(@"viewWillAppear triggered");
      [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(hideLabel) userInfo:nil repeats:NO];
     
     [super viewWillAppear:animated];
@@ -88,16 +80,9 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-//-(void)setTeacher:(Teacher *)teacher{
-//    self.teacher = teacher;
-//}
-//
-//-(void)setEvent:(Event *)event{
-//    self.event = event;
-//}
+
 
 - (IBAction)dLogout:(id)sender {
     
@@ -122,15 +107,11 @@
 
  #pragma mark - Navigation
 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if ([[segue identifier] isEqualToString:@"modalSegueToStudentForm"]) {
          StudentFormViewController *viewController = [segue destinationViewController];
-         //        [viewController setTeacher:teacher];
-            //        [viewController setEvent:event];
          viewController.teacher = self.teacher;
          viewController.event = self.event;
-         //        viewController.teacher = sender;
          viewController.synchronizationService = self.synchronizationService;
  
      }
