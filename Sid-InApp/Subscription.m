@@ -40,7 +40,7 @@
                                                  @"zip" : @"zip",
                                                  @"city" : @"city",
                                                  @"timestamp" : @"timestamp",
-                                                 @"new" : @"isNew",
+                                                 @"new" : @"sNew",
                                                  @"acadyear" : @"acadyear"
                                                  }];
     
@@ -77,7 +77,7 @@
                                                  @"zip" : @"zip",
                                                  @"city" : @"city",
                                                  @"timestamp" : @"timestamp",
-                                                 @"new" : @"isNew",                                                 
+                                                 @"new" : @"sNew",                                                 
                                                  @"acadyear" : @"acadyear"
                                                  }];
     

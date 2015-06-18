@@ -23,7 +23,9 @@
 -(id)init;
 
 -(void)initializeApp:(NSString *)secret;
+
 -(BOOL)hasBeenInitialized;
+-(BOOL)hasBeenInitialized:(NSString *)secret;
 -(void)setBaseURL;
 -(void)initializeRestfulStack:(NSString *)baseServiceUrl;
 -(void)initializeSynchronizationService;

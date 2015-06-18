@@ -16,6 +16,10 @@
     <entity name="ImageEntityList" representedClassName="ImageEntityList" syncable="YES">
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ImageEntity" syncable="YES"/>
     </entity>
+    <entity name="ImageVersionEntity" representedClassName="ImageVersionEntity" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="InterestsEntity" representedClassName="InterestsEntity" syncable="YES">
         <attribute name="digx" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="multec" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -41,8 +45,8 @@
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="isNew" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sNew" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="streetNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -76,5 +80,6 @@
         <element name="SubscriptionEntityList" positionX="-54" positionY="-9" width="128" height="60"/>
         <element name="TeacherEntity" positionX="-9" positionY="36" width="128" height="90"/>
         <element name="TeacherEntityList" positionX="36" positionY="81" width="128" height="60"/>
+        <element name="ImageVersionEntity" positionX="-9" positionY="117" width="128" height="75"/>
     </elements>
 </model>

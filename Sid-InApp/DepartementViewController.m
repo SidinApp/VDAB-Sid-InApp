@@ -69,7 +69,7 @@
     self.synchronizationService = self.appStart.synchronizationService;
     [self.synchronizationService addObserver:self];
     
-    if ([self.appStart hasBeenInitialized] && counter == 0) {
+    if ([self.appStart hasBeenInitialized:self.tfSecret.text] && counter == 0) {
         [self.synchronizationService initializePersistentStoreFromBackEnd];
         self.activityIndicator.hidden = NO;
         [self.activityIndicator startAnimating];

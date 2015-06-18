@@ -20,6 +20,7 @@
 #import "ImageList.h"
 #import "Subscription.h"
 #import "SubscriptionList.h"
+#import "ImageVersionEntity.h"
 
 @interface SynchronizationService ()
 
@@ -122,7 +123,12 @@
 -(void)pullImages{
     
     // 1
-    [self pullEntities:[ImageList createEntityMapping:self.restfulStack.managedObjectStore] pathPattern:IMAGE_URL_PATTERN];
+//    [self pullEntities:[ImageList createEntityMapping:self.restfulStack.managedObjectStore] pathPattern:IMAGE_URL_PATTERN];
+    
+    if (![self hasImageVersion] || [self hasNewImageVersion]) {
+        [self pullEntities:[ImageList createEntityMapping:self.restfulStack.managedObjectStore] pathPattern:IMAGE_URL_PATTERN];
+    }
+    
     
     // 2
 //    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", BASE_SERVICE_URL, IMAGE_URL_PATTERN]]];
@@ -145,6 +151,44 @@
     
 }
 
+-(BOOL)hasImageVersion{
+    
+    return [self.persistentStoreManager countForEntity:IMAGE_VERSION] > 0;
+}
+
+-(BOOL)hasNewImageVersion{
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", BASE_SERVICE_URL, IMAGE_VERSION_URL_PATTERN]]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    NSString* version = [[NSString alloc] initWithData:response
+                                          encoding:NSUTF8StringEncoding];
+    
+    if ([self.persistentStoreManager countForEntity:IMAGE_VERSION forPredicate:[NSPredicate predicateWithFormat:@"version==%@", version]] > 0) {
+        return NO;
+    }
+    
+    NSArray *imageVersions = [self.persistentStoreManager fetchAll:IMAGE_VERSION];
+    
+    for (NSManagedObject *imageVersion in imageVersions) {
+        [self.persistentStoreManager delete:imageVersion];
+    }
+    
+    ImageVersionEntity *imageVersion = (ImageVersionEntity *)[self.persistentStoreManager insert:IMAGE_VERSION];
+    imageVersion.version = version;
+    
+    [self.persistentStoreManager save];
+    
+    return YES;
+}
+
 -(void)pullSubscriptions{
     
     [self pullEntities:[SubscriptionList createEntityMapping:self.restfulStack.managedObjectStore] pathPattern:SUBSCRIPTIONS_URL_PATTERN];
@@ -152,6 +196,8 @@
 
 
 -(void)postSubscription:(SubscriptionEntity *)subscription{
+    
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     subscription.id = nil;
     
@@ -189,6 +235,7 @@
 //        [self.persistentStoreManager save];
         
 //        NSLog(@"SUB MOD %@", subscriptionModified.isNew);
+        [self.persistentStoreManager save];
         
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         // subscription isNew = true + opslaan
@@ -197,7 +244,7 @@
         
 //        subscriptionModified.isNew = @NO;
 //         NSLog(@"SUB MOD %@", subscriptionModified.isNew);
-        
+        subscriptionModified.sNew = [NSNumber numberWithBool:YES];
         [self.persistentStoreManager save];
     }];
 }
@@ -211,7 +258,7 @@
     
     NSArray *newSubscriptions = nil;
     
-    newSubscriptions = [self.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"isNew==%@", 1] forEntity:[Subscription entityName]];
+    newSubscriptions = [self.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"sNew==%@", 1] forEntity:[Subscription entityName]];
     
     if ([newSubscriptions count] != 0) {
         for (SubscriptionEntity *subscriptionEntity in newSubscriptions) {
@@ -333,7 +380,7 @@
 
 -(void)updateImages{
     for (id<SynchronizationObserver> observer in self.obervers) {
-        [observer updateEvents];
+        [observer updateImages];
     }
 }
 

@@ -18,7 +18,7 @@ extern NSString *const DATAMODEL_NAME;
 
 
 extern NSString *const DEPARTEMENT_SERVICE_URL;
-
+extern NSString *const REST_ENTITY;
 
 extern NSString * BASE_SERVICE_URL;
 
@@ -82,6 +82,7 @@ extern NSString *const SUBSCRIPTION_DELETE_ID_ROUTE;
 
 extern NSString *const IMAGE;
 extern NSString *const IMAGE_LIST;
+extern NSString *const IMAGE_VERSION;
 
 extern NSString *const IMAGE_URL_PATTERN;
 extern NSString *const IMAGE_SCRIPTION_URL_PATTERN;

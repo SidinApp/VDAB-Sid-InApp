@@ -21,6 +21,8 @@ NSString *const DATAMODEL_NAME = @"Sid-InApp";
 
 NSString *const DEPARTEMENT_SERVICE_URL = @"http://deptcodes.appspot.com/deptcode";
 
+NSString *const REST_ENTITY = @"RestEntity";
+
 // van 3 naar 4 vdabsidin
 NSString * BASE_SERVICE_URL = @"http://vdabsidin3.appspot.com";
 
@@ -83,6 +85,7 @@ NSString *const SUBSCRIPTION_DELETE_ID_ROUTE = @"subscription_delete_id_route";
 
 NSString *const IMAGE = @"ImageEntity";
 NSString *const IMAGE_LIST = @"ImageEntityList";
+NSString *const IMAGE_VERSION = @"ImageVersionEntity";
 
 NSString *const IMAGE_URL_PATTERN = @"/rest/image";
 NSString *const IMAGE_SCRIPTION_URL_PATTERN = @"/rest/imagescription/:id";

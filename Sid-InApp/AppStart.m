@@ -16,8 +16,6 @@
 
 @implementation AppStart
 
-NSString *const REST_ENTITY = @"RestEntity";
-
 
 -(id)init{
     
@@ -60,11 +58,19 @@ NSString *const REST_ENTITY = @"RestEntity";
     }
     
     
+    
 }
 
 -(BOOL)hasBeenInitialized{
-    
     return [self.persistentStoreManager countForEntity:REST_ENTITY] > 0;
+}
+
+-(BOOL)hasBeenInitialized:(NSString *)secret{
+    
+    NSUInteger count = [self.persistentStoreManager countForEntity:REST_ENTITY forPredicate:[NSPredicate predicateWithFormat:@"secret==%@", secret]];
+    
+//    return [self.persistentStoreManager countForEntity:REST_ENTITY] > 0;
+    return count > 0;
 }
 
 -(BOOL)hasBaseURL{
