@@ -13,6 +13,7 @@
 #import "Interests.h"
 #import "School.h"
 #import <RestKit/CoreData.h>
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface StudentFormViewController ()
@@ -28,20 +29,12 @@
 @implementation StudentFormViewController
 
 
-@synthesize tfEmail, tfCity, tfFirstName, tfLastName, tfSchool, tfStreet, tfStreetNumber, tfZip, swDig, swMultec, swWorkStudent, lblDigx, lblInterests, lblMultec, lblTeacher,containerRegistrationForm, viewOptional, viewRequired, lblZip;
+@synthesize tfEmail, tfCity, tfFirstName, tfLastName, tfSchool, tfStreet, tfStreetNumber, tfZip, swDig, swMultec, swWorkStudent, lblInterests, lblTeacher, viewOptional, viewRequired, lblZip, imgDigx, imgMultec;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self fetchSubscriptionFromContext];
     self.lblTeacher.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
-    
-    //VIEWS---------------------------
-    /*UIViewController *placeholder =[[UIViewController alloc] initWithNibName:@"RequiredFields" bundle:nil];
-    
-    UIView* RequiredFields = [placeholder view];
-    [self.containerRegistrationForm addSubview:RequiredFields];*/
-    
-    //self.viewOptional.hidden=YES;
     
     
     //SWIPE INIT-----------------------
@@ -82,12 +75,6 @@
     [animation setTimingFunction:
     [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
     
-    /*
-    [self.containerRegistrationForm.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
-    UIViewController *placeholder = [[UIViewController alloc] initWithNibName:@"OptionalFields" bundle:nil];
-    UIView* OptionalFields = [placeholder view];
-    
-    [self.containerRegistrationForm addSubview:OptionalFields];*/
     
     viewOptional.hidden=NO;
     viewRequired.hidden=YES;
@@ -109,13 +96,6 @@
      [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
     
     
-    /*
-    [self.containerRegistrationForm.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
-    UIViewController *placeholder = [[UIViewController alloc] initWithNibName:@"RequiredFields" bundle:nil];
-    UIView* RequiredFields = [placeholder view];
-    
-    [self.containerRegistrationForm addSubview:RequiredFields];*/
-    
     viewRequired.hidden=NO;
     viewOptional.hidden=YES;
     
@@ -123,7 +103,6 @@
     [viewOptional.layer addAnimation:animation forKey:kCATransition];
     
 }
-
 //END_____SWIPE + ANIMATION-------------------
 
 -(IBAction)tfEmailChanged:(id)sender {
@@ -230,12 +209,18 @@ if ([tfEmail.text isEqualToString:@""] || ![self validateEmail:tfEmail.text]){
 
 
 if([self countSwitches] == 0){
-    lblMultec.textColor = [UIColor redColor];
-    lblDigx.textColor = [UIColor redColor];
+    imgMultec.layer.borderColor =[[UIColor redColor]CGColor];
+    imgDigx.layer.borderColor =[[UIColor redColor]CGColor];
+    
+    swDig.layer.borderColor  =[[UIColor redColor]CGColor];
+    swMultec.layer.borderColor =[[UIColor redColor]CGColor];
+    
     lblInterests.textColor = [UIColor redColor];
 } else {
-    lblMultec.textColor = [UIColor blackColor];
-    lblDigx.textColor = [UIColor blackColor];
+    //lblMultec.textColor = [UIColor blackColor];
+    //lblDigx.textColor = [UIColor blackColor];
+    imgMultec.layer.borderColor=[[UIColor clearColor]CGColor];
+    imgMultec.layer.borderColor=[[UIColor clearColor]CGColor];
     lblInterests.textColor = [UIColor blackColor];
     
     if (swDig.on) {

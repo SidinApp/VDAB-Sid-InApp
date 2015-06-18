@@ -22,8 +22,7 @@
 //@property (nonatomic, strong) Teacher *teacher;
 //@property (nonatomic, strong) Event *event;
 
-@property (weak, nonatomic) IBOutlet UILabel *loginLabel;
-@property (weak, nonatomic) IBOutlet UIButton *btnLogout;
+
 
 @property NSArray *images;
 
@@ -31,7 +30,7 @@
 
 @implementation StudentCheckInViewController
 
-@synthesize lblSuccess;
+@synthesize lblSuccess, lblLogin, btnLogout;
 
 
 
@@ -41,7 +40,7 @@
     
     timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(goToScreensaver) userInfo:nil repeats:NO];
     
-    self.loginLabel.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
+    self.lblLogin.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
     
 }
 

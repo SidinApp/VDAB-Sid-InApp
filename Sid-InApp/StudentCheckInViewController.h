@@ -21,6 +21,9 @@
 
 @property (nonatomic, strong) SynchronizationService *synchronizationService;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblLogin;
+@property (weak, nonatomic) IBOutlet UIButton *btnLogout;
+
 //-(void)setTeacher:(Teacher *)teacher;
 //-(void)setEvent:(Event *)event;
 

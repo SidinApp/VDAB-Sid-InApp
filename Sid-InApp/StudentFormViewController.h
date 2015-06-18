@@ -30,9 +30,10 @@
 
 
 //Root Elements-----------------------------------------------
-@property (weak, nonatomic) IBOutlet UIView *containerRegistrationForm;
 @property (weak, nonatomic) IBOutlet UILabel *lblTeacher;
 @property (weak, nonatomic) IBOutlet UIButton *btnSave;
+@property (weak, nonatomic) IBOutlet UIButton *btnCancel;
+
 
 @property (weak, nonatomic) IBOutlet UIView *viewOptional;
 @property (weak, nonatomic) IBOutlet UIView *viewRequired;
@@ -45,12 +46,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfZip;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblInterests;
-@property (weak, nonatomic) IBOutlet UILabel *lblDigx;
-@property (weak, nonatomic) IBOutlet UILabel *lblMultec;
 @property (weak, nonatomic) IBOutlet UILabel *lblZip;
 
 @property (weak, nonatomic) IBOutlet UISwitch *swDig;
 @property (weak, nonatomic) IBOutlet UISwitch *swMultec;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgDigx;
+@property (weak, nonatomic) IBOutlet UIImageView *imgMultec;
+
 
 //Optional Fields---------------------------------------------
 @property (weak, nonatomic) IBOutlet UITextField *tfStreet;
