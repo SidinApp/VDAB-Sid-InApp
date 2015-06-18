@@ -138,6 +138,11 @@
 //    _teachers = fetchedObjects;
 //    
 //    _teachers = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Teacher entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    
+    if ([self.teacherList isEqual:nil]) {
+        self.teacherList = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Teacher entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    }
+    
     _teachers = self.teacherList;
 }
 
@@ -158,6 +163,11 @@
 //    _events = fetchedObjects;
     
 //    _events = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Event entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    
+    if ([self.eventList isEqual:nil]) {
+        self.eventList = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Event entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    }
+    
     _events = self.eventList;
 }
 
