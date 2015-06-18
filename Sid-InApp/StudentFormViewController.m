@@ -279,6 +279,15 @@
     
     //---------------Timestamp-------------------------------------------------------
     
+    
+//    NSTimeInterval timeinterval = ([[NSDate date] timeIntervalSince1970]*1000.0);
+//    NSLog(@"%f", timeinterval);
+//    
+//    NSNumber *test = [NSNumber numberWithDouble:timeinterval];
+//    long long value = [test longLongValue];
+//    NSLog(@"%lld", value);
+    
+    
     NSDate *dateNow = [NSDate date];
     long timeStamp = (long)([dateNow timeIntervalSince1970]*1000.0);
     //NSDate *fromLong = [NSDate dateWithTimeIntervalSince1970:timeStamp/1000];
