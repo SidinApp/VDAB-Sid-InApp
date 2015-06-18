@@ -101,7 +101,7 @@
 
 - (IBAction)dLogout:(id)sender {
     
-            [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)fetchImagesFromContext{

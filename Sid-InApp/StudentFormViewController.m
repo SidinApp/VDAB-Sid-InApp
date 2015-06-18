@@ -290,8 +290,9 @@
     NSDate *longToDate = [SynchronizationService convertLongToDate:timeStamp];
     NSDate *dateWithoutTime = [SynchronizationService convertToDateWithoutTime:longToDate];
     
-    timeStamp = (long) (dateWithoutTime);
-    sub.timestamp = [NSNumber numberWithLong:timeStamp];    
+    timeStamp = (long) ([dateWithoutTime timeIntervalSince1970]*1000.0);
+
+    sub.timestamp = [NSNumber numberWithLongLong:timeStamp];
     
     
     //---------------Controle vereiste velden ingevuld-------------------------------
@@ -387,6 +388,9 @@
         tableViewController.synchronizationService = self.synchronizationService;
     }
     
+}
+- (IBAction)formCancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

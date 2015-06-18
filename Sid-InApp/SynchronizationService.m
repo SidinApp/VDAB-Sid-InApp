@@ -241,10 +241,10 @@
 }
 +(NSDate *)convertToDateWithoutTime:(NSDate *)date{
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    unsigned units = NSYearCalendarUnit | NSMoviesDirectory | NSDayCalendarUnit;
+    unsigned units = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
     NSDateComponents *components = [calendar components:units fromDate:date];
     NSDate *dateOnly = [calendar dateFromComponents:components];
-    [dateOnly dateByAddingTimeInterval:(60 * 60 * 12)];
+    dateOnly = [dateOnly dateByAddingTimeInterval:(60 * 60 * 24)];
     return dateOnly;
 }
 

@@ -10,6 +10,7 @@
 #import "PersistentStoreManager.h"
 #import "SynchronizationService.h"
 #import "SidInUtils.h"
+#import "Subscription.h"
 
 @interface MapViewController ()
 
@@ -131,17 +132,16 @@
     
     NSDate *dateWithoutTime = [SynchronizationService convertToDateWithoutTime:longToDate];
     NSLog(@"dateWithoutTime: %@", dateWithoutTime);
-    
-    currentDate = (long) dateWithoutTime;
-    NSLog(@"currentDate: %ld", currentDate);
-    
+
+    long timestamp = (long) ([dateWithoutTime timeIntervalSince1970]*1000.0);
+    NSLog(@"currentDate: %ld", timestamp);
     
     NSURL *storeURL = [self createStoreURL:DATABASE_NAME];
     NSURL *modelURL = [self createModelURL:DATAMODEL_NAME];
     PersistentStack *persistentStack = [[PersistentStack alloc] initWithStoreURL:storeURL modelURL:modelURL];
     PersistentStoreManager *persistentStoreManager = [[PersistentStoreManager alloc] initWithPersistentStack:persistentStack];
     
-    NSInteger subsToday = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"timestamp == %ld",currentDate]];
+    NSInteger subsToday = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"timestamp == %ld",timestamp]];
     
     NSLog(@"sub count: %lu", (unsigned long)subsToday);
     
@@ -155,7 +155,42 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
+    NSDate *dateNow = [NSDate date];
+    long currentDate = (long) ([dateNow timeIntervalSince1970]*1000.0);
+    NSLog(@"currentDate: %ld", currentDate);
     
+    NSDate *longToDate = [SynchronizationService convertLongToDate:currentDate];
+    NSLog(@"longToDate: %@", longToDate);
+    
+    NSDate *dateWithoutTime = [SynchronizationService convertToDateWithoutTime:longToDate];
+    NSLog(@"dateWithoutTime: %@", dateWithoutTime);
+    
+    long long timestamp = (long long) ([dateWithoutTime timeIntervalSince1970]*1000.0);
+    NSLog(@"currentDate: %ld", timestamp);
+    
+    NSURL *storeURL = [self createStoreURL:DATABASE_NAME];
+    NSURL *modelURL = [self createModelURL:DATAMODEL_NAME];
+    PersistentStack *persistentStack = [[PersistentStack alloc] initWithStoreURL:storeURL modelURL:modelURL];
+    PersistentStoreManager *persistentStoreManager = [[PersistentStoreManager alloc] initWithPersistentStack:persistentStack];
+    
+    NSArray *subscriptions = [persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"timestamp == %ld", timestamp] forEntity:@"SubscriptionEntity"];
+    
+    Subscription *currentSub = [subscriptions objectAtIndex:indexPath.row];
+    NSString *fullName = [NSString stringWithFormat:@"%@ %@", currentSub.firstName, currentSub.lastName];
+    NSString *interests;
+
+    if(currentSub.interests.digx == 1){
+        if(currentSub.interests.multec == 1){
+            interests = @"Dig-x & Multec";
+        } else {
+            interests = @"Dig-x";
+        }
+    } else {
+        interests = @"Multec";
+    }
+
+    cell.textLabel.text = fullName;
+    cell.detailTextLabel.text = interests;
     
     return cell;
 }
@@ -175,5 +210,10 @@
     
     return [[NSBundle mainBundle] URLForResource:modelName withExtension:@"momd"];
 }
+- (IBAction)back:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 @end
