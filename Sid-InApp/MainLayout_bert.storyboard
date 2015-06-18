@@ -43,12 +43,16 @@
                                     <action selector="startAppBtn:" destination="vjF-3y-hFR" eventType="touchUpInside" id="4EF-gD-s0K"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DBK-LK-Wku">
+                                <rect key="frame" x="494" y="523" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="V6b-pI-cZn"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="DBK-LK-Wku" id="FIq-eM-mlc"/>
                         <outlet property="tfSecret" destination="Nm9-PI-PAI" id="aMl-mg-CnN"/>
                         <segue destination="7Ao-L4-Rgs" kind="modal" identifier="modalSegueToLogin" id="uNG-1r-whR"/>
                     </connections>

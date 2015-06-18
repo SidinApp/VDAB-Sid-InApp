@@ -52,6 +52,7 @@ NSString *const REST_ENTITY = @"RestEntity";
     if (![url isEqualToString:@""]) {
         RestEntity *restEntity = (RestEntity *)[self.persistentStoreManager insert:REST_ENTITY];
         restEntity.url = [NSString stringWithFormat:@"http://%@", url];
+        restEntity.secret = secret;
         [self.persistentStoreManager save:restEntity];
         [self setBaseURL];
         [self initializeRestfulStack:BASE_SERVICE_URL];

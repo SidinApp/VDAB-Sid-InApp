@@ -23,6 +23,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *tfSecret;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -53,6 +54,8 @@
     // test synchronization
 //    [self.synchronizationService startSynchronization];
     counter = 0;
+    self.activityIndicator.hidesWhenStopped = YES;
+    self.activityIndicator.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +71,8 @@
     
     if ([self.appStart hasBeenInitialized] && counter == 0) {
         [self.synchronizationService initializePersistentStoreFromBackEnd];
+        self.activityIndicator.hidden = NO;
+        [self.activityIndicator startAnimating];
 //        counter += 1;
 //        [self performSegueWithIdentifier:@"modalSegueToLogin" sender:sender];
         
@@ -140,6 +145,7 @@
     events = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Event entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     counter +=1;
     if (counter == 2) {
+        [self.activityIndicator stopAnimating];
         [self performSegueWithIdentifier:@"modalSegueToLogin" sender:self];
     }
 }
@@ -149,6 +155,7 @@
     teachers = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Teacher entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     counter +=1;
     if (counter == 2) {
+        [self.activityIndicator stopAnimating];
         [self performSegueWithIdentifier:@"modalSegueToLogin" sender:self];
     }
 }
