@@ -24,7 +24,7 @@ NSString *const DEPARTEMENT_SERVICE_URL = @"http://deptcodes.appspot.com/deptcod
 NSString *const REST_ENTITY = @"RestEntity";
 
 // van 3 naar 4 vdabsidin
-NSString *const BASE_SERVICE_URL = @"http://vdabsidin3.appspot.com";
+NSString * BASE_SERVICE_URL = @"http://vdabsidin3.appspot.com";
 
 
 NSString *const TEACHER = @"TeacherEntity";

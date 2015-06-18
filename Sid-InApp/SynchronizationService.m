@@ -209,7 +209,7 @@
     
     [self.restfulStack createAndAddRequestDescriptor:[subscriptionEntityMapping inverseMapping] objectClass:[SubscriptionEntity class] method:RKRequestMethodPOST];
     
- [self.restfulStack.objectManager setRequestSerializationMIMEType:RKMIMETypeJSON];
+    [self.restfulStack.objectManager setRequestSerializationMIMEType:RKMIMETypeJSON];
     [self.restfulStack.objectManager setAcceptHeaderWithMIMEType:RKMIMETypeJSON];
     
     // http://stackoverflow.com/questions/19583395/restkit-error-on-get-operation
@@ -310,8 +310,22 @@
     
 }
 
-+(NSDate *)convertLongToDate:(long)longDate{
-    return [NSDate dateWithTimeIntervalSince1970:longDate / 1000];
+-(NSArray *)subscriptionsByDate:(NSDate *)date{
+    
+    NSDate *today = [self convertToDateWithoutTime:date];
+    
+    NSArray *subscriptions = [self.persistentStoreManager fetchAll:[Subscription entityName]];
+    
+    NSMutableArray *results = [[NSMutableArray alloc] init];
+    
+    for (SubscriptionEntity *subscription in subscriptions) {
+        NSDate *dateSubscription = [self convertLongToDate:(long)subscription.timestamp];
+        if ([today isEqualToDate:dateSubscription]) {
+            [results addObject:subscription];
+        }
+    }
+    
+    return results;
 }
 +(NSDate *)convertToDateWithoutTime:(NSDate *)date{
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -322,5 +336,50 @@
     return dateOnly;
 }
 
++(NSDate *)convertLongToDate:(long)longDate{
+    return [NSDate dateWithTimeIntervalSince1970:longDate / 1000];
+}
+
+-(void)addObserver:(id<SynchronizationObserver>)observer{
+    
+    [self.obervers addObject:observer];
+}
+
+-(void)update{
+    
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        [observer update];
+    }
+}
+
+-(void)updateEvents{
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        [observer updateEvents];
+    }
+}
+
+-(void)updateTeachers{
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        [observer updateTeachers];
+    }
+}
+
+-(void)updateSchools{
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        [observer updateSchools];
+    }
+}
+
+-(void)updateSubscriptions{
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        [observer updateSubscriptions];
+    }
+}
+
+-(void)updateImages{
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        [observer updateImages];
+    }
+}
 
 @end

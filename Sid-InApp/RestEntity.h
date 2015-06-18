@@ -13,7 +13,7 @@
 @interface RestEntity : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * id;
-@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSString * secret;
+@property (nonatomic, retain) NSString * url;
 
 @end

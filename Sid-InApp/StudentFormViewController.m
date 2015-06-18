@@ -303,6 +303,7 @@
         
 //        [self.synchronizationService.persistentStoreManager save:sub];
 //        sub.id = nil;
+        sub.sNew = [NSNumber numberWithBool:NO];
         
         sub.sNew = [NSNumber numberWithBool:NO];
         

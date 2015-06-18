@@ -73,9 +73,27 @@
     }
     */
     
-    self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:storyboardIdDep];
-    DepartementViewController *viewController = (DepartementViewController *)[self.window rootViewController];
-    viewController.synchronizationService = self.synchronizationService;
+    self.appStart = [[AppStart alloc] init];
+    
+    if ([self.appStart hasBeenInitialized]) {
+        
+        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+        LoginViewController *viewController = (LoginViewController *)[self.window rootViewController];
+        [self.appStart setBaseURL];
+        [self.appStart initializeRestfulStack:BASE_SERVICE_URL];
+        [self.appStart initializeSynchronizationService];
+//        [self.appStart.synchronizationService initializePersistentStoreFromBackEnd];
+        viewController.synchronizationService = self.synchronizationService;
+        
+    } else {
+        
+        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"departementVC"];
+        DepartementViewController *viewController = (DepartementViewController *)[self.window rootViewController];
+        viewController.appStart = self.appStart;
+        
+        // verdere initializatie in departementVC
+    }
+    
     
     return YES;
 }

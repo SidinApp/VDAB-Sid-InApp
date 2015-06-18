@@ -12,7 +12,7 @@
 @implementation RestEntity
 
 @dynamic id;
-@dynamic url;
 @dynamic secret;
+@dynamic url;
 
 @end
