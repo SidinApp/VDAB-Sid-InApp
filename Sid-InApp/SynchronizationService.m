@@ -265,7 +265,7 @@
 
 -(void)initializeTimer{
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(synchronize) userInfo:nil repeats:NO];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:3600 target:self selector:@selector(synchronize) userInfo:nil repeats:NO];
 }
 
 -(void)resetTimer{

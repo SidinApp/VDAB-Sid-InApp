@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		4C22EAD41B3347CE001535BA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172D21B20512C00595CA0 /* SystemConfiguration.framework */; };
 		4C22EAD51B3347D4001535BA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172D01B20512C00595CA0 /* MobileCoreServices.framework */; };
-		4C22EADE1B3350AE001535BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C22EADD1B3350AE001535BA /* LaunchScreen.xib */; };
-		4C5D9F591B20CD4100443C81 /* Main_bert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D9F581B20CD4100443C81 /* Main_bert.storyboard */; };
-		4C5D9F5D1B20FB3100443C81 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D9F5C1B20FB3100443C81 /* ViewController.m */; };
 		6D8BB3D71B2AD82D00F550B2 /* RestfulStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3D21B2AD82D00F550B2 /* RestfulStack.m */; };
 		6D8BB3D81B2AD82D00F550B2 /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3D41B2AD82D00F550B2 /* PersistentStack.m */; };
 		6D8BB3D91B2AD82D00F550B2 /* SidInUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BB3D61B2AD82D00F550B2 /* SidInUtils.m */; };
@@ -43,7 +40,6 @@
 		6DA172D31B20512D00595CA0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172CE1B20512C00595CA0 /* CFNetwork.framework */; };
 		6DA172D41B20512D00595CA0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172CF1B20512C00595CA0 /* CoreData.framework */; };
 		6DA172D61B20512D00595CA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA172D11B20512C00595CA0 /* Security.framework */; };
-		6DA172FE1B2058D100595CA0 /* Main_v1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DA172FD1B2058D100595CA0 /* Main_v1.storyboard */; };
 		6DA173031B20592100595CA0 /* bg_depcode.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173001B20592100595CA0 /* bg_depcode.jpg */; };
 		6DA173041B20592100595CA0 /* bg_checkin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173011B20592100595CA0 /* bg_checkin.jpg */; };
 		6DA173051B20592100595CA0 /* logoErasmus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DA173021B20592100595CA0 /* logoErasmus.png */; };
@@ -55,6 +51,7 @@
 		6DFC4AC01B204D10009EE68E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4ABF1B204D10009EE68E /* AppDelegate.m */; };
 		6DFC4AD71B204D10009EE68E /* Sid_InAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */; };
 		6F1E452D1B28388100458A39 /* SchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E452C1B28388100458A39 /* SchoolTableViewController.m */; };
+		6F702DDB1B34051C00724ED0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F702DDA1B34051C00724ED0 /* LaunchScreen.xib */; };
 		6F7114BE1B3050A70001EA63 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7114BD1B3050A70001EA63 /* MapViewController.m */; };
 		6F7A15801B26E8E700ED455A /* GTMBAse64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A157E1B26E8E700ED455A /* GTMBAse64.m */; };
 		6F7A158E1B27097800ED455A /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A158D1B27097800ED455A /* CarouselViewController.m */; };
@@ -112,10 +109,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4C22EADD1B3350AE001535BA /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		4C5D9F581B20CD4100443C81 /* Main_bert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_bert.storyboard; sourceTree = "<group>"; };
-		4C5D9F5B1B20FB3100443C81 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4C5D9F5C1B20FB3100443C81 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6D8BB3D01B2AD81600F550B2 /* Dao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dao.h; sourceTree = "<group>"; };
 		6D8BB3D11B2AD82D00F550B2 /* RestfulStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestfulStack.h; sourceTree = "<group>"; };
 		6D8BB3D21B2AD82D00F550B2 /* RestfulStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestfulStack.m; sourceTree = "<group>"; };
@@ -179,7 +172,6 @@
 		6DA172D11B20512C00595CA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6DA172D21B20512C00595CA0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6DA172D81B20525300595CA0 /* Sid-InApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sid-InApp-Prefix.pch"; sourceTree = "<group>"; };
-		6DA172FD1B2058D100595CA0 /* Main_v1.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_v1.storyboard; sourceTree = "<group>"; };
 		6DA173001B20592100595CA0 /* bg_depcode.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_depcode.jpg; sourceTree = "<group>"; };
 		6DA173011B20592100595CA0 /* bg_checkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_checkin.jpg; sourceTree = "<group>"; };
 		6DA173021B20592100595CA0 /* logoErasmus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoErasmus.png; sourceTree = "<group>"; };
@@ -201,6 +193,7 @@
 		6DFC4AD61B204D10009EE68E /* Sid_InAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sid_InAppTests.m; sourceTree = "<group>"; };
 		6F1E452B1B28388100458A39 /* SchoolTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolTableViewController.h; sourceTree = "<group>"; };
 		6F1E452C1B28388100458A39 /* SchoolTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolTableViewController.m; sourceTree = "<group>"; };
+		6F702DDA1B34051C00724ED0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		6F7114BC1B3050A70001EA63 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		6F7114BD1B3050A70001EA63 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		6F7A157D1B26E8E700ED455A /* GTMBAse64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBAse64.h; sourceTree = "<group>"; };
@@ -252,17 +245,6 @@
 				6F7A157F1B26E8E700ED455A /* GTMDefines.h */,
 			);
 			name = utils;
-			sourceTree = "<group>";
-		};
-		4C5D9F5E1B20FB3400443C81 /* deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				4C5D9F581B20CD4100443C81 /* Main_bert.storyboard */,
-				6DA172FD1B2058D100595CA0 /* Main_v1.storyboard */,
-				4C5D9F5B1B20FB3100443C81 /* ViewController.h */,
-				4C5D9F5C1B20FB3100443C81 /* ViewController.m */,
-			);
-			name = deprecated;
 			sourceTree = "<group>";
 		};
 		6D8BB3CF1B2AD75500F550B2 /* services */ = {
@@ -397,7 +379,6 @@
 			isa = PBXGroup;
 			children = (
 				6D8BB3CF1B2AD75500F550B2 /* services */,
-				4C5D9F5E1B20FB3400443C81 /* deprecated */,
 				4C5D9F571B20C85C00443C81 /* utils */,
 				6DFC4AE41B204DEF009EE68E /* resource */,
 				6DFC4AE31B204DCC009EE68E /* view */,
@@ -481,7 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				6F87DA751B32FC0D0067640E /* Main.storyboard */,
-				4C22EADD1B3350AE001535BA /* LaunchScreen.xib */,
+				6F702DDA1B34051C00724ED0 /* LaunchScreen.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -617,9 +598,7 @@
 				6DA173031B20592100595CA0 /* bg_depcode.jpg in Resources */,
 				6F87DA781B32FC0D0067640E /* Main.storyboard in Resources */,
 				6F87DA7F1B32FC2F0067640E /* Images.xcassets in Resources */,
-				4C5D9F591B20CD4100443C81 /* Main_bert.storyboard in Resources */,
-				4C22EADE1B3350AE001535BA /* LaunchScreen.xib in Resources */,
-				6DA172FE1B2058D100595CA0 /* Main_v1.storyboard in Resources */,
+				6F702DDB1B34051C00724ED0 /* LaunchScreen.xib in Resources */,
 				6DA173041B20592100595CA0 /* bg_checkin.jpg in Resources */,
 				6DA173051B20592100595CA0 /* logoErasmus.png in Resources */,
 			);
@@ -678,7 +657,6 @@
 				6D8BB4221B2AD8D900F550B2 /* SubscriptionList.m in Sources */,
 				6D8BB4241B2AD8D900F550B2 /* TeacherList.m in Sources */,
 				6D8BB3D91B2AD82D00F550B2 /* SidInUtils.m in Sources */,
-				4C5D9F5D1B20FB3100443C81 /* ViewController.m in Sources */,
 				6DA173171B208F0D00595CA0 /* StudentFormViewController.m in Sources */,
 				6DFC4ABD1B204D10009EE68E /* main.m in Sources */,
 			);

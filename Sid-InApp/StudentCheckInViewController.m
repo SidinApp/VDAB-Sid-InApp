@@ -36,8 +36,6 @@
     
     self.lblLogin.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
     
-    [self fetchImagesFromContext];
-    
     [self.synchronizationService startSynchronization];
 }
 
@@ -113,6 +111,7 @@
      
      if([[segue identifier] isEqual:@"modalSegueToCarousel"]) {
          CarouselViewController *viewController = [segue destinationViewController];
+         [self fetchImagesFromContext];
          viewController.rawImages = self.images;
      }
  }

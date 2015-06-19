@@ -90,21 +90,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSDate *dateNow = [NSDate date];
-    long currentDate = (long) ([dateNow timeIntervalSince1970]*1000.0);
+    NSTimeInterval timeinterval = ([[NSDate date] timeIntervalSince1970]*1000.0);
     
-    NSDate *longToDate = [PersistentStoreManager convertLongLongToDate:currentDate];
+    NSNumber *test = [NSNumber numberWithDouble:timeinterval];
+    long long value = [test longLongValue];
     
-    NSDate *dateWithoutTime = [PersistentStoreManager convertToDateWithoutTime:longToDate];
-
-    long timestamp = (long) ([dateWithoutTime timeIntervalSince1970]*1000.0);
+    NSDate *longLongToDate = [PersistentStoreManager convertLongLongToDate:value];
+    NSDate *dateWithoutTime = [PersistentStoreManager convertToDateWithoutTime:longLongToDate];
+    
+    NSTimeInterval intervalToday = ([dateWithoutTime timeIntervalSince1970]*1000.0);
+    NSNumber *nToday = [NSNumber numberWithDouble:intervalToday];
+    long long llToday = [nToday longLongValue];
     
     NSURL *storeURL = [self createStoreURL:DATABASE_NAME];
     NSURL *modelURL = [self createModelURL:DATAMODEL_NAME];
     PersistentStack *persistentStack = [[PersistentStack alloc] initWithStoreURL:storeURL modelURL:modelURL];
     PersistentStoreManager *persistentStoreManager = [[PersistentStoreManager alloc] initWithPersistentStack:persistentStack];
     
-    NSInteger subsToday = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"timestamp == %ld",timestamp]];
+    NSInteger subsToday = [persistentStoreManager countForEntity:@"SubscriptionEntity" forPredicate:[NSPredicate predicateWithFormat:@"timestamp == %lld",llToday]];
     
     return subsToday;
 }
@@ -116,21 +119,24 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    NSDate *dateNow = [NSDate date];
-    long currentDate = (long) ([dateNow timeIntervalSince1970]*1000.0);
+    NSTimeInterval timeinterval = ([[NSDate date] timeIntervalSince1970]*1000.0);
     
-    NSDate *longToDate = [PersistentStoreManager convertLongLongToDate:currentDate];
+    NSNumber *test = [NSNumber numberWithDouble:timeinterval];
+    long long value = [test longLongValue];
     
-    NSDate *dateWithoutTime = [PersistentStoreManager convertToDateWithoutTime:longToDate];
+    NSDate *longLongToDate = [PersistentStoreManager convertLongLongToDate:value];
+    NSDate *dateWithoutTime = [PersistentStoreManager convertToDateWithoutTime:longLongToDate];
     
-    long timestamp = (long) ([dateWithoutTime timeIntervalSince1970]*1000.0);
+    NSTimeInterval intervalToday = ([dateWithoutTime timeIntervalSince1970]*1000.0);
+    NSNumber *nToday = [NSNumber numberWithDouble:intervalToday];
+    long long llToday = [nToday longLongValue];
     
     NSURL *storeURL = [self createStoreURL:DATABASE_NAME];
     NSURL *modelURL = [self createModelURL:DATAMODEL_NAME];
     PersistentStack *persistentStack = [[PersistentStack alloc] initWithStoreURL:storeURL modelURL:modelURL];
     PersistentStoreManager *persistentStoreManager = [[PersistentStoreManager alloc] initWithPersistentStack:persistentStack];
     
-    NSArray *subscriptions = [persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"timestamp == %ld", timestamp] forEntity:@"SubscriptionEntity"];
+    NSArray *subscriptions = [persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"timestamp == %lld", llToday] forEntity:@"SubscriptionEntity"];
     
     Subscription *currentSub = [subscriptions objectAtIndex:indexPath.row];
     NSString *fullName = [NSString stringWithFormat:@"%@ %@", currentSub.firstName, currentSub.lastName];
