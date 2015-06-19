@@ -17,7 +17,7 @@
 
 -(id)initWithPersistentStack:(PersistentStack *)persistentStack;
 
-+(NSDate *)convertLongToDate:(long)longDate;
++(NSDate *)convertLongLongToDate:(long long)longLongDate;
 +(NSDate *)convertToDateWithoutTime:(NSDate *)date;
 
 

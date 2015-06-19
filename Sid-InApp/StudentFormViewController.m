@@ -235,19 +235,23 @@
     }
 }
 
--(long)getTimeStamp{
+-(long long)getTimeStamp{
     
-    NSDate *dateNow = [NSDate date];
-    long timeStamp = (long)([dateNow timeIntervalSince1970]*1000.0);
+    NSTimeInterval timeinterval = ([[NSDate date] timeIntervalSince1970]*1000.0);
     
-//    NSDate *longToDate = [SynchronizationService convertLongToDate:timeStamp];
-//    NSDate *dateWithoutTime = [SynchronizationService convertToDateWithoutTime:longToDate];
+    NSNumber *test = [NSNumber numberWithDouble:timeinterval];
+    long long value = [test longLongValue];
 
-    NSDate *longToDate = [PersistentStoreManager convertLongToDate:timeStamp];
-    NSDate *dateWithoutTime = [PersistentStoreManager convertToDateWithoutTime:longToDate];
+    NSDate *longLongToDate = [PersistentStoreManager convertLongLongToDate:value];
+    NSDate *dateWithoutTime = [PersistentStoreManager convertToDateWithoutTime:longLongToDate];
     
+    NSTimeInterval intervalToday = ([dateWithoutTime timeIntervalSince1970]*1000.0);
+    NSNumber *nToday = [NSNumber numberWithDouble:intervalToday];
+    long long llToday = [nToday longLongValue];
     
-    return (long) ([dateWithoutTime timeIntervalSince1970]*1000.0);
+    NSLog(@"llToday: %lld", llToday);
+    
+    return llToday;
 }
 
 -(BOOL)validFirstName{

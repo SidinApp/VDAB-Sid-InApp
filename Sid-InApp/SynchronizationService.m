@@ -283,7 +283,7 @@
     NSMutableArray *results = [[NSMutableArray alloc] init];
     
     for (SubscriptionEntity *subscription in subscriptions) {
-        NSDate *dateSubscription = [PersistentStoreManager convertLongToDate:(long)subscription.timestamp];
+        NSDate *dateSubscription = [PersistentStoreManager convertLongLongToDate:(long)subscription.timestamp];
         if ([today isEqualToDate:dateSubscription]) {
             [results addObject:subscription];
         }

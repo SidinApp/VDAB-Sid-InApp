@@ -187,8 +187,8 @@
 }
 
 // verplaatsen naar persistentstoremanager
-+(NSDate *)convertLongToDate:(long)longDate{
-    return [NSDate dateWithTimeIntervalSince1970:longDate / 1000];
++(NSDate *)convertLongLongToDate:(long long)longLongDate{
+    return [NSDate dateWithTimeIntervalSince1970:longLongDate / 1000];
 }
 
 
