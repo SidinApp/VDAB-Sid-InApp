@@ -36,6 +36,7 @@
 
 -(void)startSynchronization;
 -(void)stopSynchronization;
+-(void)synchronize;
 
 -(BOOL)isRestReachable;
 

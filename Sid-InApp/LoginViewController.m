@@ -40,6 +40,8 @@
     
     [self fetchTeachersFromContext];
     [self fetchEventsFromContext];
+    
+    [self.synchronizationService synchronize];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -72,6 +72,7 @@
     
     [super viewDidAppear:animated];
     [timer invalidate];
+    [self.synchronizationService synchronize];
 }
 
 - (void) hideLabel {
