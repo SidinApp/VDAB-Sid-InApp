@@ -95,7 +95,8 @@
                fetchAll:[Image entityName]
                sort:
                [NSSortDescriptor sortDescriptorWithKey:@"priority"
-                                             ascending:YES]];}
+                                             ascending:YES]];
+}
 
 
  #pragma mark - Navigation
@@ -111,8 +112,9 @@
      
      if([[segue identifier] isEqual:@"modalSegueToCarousel"]) {
          CarouselViewController *viewController = [segue destinationViewController];
-         [self fetchImagesFromContext];
-         viewController.rawImages = self.images;
+         viewController.synchronizationService = self.synchronizationService;
+//         [self fetchImagesFromContext];
+//         viewController.rawImages = self.images;
      }
  }
 

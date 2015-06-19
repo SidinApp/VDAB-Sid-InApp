@@ -18,6 +18,7 @@
 
 @interface DepartementViewController (){
     int counter;
+    BOOL hasImages;
     NSArray *events;
     NSArray *teachers;
 }
@@ -36,6 +37,7 @@
 //    [self.synchronizationService startSynchronization];
     
     counter = 0;
+    hasImages = NO;
     self.activityIndicator.hidesWhenStopped = YES;
     self.activityIndicator.hidden = YES;
 }
@@ -102,13 +104,23 @@
     [self performSegueWithIdentifier:@"modalSegueToLogin" sender:self];
 }
 
+-(void)updateImages{
+    
+    hasImages = YES;
+    
+    if (counter == 2 && hasImages) {
+        [self.activityIndicator stopAnimating];
+        [self performSegueWithIdentifier:@"modalSegueToLogin" sender:self];
+    }
+}
+
 -(void)updateEvents{
     
     events = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Event entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     counter +=1;
     
-    if (counter == 2) {
+    if (counter == 2 && hasImages) {
         [self.activityIndicator stopAnimating];
         [self performSegueWithIdentifier:@"modalSegueToLogin" sender:self];
     }
@@ -120,7 +132,7 @@
     
     counter +=1;
     
-    if (counter == 2) {
+    if (counter == 2 && hasImages) {
         [self.activityIndicator stopAnimating];
         [self performSegueWithIdentifier:@"modalSegueToLogin" sender:self];
     }

@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self fetchImagesFromContext];
     [self decodeImages]; //
     [self setupScrollView];
     scrollView.delegate = self;
@@ -48,12 +49,12 @@
     [self.scrollView setAlwaysBounceHorizontal:NO];
     [self.scrollView setPagingEnabled:YES];
     
-    NSInteger numberOfViews = (NSInteger) _images.count;
+    NSInteger numberOfViews = (NSInteger) self.images.count;
     
     for(int i = 0; i < numberOfViews; i++){
         CGFloat xOrigin = i * self.view.frame.size.width;
         UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(xOrigin, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        image.image = _images[i];
+        image.image = self.images[i];
         image.contentMode = UIViewContentModeScaleAspectFit;
         [self.scrollView addSubview:image];
     }
@@ -66,21 +67,30 @@
     
     int nextPage = (self.scrollView.contentOffset.x / self.scrollView.frame.size.width) +1;
     
-    if(nextPage!=_images.count){
+    if(nextPage!=self.images.count){
         [self.scrollView scrollRectToVisible:CGRectMake(self.scrollView.frame.size.width * nextPage, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
     } else {
         [self.scrollView scrollRectToVisible:CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:NO];
     }
 }
 
+-(void)fetchImagesFromContext{
+    
+    self.rawImages = [self.synchronizationService.persistentStoreManager
+               fetchAll:[Image entityName]
+               sort:
+               [NSSortDescriptor sortDescriptorWithKey:@"priority"
+                                             ascending:YES]];
+}
+
 -(void)decodeImages{ //
     
-    _images = [[NSMutableArray alloc]init];
+    self.images = [[NSMutableArray alloc]init];
     
-    for(int i = 0; i < _rawImages.count; i++){
+    for(int i = 0; i < self.rawImages.count; i++){
         
         //image uit array halen
-        ImageEntity *image = _rawImages[i];
+        ImageEntity *image = self.rawImages[i];
         
         //image string ophalen
         NSString *imgString = image.image;

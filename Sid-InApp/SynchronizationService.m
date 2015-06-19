@@ -47,8 +47,6 @@
     return self;
 }
 
-
-
 -(void)initializePersistentStoreFromBackEnd{
     
     if ([RestfulStack isRestReachable]) {
@@ -83,6 +81,9 @@
         } else if ([path caseInsensitiveCompare:SUBSCRIPTIONS_URL_PATTERN] == NSOrderedSame) {
             
             [self updateSubscriptions:YES];
+        } else if ([path caseInsensitiveCompare:IMAGE_URL_PATTERN] == NSOrderedSame){
+            
+            [self updateImages];
         }
         
     } failure:
