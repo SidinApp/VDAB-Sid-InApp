@@ -8,10 +8,6 @@
 
 #import "SubscriptionList.h"
 
-//#import "Subscription.h"
-//#import "SubscriptionEntity.h"
-//#import "SubscriptionEntityList.h"
-
 @implementation SubscriptionList
 
 +(NSString *)entityName{
@@ -29,7 +25,7 @@
     return result;
 }
 
-+(RKObjectMapping *)objectMapping{
++(RKObjectMapping *)createObjectMapping{
     
     RKObjectMapping *result = [RKObjectMapping mappingForClass:[SubscriptionList class]];
     
@@ -41,11 +37,3 @@
 }
 
 @end
-
-//+(NSManagedObject *)createEntity:(NSManagedObjectContext *)managedObjectContext{
-//
-//    SubscriptionEntityList *result = [NSEntityDescription insertNewObjectForEntityForName:[SubscriptionList entityName]
-//                                                                   inManagedObjectContext:managedObjectContext];
-//    return result;
-//}
-//

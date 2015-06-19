@@ -27,9 +27,6 @@
     
     result.identificationAttributes = @[@"id"];
     
-    //    [result addAttributeMappingsFromArray:@[@"id", @"firstName", @"lastName", @"email", @"street",
-    //                                            @"streetNumber", @"zip", @"city", @"timeStamp", @"new"]];
-    
     [result addAttributeMappingsFromDictionary:@{
                                                  @"id" : @"id",
                                                  @"firstName" : @"firstName",
@@ -99,11 +96,3 @@
 }
 
 @end
-
-//+(NSManagedObject *)createEntity:(NSManagedObjectContext *)managedObjectContext{
-//
-//    SubscriptionEntity *result = [NSEntityDescription insertNewObjectForEntityForName:[Subscription entityName]
-//                                                               inManagedObjectContext:managedObjectContext];
-//    return result;
-//}
-//

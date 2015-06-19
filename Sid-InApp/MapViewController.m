@@ -93,9 +93,9 @@
     NSDate *dateNow = [NSDate date];
     long currentDate = (long) ([dateNow timeIntervalSince1970]*1000.0);
     
-    NSDate *longToDate = [SynchronizationService convertLongToDate:currentDate];
+    NSDate *longToDate = [PersistentStoreManager convertLongToDate:currentDate];
     
-    NSDate *dateWithoutTime = [SynchronizationService convertToDateWithoutTime:longToDate];
+    NSDate *dateWithoutTime = [PersistentStoreManager convertToDateWithoutTime:longToDate];
 
     long timestamp = (long) ([dateWithoutTime timeIntervalSince1970]*1000.0);
     
@@ -119,9 +119,9 @@
     NSDate *dateNow = [NSDate date];
     long currentDate = (long) ([dateNow timeIntervalSince1970]*1000.0);
     
-    NSDate *longToDate = [SynchronizationService convertLongToDate:currentDate];
+    NSDate *longToDate = [PersistentStoreManager convertLongToDate:currentDate];
     
-    NSDate *dateWithoutTime = [SynchronizationService convertToDateWithoutTime:longToDate];
+    NSDate *dateWithoutTime = [PersistentStoreManager convertToDateWithoutTime:longToDate];
     
     long timestamp = (long) ([dateWithoutTime timeIntervalSince1970]*1000.0);
     

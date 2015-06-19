@@ -41,13 +41,3 @@
 }
 
 @end
-
-//+(NSManagedObject *)createEntity:(NSManagedObjectContext *)managedObjectContext{
-//
-//    // NSManagedObject as EventEntity
-//
-//    SchoolEntity *result = [NSEntityDescription insertNewObjectForEntityForName:[School entityName]
-//                                                         inManagedObjectContext:managedObjectContext];
-//    return result;
-//}
-//

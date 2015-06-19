@@ -19,12 +19,3 @@
 @property (nonatomic, copy) NSSet *subscriptions;
 
 @end
-
-//-(id)toManagedEntity:(RKManagedObjectStore *)managedObjectStore{
-//    
-//    SubscriptionEntityList *result = [SubscriptionList managedEntity:managedObjectStore];
-//    
-//    result.subscriptions = self.subscriptions;
-//    
-//    return result;
-//}

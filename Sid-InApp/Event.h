@@ -14,8 +14,6 @@
 
 @interface Event : NSObject <ModelMapping>
 
-// copy ipv retain
-
 @property (nonatomic, copy) NSNumber * acadyear;
 @property (nonatomic, copy) NSNumber * id;
 @property (nonatomic, copy) NSString * name;

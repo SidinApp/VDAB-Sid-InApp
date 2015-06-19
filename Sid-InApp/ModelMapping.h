@@ -22,6 +22,3 @@
 +(RKObjectMapping *)createObjectMapping;
 
 @end
-
-//+(NSManagedObject *)createEntity:(NSManagedObjectContext *)managedObjectContext;
-//

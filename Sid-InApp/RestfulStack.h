@@ -22,16 +22,10 @@
 @property (nonatomic, readonly) NSArray *requestDescriptors;
 
 @property (nonatomic, strong, readonly) RKRouteSet *routeSet;
-
-//-(id)initWithServiceURL:(NSURL *)serviceURL managedObjectStore:(RKManagedObjectStore *)managedObjectStore;
-
 -(id)initWithServiceURL:(NSURL *)serviceURL persistentStack:(PersistentStack *)persistentStack;
 
 -(void)addResponseDescriptor:(RKResponseDescriptor *)responseDescriptor;
 -(void)addRequestDescriptor:(RKRequestDescriptor *)requestDescriptor;
-
-// mapping: RKMapping ==> RKEnityMapping, RKObjectMapping
-
 -(RKResponseDescriptor *)createAndAddResponseDescriptor:(id)mapping method:(RKRequestMethod)request pathPattern:(NSString *)pathPattern;
 -(RKResponseDescriptor *)createAndAddResponseDescriptor:(id)mapping method:(RKRequestMethod)request pathPattern:(NSString *)pathPattern keyPath:(NSString *)keyPath;
 
@@ -49,5 +43,7 @@ pathPattern method:(RKRequestMethod)requestMethod;
 
 -(RKRoute *)createAndAddRoutWithName:(NSString *)routeName pathPattern:(NSString *)
 pathPattern method:(RKRequestMethod)requestMethod;
+
++(BOOL)isRestReachable;
 
 @end

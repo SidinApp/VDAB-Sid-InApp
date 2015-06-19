@@ -40,12 +40,7 @@
 
 -(NSArray *)fetchAll:(NSString *)entityName sort:(NSSortDescriptor *)descriptor{
     
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    
-    // sorting
-//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:descriptor ascending:YES];
-//    fetchRequest.sortDescriptors = @[sortDescriptor];
-    fetchRequest.sortDescriptors = @[descriptor];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];    fetchRequest.sortDescriptors = @[descriptor];
     
     NSError *error = nil;
     
@@ -57,9 +52,6 @@
 -(NSArray *)fetchByPredicate:(NSPredicate *)predicate forEntity:(NSString *)entityName{
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    
-    // predicate
-    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"];
     [fetchRequest setPredicate:predicate];
     
     NSError *error = nil;
@@ -70,9 +62,7 @@
 
 -(NSArray *)fetchByPredicate:(NSPredicate *)predicate forEntity:(NSString *)entityName sort:(NSSortDescriptor *)descriptor{
     
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    
-    // sorting
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];    
     
     fetchRequest.sortDescriptors = @[descriptor];
     
@@ -184,6 +174,21 @@
     // optie 2: RestKit
     
     //    [entity.persistentStack.mainQueueManagedObjectContext saveToPersistentStore:&error];
+}
+
+// verplaatsen naar persistentstoremanager
++(NSDate *)convertToDateWithoutTime:(NSDate *)date{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    unsigned units = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSDateComponents *components = [calendar components:units fromDate:date];
+    NSDate *dateOnly = [calendar dateFromComponents:components];
+    dateOnly = [dateOnly dateByAddingTimeInterval:(60 * 60 * 24)];
+    return dateOnly;
+}
+
+// verplaatsen naar persistentstoremanager
++(NSDate *)convertLongToDate:(long)longDate{
+    return [NSDate dateWithTimeIntervalSince1970:longDate / 1000];
 }
 
 

@@ -20,7 +20,6 @@
 @property (nonatomic, strong, readonly) PersistentStoreManager *persistentStoreManager;
 
 
-//-(id)initWithRestfulStack:(RestfulStack *)restfulStack;
 -(id)initWithRestfulStack:(RestfulStack *)restfulStack persistentStoreManager:(PersistentStoreManager *)persistentStoreManager;
 
 -(void)initializePersistentStoreFromBackEnd;
@@ -32,18 +31,15 @@
 -(void)pullSubscriptions;
 
 -(void)postSubscription:(SubscriptionEntity *)subscription;
+
 -(void)pushNewSubscriptions;
 
 -(void)startSynchronization;
 -(void)stopSynchronization;
-+(NSDate *)convertLongToDate:(long)longDate;
-+(NSDate *)convertToDateWithoutTime:(NSDate *)date;
 
+-(BOOL)isRestReachable;
 
 -(NSArray *)subscriptionsByDate:(NSDate *)date;
-
--(NSDate *)convertLongToDate:(long)longDate;
--(NSDate *)convertToDateWithoutTime:(NSDate *)date;
 
 -(void)addObserver:(id<SynchronizationObserver>)observer;
 

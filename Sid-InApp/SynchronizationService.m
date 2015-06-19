@@ -30,6 +30,7 @@
 @property (nonatomic, strong) NSTimer *timer;
 
 @property (nonatomic, strong) NSMutableArray *obervers;
+@property (nonatomic, strong) SubscriptionEntity *subscriptionToDelete;
 
 @end
 
@@ -46,63 +47,64 @@
     return self;
 }
 
+
+
 -(void)initializePersistentStoreFromBackEnd{
     
-    // code controle of er al data bestaat in de store
-    
-    [self pullEvents];
-    [self pullTeachers];
-    [self pullSchools];
-    [self pullSubscriptions];
-//    [self pullImages];
+    if ([RestfulStack isRestReachable]) {
+        [self pullEvents];
+        [self pullTeachers];
+        [self pullSchools];
+        [self pullSubscriptions];
+        [self pullImages];
+    }
 }
+
 
 -(void)pullEntities:(RKMapping *)mapping pathPattern:(NSString *)path{
     
-    ///*
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
-    // wordt nu gedaan in RestKit; ook de requestDescripters
+    
     [self.restfulStack createAndAddResponseDescriptor:mapping method:RKRequestMethodGET pathPattern:path];
     
-    [self.restfulStack.objectManager getObjectsAtPath:path parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        // do something when
+    [self.restfulStack.objectManager getObjectsAtPath:path
+                                           parameters:nil
+                                              success:
+     ^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        
         
         if ([path caseInsensitiveCompare:EVENTS_URL_PATTERN] == NSOrderedSame) {
+            
             [self updateEvents];
-//            int count = 0;
-//            count = [self.persistentStoreManager countForEntity:[Event entityName]];
-//            NSLog(@"%@", count);
         } else if ([path caseInsensitiveCompare:TEACHERS_URL_PATTERN] == NSOrderedSame){
+            
             [self updateTeachers];
+        } else if ([path caseInsensitiveCompare:SUBSCRIPTIONS_URL_PATTERN] == NSOrderedSame) {
+            
+            [self updateSubscriptions:YES];
         }
         
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+    } failure:
+     ^(RKObjectRequestOperation *operation, NSError *error) {
+         
+         [self updateSubscriptions:NO];
+         
         RKLogError(@"Er is een error opgetreden tijdens het laden: %@", error);
-        [self update];
     }];
-    //*/
+}
 
-    /*
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", BASE_SERVICE_URL, path]]];
-    RKResponseDescriptor *resonseDescriptor = [self.restfulStack createAndAddResponseDescriptor:mapping method:RKRequestMethodGET pathPattern:path];
+-(void)updateSubscriptions:(BOOL)status{
     
-    RKManagedObjectRequestOperation *managedOperation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[resonseDescriptor]];
-    
-    managedOperation.managedObjectContext = self.restfulStack.managedObjectStore.mainQueueManagedObjectContext;
-    managedOperation.managedObjectCache = self.restfulStack.managedObjectStore.managedObjectCache;
-    
-    [managedOperation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        NSLog(@"Entiteiten zijn opgehaald");
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        NSLog(@"Entiteiten zijn niet opgehaald");
-    }];
-    
-    
-    [managedOperation start];
-//    [managedOperation waitUntilFinished];
-     */
-    
+    if (status && self.subscriptionToDelete) {
+        [self.persistentStoreManager deleteObject:self.subscriptionToDelete];
+        [self.persistentStoreManager save];
+    } else if (!status && self.subscriptionToDelete) {
+        
+        self.subscriptionToDelete.sNew = [NSNumber numberWithBool:YES];
+        [self.persistentStoreManager save:self.subscriptionToDelete];
+        self.subscriptionToDelete = nil;
+    }
 }
 
 -(void)pullEvents{
@@ -122,33 +124,9 @@
 
 -(void)pullImages{
     
-    // 1
-//    [self pullEntities:[ImageList createEntityMapping:self.restfulStack.managedObjectStore] pathPattern:IMAGE_URL_PATTERN];
-    
     if (![self hasImageVersion] || [self hasNewImageVersion]) {
         [self pullEntities:[ImageList createEntityMapping:self.restfulStack.managedObjectStore] pathPattern:IMAGE_URL_PATTERN];
     }
-    
-    
-    // 2
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", BASE_SERVICE_URL, IMAGE_URL_PATTERN]]];
-//    
-//    RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[[self.restfulStack createResponseDescriptor:[ImageList createEntityMapping:self.restfulStack.managedObjectStore] method:RKRequestMethodGET pathPattern:IMAGE_URL_PATTERN]]];
-//    operation.managedObjectContext = self.restfulStack.managedObjectStore.mainQueueManagedObjectContext;
-//    operation.managedObjectCache = self.restfulStack.managedObjectStore.managedObjectCache;
-//    [operation setCompletionBlockWithSuccess:nil
-//                                     failure:nil];
-//    NSOperationQueue *operationQueue = [NSOperationQueue new];
-//    [operationQueue addOperation:operation];
-//    operation.successCallbackQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
-//    operation.failureCallbackQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
-    
-//    [self.restfulStack.objectManager enqueueObjectRequestOperation:operation];
-    
-    
-    // 3
-//    NSURLRequest *request = [self.restfulStack.objectManager requestWithObject:[Im] method:RKRequestMethodGET path:IMAGE_URL_PATTERN parameters:nil];
-    
 }
 
 -(BOOL)hasImageVersion{
@@ -202,124 +180,110 @@
     subscription.id = nil;
     
     __block SubscriptionEntity *subscriptionModified = subscription;
-    
     RKEntityMapping *subscriptionEntityMapping = [Subscription createEntityMapping:self.restfulStack.managedObjectStore];
     
     [self.restfulStack createAndAddResponseDescriptor:subscriptionEntityMapping method:RKRequestMethodPOST pathPattern:SUBSCRIPTION_URL_PATTERN];
     
     [self.restfulStack createAndAddRequestDescriptor:[subscriptionEntityMapping inverseMapping] objectClass:[SubscriptionEntity class] method:RKRequestMethodPOST];
     
+
+    // http://stackoverflow.com/questions/19603976/why-is-restkit-changing-my-response-content-type
+    // http://stackoverflow.com/questions/19583395/restkit-error-on-get-operation
+    [RKMIMETypeSerialization registerClass:[RKNSJSONSerialization class] forMIMEType:@"text/html"];
     [self.restfulStack.objectManager setRequestSerializationMIMEType:RKMIMETypeJSON];
     [self.restfulStack.objectManager setAcceptHeaderWithMIMEType:RKMIMETypeJSON];
     
-    // http://stackoverflow.com/questions/19583395/restkit-error-on-get-operation
-//    [RKMIMETypeSerialization registerClass:[RKXMLReaderSerialization class] forMIMEType:RKMIMETypeTextXML];
-//    [objectManager setAcceptHeaderWithMIMEType:@"text/xml"];
-    
-    
-    [self.restfulStack.objectManager postObject:subscription path:SUBSCRIPTION_URL_PATTERN parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        // subscription isNew = false + opslaan
-        
-//        NSArray *result = [self.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"id==%@", subscription.id] forEntity:[Subscription entityName]];
-//        
-//        SubscriptionEntity *subscriptionEntity = nil;
-//        
-//        if ([result count] != 0) {
-//            subscriptionEntity = [result objectAtIndex:0];
-//            subscriptionEntity.isNew = [NSNumber numberWithInt:0];
-//            [self.persistentStoreManager save:subscriptionEntity];
-//        }
-        
-//        subscriptionModified.isNew = [NSNumber numberWithInt:0];
-//        subscriptionModified.isNew = @NO;
+    [self.restfulStack.objectManager postObject:subscription
+                                           path:SUBSCRIPTION_URL_PATTERN
+                                     parameters:nil
+                                        success:
+     ^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+         
+         [self updatePostSubscription:subscriptionModified status:YES];
 //        [self.persistentStoreManager save];
-        
-//        NSLog(@"SUB MOD %@", subscriptionModified.isNew);
-        [self.persistentStoreManager save];
-        
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        // subscription isNew = true + opslaan
-        
-//        subscriptionModified.isNew = [NSNumber numberWithInt:1];
-        
-//        subscriptionModified.isNew = @NO;
-//         NSLog(@"SUB MOD %@", subscriptionModified.isNew);
-        subscriptionModified.sNew = [NSNumber numberWithBool:YES];
-        [self.persistentStoreManager save];
+//         [self pullSubscriptions];
+    }
+                                        failure:
+     ^(RKObjectRequestOperation *operation, NSError *error) {
+         
+        [self updatePostSubscription:subscriptionModified status:NO];
+         
+//        subscriptionModified.sNew = [NSNumber numberWithBool:YES];
+//        [self.persistentStoreManager save];
     }];
 }
 
-//-(void)pullSubscriptionsSince:(NSDate *)timeStamp{
-//    
-//    
-//}
+-(void)updatePostSubscription:(SubscriptionEntity *)subscription status:(BOOL)status{
+    
+    if (status) {
+        
+        self.subscriptionToDelete = subscription;
+        
+        [self pullSubscriptions];
+    } else {
+        
+        subscription.sNew = [NSNumber numberWithBool:YES];
+        [self.persistentStoreManager save:subscription];
+    }
+}
 
 -(void)pushNewSubscriptions{
     
     NSArray *newSubscriptions = nil;
     
-    newSubscriptions = [self.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"sNew==%@", 1] forEntity:[Subscription entityName]];
-    
-    if ([newSubscriptions count] != 0) {
-        for (SubscriptionEntity *subscriptionEntity in newSubscriptions) {
-            [self postSubscription:subscriptionEntity];
+    if ([RestfulStack isRestReachable]) {
+        
+        newSubscriptions = [self.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"sNew==%@", [NSNumber numberWithBool:YES]] forEntity:[Subscription entityName]];
+        
+        if ([newSubscriptions count] != 0) {
+            
+            for (SubscriptionEntity *subscriptionEntity in newSubscriptions) {
+                
+                [self postSubscription:subscriptionEntity];            }
         }
     }
 }
 
 -(void)startSynchronization{
     
-    
-    
-    
-//    [self.restfulStack.objectManager.HTTPClient setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-//        if (status == AFNetworkReachabilityStatusNotReachable) {
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
-//                                                            message:@"You must be connected to the internet to use this app."
-//                                                           delegate:nil
-//                                                  cancelButtonTitle:@"OK"
-//                                                  otherButtonTitles:nil];
-//            [alert show];
-//        }
-//    }]
-    
     [self initializeTimer];
-    
 }
 
 -(void)stopSynchronization{
+    
     [self.timer invalidate];
 }
 
 -(void)synchronize{
-//    [self pushNewSubscriptions];
-//    [self pullSubscriptions];
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"SYNC START" message:@"synchronizing" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-//    [alert show];
-    NSLog(@"START SYNC");
-    [self resetTimer];
+    
+    [self pushNewSubscriptions];
+    
+    if (self.timer) {
+        [self resetTimer];
+    }
 }
 
 -(void)initializeTimer{
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(synchronize) userInfo:nil repeats:NO];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(synchronize) userInfo:nil repeats:NO];
 }
 
 -(void)resetTimer{
+    
     [self.timer invalidate];
     [self initializeTimer];
-    
 }
 
 -(NSArray *)subscriptionsByDate:(NSDate *)date{
     
-    NSDate *today = [self convertToDateWithoutTime:date];
+    NSDate *today = [PersistentStoreManager convertToDateWithoutTime:date];
     
     NSArray *subscriptions = [self.persistentStoreManager fetchAll:[Subscription entityName]];
     
     NSMutableArray *results = [[NSMutableArray alloc] init];
     
     for (SubscriptionEntity *subscription in subscriptions) {
-        NSDate *dateSubscription = [self convertLongToDate:(long)subscription.timestamp];
+        NSDate *dateSubscription = [PersistentStoreManager convertLongToDate:(long)subscription.timestamp];
         if ([today isEqualToDate:dateSubscription]) {
             [results addObject:subscription];
         }
@@ -327,18 +291,26 @@
     
     return results;
 }
-+(NSDate *)convertToDateWithoutTime:(NSDate *)date{
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    unsigned units = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
-    NSDateComponents *components = [calendar components:units fromDate:date];
-    NSDate *dateOnly = [calendar dateFromComponents:components];
-    dateOnly = [dateOnly dateByAddingTimeInterval:(60 * 60 * 24)];
-    return dateOnly;
+
+// http://stackoverflow.com/questions/19030513/how-to-check-for-network-reachability-in-ios
+-(BOOL)isRestReachable{
+    
+    CFNetDiagnosticRef diagnosticReference = nil;
+    diagnosticReference = CFNetDiagnosticCreateWithURL(NULL, (__bridge CFURLRef)[NSURL URLWithString:BASE_SERVICE_URL]);
+    
+    CFNetDiagnosticStatus status = 0;
+    status = CFNetDiagnosticCopyNetworkStatusPassively(diagnosticReference, NULL);
+    
+    CFRelease(diagnosticReference);
+    
+    if (status == kCFNetDiagnosticConnectionUp) {
+        
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
-+(NSDate *)convertLongToDate:(long)longDate{
-    return [NSDate dateWithTimeIntervalSince1970:longDate / 1000];
-}
 
 -(void)addObserver:(id<SynchronizationObserver>)observer{
     
@@ -372,7 +344,16 @@
 
 -(void)updateSubscriptions{
     for (id<SynchronizationObserver> observer in self.obervers) {
+        
         [observer updateSubscriptions];
+    }
+}
+
+-(void)updatePostSubscription{
+    
+    for (id<SynchronizationObserver> observer in self.obervers) {
+        
+        [observer updatePostSubscription];
     }
 }
 

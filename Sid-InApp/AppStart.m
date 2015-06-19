@@ -31,21 +31,23 @@
 
 -(void)initializeApp:(NSString *)secret{
     
-//    @"http://deptcodes.appspot.com/deptcode/secret3"
+    NSString *url = nil;
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", DEPARTEMENT_SERVICE_URL, secret]]
-                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                                                       timeoutInterval:10];
-    
-    [request setHTTPMethod: @"GET"];
-    
-    NSError *requestError;
-    NSURLResponse *urlResponse = nil;
-    
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
-    NSString* url = [[NSString alloc] initWithData:response
-                                             encoding:NSUTF8StringEncoding];
-//    NSLog(@"%@", url);
+    if (![secret isEqualToString:@""]) {
+        NSMutableURLRequest *request = [NSMutableURLRequest
+                                        requestWithURL:
+                                        [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", DEPARTEMENT_SERVICE_URL, secret]]                                                               cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                        timeoutInterval:10];
+        
+        [request setHTTPMethod: @"GET"];
+        
+        NSError *requestError;
+        NSURLResponse *urlResponse = nil;
+        
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+        url = [[NSString alloc] initWithData:response
+                                              encoding:NSUTF8StringEncoding];
+    }
     
     if (![url isEqualToString:@""]) {
         RestEntity *restEntity = (RestEntity *)[self.persistentStoreManager insert:REST_ENTITY];
@@ -56,21 +58,16 @@
         [self initializeRestfulStack:BASE_SERVICE_URL];
         [self initializeSynchronizationService];
     }
-    
-    
-    
 }
 
 -(BOOL)hasBeenInitialized{
+    
     return [self.persistentStoreManager countForEntity:REST_ENTITY] > 0;
 }
 
 -(BOOL)hasBeenInitialized:(NSString *)secret{
     
-    NSUInteger count = [self.persistentStoreManager countForEntity:REST_ENTITY forPredicate:[NSPredicate predicateWithFormat:@"secret==%@", secret]];
-    
-//    return [self.persistentStoreManager countForEntity:REST_ENTITY] > 0;
-    return count > 0;
+    return [self.persistentStoreManager countForEntity:REST_ENTITY] > 0;
 }
 
 -(BOOL)hasBaseURL{

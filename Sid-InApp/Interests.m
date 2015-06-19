@@ -41,11 +41,3 @@
 }
 
 @end
-
-//+(NSManagedObject *)createEntity:(NSManagedObjectContext *)managedObjectContext{
-//
-//    InterestsEntity *result = [NSEntityDescription insertNewObjectForEntityForName:[Interests entityName]
-//                                                            inManagedObjectContext:managedObjectContext];
-//    return result;
-//}
-//

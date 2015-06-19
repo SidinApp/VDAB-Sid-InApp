@@ -40,13 +40,3 @@
 }
 
 @end
-
-//+(NSManagedObject *)createEntity:(NSManagedObjectContext *)managedObjectContext{
-//
-//    // NSManagedObject as EventEntity
-//
-//    ImageEntity *result = [NSEntityDescription insertNewObjectForEntityForName:[Image entityName]
-//                                                        inManagedObjectContext:managedObjectContext];
-//    return result;
-//}
-//

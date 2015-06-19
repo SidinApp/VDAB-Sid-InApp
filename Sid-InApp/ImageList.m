@@ -39,11 +39,3 @@
 }
 
 @end
-
-//+(NSManagedObject *)createEntity:(NSManagedObjectContext *)managedObjectContext{
-//
-//    ImageEntityList *result = [NSEntityDescription insertNewObjectForEntityForName:[ImageList entityName]
-//                                                            inManagedObjectContext:managedObjectContext];
-//    return result;
-//}
-//

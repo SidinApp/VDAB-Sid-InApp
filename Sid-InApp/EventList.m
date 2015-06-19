@@ -8,10 +8,6 @@
 
 #import "EventList.h"
 
-//#import "Event.h"
-//#import "EventEntity.h"
-//#import "EventEntityList.h"
-
 @implementation EventList
 
 +(NSString *)entityName{
@@ -38,14 +34,3 @@
 }
 
 @end
-
-
-//+(NSManagedObject *)createEntity:(NSManagedObjectContext *)managedObjectContext{
-//
-//    // NSManagedObject as EventEntity
-//
-//    EventEntityList *result = [NSEntityDescription insertNewObjectForEntityForName:[Event entityName]
-//                                                        inManagedObjectContext:managedObjectContext];
-//    return result;
-//}
-//

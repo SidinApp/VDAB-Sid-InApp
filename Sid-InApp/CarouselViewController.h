@@ -13,7 +13,7 @@
 @interface CarouselViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
-@property (nonatomic, strong) SynchronizationService *synchronizationService;
+@property (nonatomic, strong) NSArray *rawImages;
 
 -(void)toNextPage:(UIScrollView *)scrollview;
 

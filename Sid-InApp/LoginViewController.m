@@ -34,34 +34,16 @@
 
 @implementation LoginViewController
 
-// BELANGRIJK: wanneer de pickers niet werden gebruikt: warning geven!!!!
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    // inloggen backend
     
-    // seed persistent store from back-end
-    //    [self.synchronizationService initializePersistentStoreFromBackEnd];
-    
-//    while ([self.teachers count] == 0 || [self.events count] == 0) {
-        [self fetchTeachersFromContext];
-        [self fetchEventsFromContext];
-//    }
-    
+    [self fetchTeachersFromContext];
+    [self fetchEventsFromContext];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)amLogout:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    [appDelegate deleteAndRecreateStore];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
 #pragma mark - UIPickerView
@@ -86,7 +68,7 @@
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    int count = 0;
+    NSUInteger count = 0;
     switch (pickerView.tag) {
         case 0:
             count = [_teachers count];
@@ -111,10 +93,10 @@
     NSString *teacherText = @"-";;
     NSString *eventText = @"-";
     
-    if (![teacher isEqual:nil]) {
+    if (teacher != nil) {
         teacherText = teacher.name;
     }
-    if (![event isEqual:nil]) {
+    if (event != nil) {
         eventText = event.name;
     }
     self.loginLabel.text = [NSString stringWithFormat:@"%@ @ %@", teacherText, eventText];
@@ -123,65 +105,51 @@
 #pragma mark - CoreData
 -(void)fetchTeachersFromContext{
     
-//    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Teacher"];
-//    
-//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-//    fetchRequest.sortDescriptors = @[sortDescriptor];
-//    
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"];
-//    [fetchRequest setPredicate:predicate];
-//    
-//    NSError *error;
-//    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-//    
-//    _teachers = fetchedObjects;
-//    
-//    _teachers = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Teacher entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    if (self.teacherList == nil) {
+        self.teacherList = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Teacher entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    }
+    
     _teachers = self.teacherList;
 }
 
 -(void)fetchEventsFromContext{
     
-//    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
-//    
-//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-//    fetchRequest.sortDescriptors = @[sortDescriptor];
-//    
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"];
-//    [fetchRequest setPredicate:predicate];
-//    
-//    NSError *error;
-//    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-//    
-//    _events = fetchedObjects;
+    if (self.eventList == nil) {
+        self.eventList = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Event entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    }
     
-//    _events = [self.synchronizationService.persistentStoreManager fetchByPredicate:[NSPredicate predicateWithFormat:@"acadyear==%@", @"1415"] forEntity:[Event entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     _events = self.eventList;
 }
 
-//*
-#pragma mark - Navigation
-//- (IBAction)login:(id)sender {
-//    [self performSegueWithIdentifier:@"modalSegueToCheckIn" sender:teacher];
-//}
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+#pragma mark - Navigation
+- (IBAction)startBtn:(UIButton *)sender {
+    
+    if (!teacher || !event) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Login Docent"
+                                                            message:@"Gelieve een Teacher en een Event te selecteren. Probeer opnieuw."
+                                                           delegate:self
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"Ok", nil];
+        alertView.tag = 200;
+        
+        [alertView show];
+    } else {
+        [self performSegueWithIdentifier:@"modalSegueToCheckIn" sender:sender];
+    }
+}
+
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     
     if ([[segue identifier] isEqualToString:@"modalSegueToCheckIn"]) {
         StudentCheckInViewController *viewController = [segue destinationViewController];
-//        [viewController setTeacher:teacher];
-//        [viewController setEvent:event];
         viewController.teacher = teacher;
         viewController.event = event;
-//        viewController.teacher = sender;
         viewController.synchronizationService = self.synchronizationService;
     }
 }
-//*/
+
 
 @end

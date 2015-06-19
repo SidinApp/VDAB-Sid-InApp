@@ -12,9 +12,6 @@
 
 @implementation SidInUtils
 
-//NSString *const DATABASE_NAME = @"Sid-In_EhB_App.sqlite";
-//NSString *const DATAMODEL_NAME = @"Sid-In_EhB_App";
-
 NSString *const DATABASE_NAME = @"Sid-InApp.sqlite";
 NSString *const DATAMODEL_NAME = @"Sid-InApp";
 
@@ -23,8 +20,8 @@ NSString *const DEPARTEMENT_SERVICE_URL = @"http://deptcodes.appspot.com/deptcod
 
 NSString *const REST_ENTITY = @"RestEntity";
 
-// van 3 naar 4 vdabsidin
-NSString * BASE_SERVICE_URL = @"http://vdabsidin3.appspot.com";
+
+NSString * BASE_SERVICE_URL;
 
 
 NSString *const TEACHER = @"TeacherEntity";

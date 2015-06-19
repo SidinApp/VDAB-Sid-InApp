@@ -14,7 +14,6 @@
 
 @interface CarouselViewController ()
 
-@property NSArray *imagesData;
 @property NSMutableArray *images;
 
 @end
@@ -25,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchImagesFromContext];
+    [self decodeImages]; //
     [self setupScrollView];
     scrollView.delegate = self;
     [self toNextPage:scrollView];
@@ -38,22 +37,11 @@
 
 -(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer{
     
-        NSLog(@"TOUCHES BEGAN CAROUSELVC");
-    
-        [self dismissViewControllerAnimated:YES completion:nil];
-    
+    [self dismissViewControllerAnimated:YES completion:nil];    
 }
-
-//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-//    
-//    NSLog(@"TOUCHES BEGAN CAROUSELVC");
-//    
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void) setupScrollView {
@@ -76,7 +64,6 @@
 
 -(void)toNextPage:(UIScrollView *)scrollview {
     
-    //int currentPage = self.scrollView.contentOffset.x / self.scrollView.frame.size.width;
     int nextPage = (self.scrollView.contentOffset.x / self.scrollView.frame.size.width) +1;
     
     if(nextPage!=_images.count){
@@ -86,26 +73,14 @@
     }
 }
 
--(void)fetchImagesFromContext{
-//    
-//    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Image"];
-//    
-//    NSError *error;
-//    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-//    
-//    _imagesData = fetchedObjects;
-//    
-//    _images = [[NSMutableArray alloc]init];
-
-    _imagesData = [self.synchronizationService.persistentStoreManager fetchAll:[Image entityName] sort:[NSSortDescriptor sortDescriptorWithKey:@"priority" ascending:YES]];
+-(void)decodeImages{ //
     
     _images = [[NSMutableArray alloc]init];
     
-    for(int i = 0; i < _imagesData.count; i++){
+    for(int i = 0; i < _rawImages.count; i++){
         
         //image uit array halen
-        ImageEntity *image = _imagesData[i];
+        ImageEntity *image = _rawImages[i];
         
         //image string ophalen
         NSString *imgString = image.image;
@@ -120,15 +95,5 @@
         [self.images addObject:sImage];
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

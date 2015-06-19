@@ -1,4 +1,4 @@
-//
+
 //  StudentCheckInViewController.m
 //  Sid-InApp
 //
@@ -36,13 +36,15 @@
     
     self.lblLogin.text = [NSString stringWithFormat:@"%@ @ %@", self.teacher.name, self.event.name];
     
+    [self fetchImagesFromContext];
+    
+    [self.synchronizationService startSynchronization];
 }
 
 -(void)goToScreensaver{
     // https://www.youtube.com/watch?v=ruRccI-AWRo
     
     [self performSegueWithIdentifier:@"modalSegueToCarousel" sender:self];
-    
 }
 
 -(void)resetTimer{
@@ -62,7 +64,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-     [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(hideLabel) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hideLabel) userInfo:nil repeats:NO];
     
     [super viewWillAppear:animated];
     [self resetTimer];
@@ -91,36 +93,28 @@
 
 -(void)fetchImagesFromContext{
     
-    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Image"];
-    
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"image" ascending:YES];
-    fetchRequest.sortDescriptors = @[sortDescriptor];
-    
-    
-    NSError *error;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
-    _images = fetchedObjects;
-}
+    _images = [self.synchronizationService.persistentStoreManager
+               fetchAll:[Image entityName]
+               sort:
+               [NSSortDescriptor sortDescriptorWithKey:@"priority"
+                                             ascending:YES]];}
 
 
  #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
      if ([[segue identifier] isEqualToString:@"modalSegueToStudentForm"]) {
          StudentFormViewController *viewController = [segue destinationViewController];
          viewController.teacher = self.teacher;
          viewController.event = self.event;
          viewController.synchronizationService = self.synchronizationService;
- 
      }
      
      if([[segue identifier] isEqual:@"modalSegueToCarousel"]) {
          CarouselViewController *viewController = [segue destinationViewController];
-         viewController.synchronizationService = self.synchronizationService;
+         viewController.rawImages = self.images;
      }
- 
  }
 
 @end

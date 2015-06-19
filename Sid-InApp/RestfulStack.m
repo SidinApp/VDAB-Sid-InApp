@@ -7,6 +7,7 @@
 //
 
 #import "RestfulStack.h"
+#import "SidInUtils.h"
 
 @interface RestfulStack()
 
@@ -97,12 +98,6 @@
 
 -(RKResponseDescriptor *)createAndAddResponseDescriptor:(id)mapping method:(RKRequestMethod)request pathPattern:(NSString *)pathPattern keyPath:(NSString *)keyPath{
     
-//    RKResponseDescriptor *result = [RKResponseDescriptor responseDescriptorWithMapping:entityMapping
-//                                                                                method:request
-//                                                                           pathPattern:pathPattern
-//                                                                               keyPath:keyPath
-//                                                                           statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
-    
     RKResponseDescriptor *result = [self createResponseDescriptor:mapping
                                                            method:request
                                                       pathPattern:pathPattern
@@ -173,6 +168,25 @@
     [self.objectManager.router.routeSet addRoute:result];
     
     return result;
+}
+
+// http://stackoverflow.com/questions/19030513/how-to-check-for-network-reachability-in-ios
++(BOOL)isRestReachable{
+    
+    CFNetDiagnosticRef diagnosticReference = nil;
+    diagnosticReference = CFNetDiagnosticCreateWithURL(NULL, (__bridge CFURLRef)[NSURL URLWithString:BASE_SERVICE_URL]);
+    
+    CFNetDiagnosticStatus status = 0;
+    status = CFNetDiagnosticCopyNetworkStatusPassively(diagnosticReference, NULL);
+    
+    CFRelease(diagnosticReference);
+    
+    if (status == kCFNetDiagnosticConnectionUp) {
+        
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 @end

@@ -13,17 +13,19 @@
 
 @protocol SynchronizationObserver <NSObject>
 
-@required
-
--(void)update;
+@optional
 
 -(void)updateEvents;
 
 -(void)updateTeachers;
 
+-(void)update;
+
 -(void)updateSchools;
 
 -(void)updateSubscriptions;
+
+-(void)updatePostSubscription;
 
 -(void)updateImages;
 
